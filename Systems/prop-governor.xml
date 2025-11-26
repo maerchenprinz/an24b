@@ -1,114 +1,316 @@
 <?xml version="1.0"?>
-<!-- 
 
-  
--->
 <system name="PropGovernor">
 
-<property value="1245">fcs/prop-governor/propeller-speed-target</property>
+<property value="8">fcs/prop-governor[0]/min-blade-angle</property>
+<property value="8">fcs/prop-governor[1]/min-blade-angle</property>
+<property value="50">fcs/prop-governor[0]/max-blade-angle</property>
+<property value="50">fcs/prop-governor[1]/max-blade-angle</property>
 
-  <channel name="Left">
+<!--for test/tuning purposes-->
+<property value="0.002">fcs/prop-governor[0]/kp</property>
+<property value="0.0">fcs/prop-governor[0]/ki</property>
+<property value="0.002">fcs/prop-governor[0]/kd</property>
 
-  <summer name="fcs/prop-governor/propeller-speed-error-rpm[0]">
-   <input>fcs/prop-governor/propeller-speed-target</input>
+<property value="0.002">fcs/prop-governor[1]/kp</property>
+<property value="0.0">fcs/prop-governor[1]/ki</property>
+<property value="0.002">fcs/prop-governor[1]/kd</property>
+
+<property value="0.0">fcs/prop-governor[0]/feather-command</property>
+<property value="0.0">fcs/prop-governor[1]/feather-command</property>
+
+<!--########################################
+## PROP GOVERNOR LEFT
+#########################################-->
+ <channel name="LeftGovernor">
+
+<!-- RPM/Blade Angle Control R-68DT-24 -->
+  <switch name="fcs/prop-governor[0]/propeller-speed-target">
+   <default value="1245"/>
+   <test value="1180">
+	/controls/engines/engine[0]/throttle-uprt-lever-angle LT 36.0
+   </test>
+  </switch>
+
+  <summer name="fcs/prop-governor[0]/propeller-speed-error-rpm">
+   <input>fcs/prop-governor[0]/propeller-speed-target</input>
    <input>-propulsion/engine[0]/propeller-rpm</input>
   </summer>
 
-  <switch name="fcs/prop-governor/propeller-speed-error-switch[0]">
-   <default value="0.0"/>
-   <test value="fcs/prop-governor/propeller-speed-error-rpm[0]">
-     /engines/engine[0]/running == 1
-   </test>
-  </switch>
-
- <!-- <switch name="fcs/prop-governor/windup-trigger[0]">
-   <default value="0.0"/>
-   <test value="-1.0">
-     fcs/prop-governor/blade-controller-pid[0] LT -1.0
-   </test>
-   <test value="1.0">
-     fcs/prop-governor/propeller-speed-error-switch[0] GT 0.0
-     fcs/prop-governor/blade-controller-pid[0] GT 1.0
-   </test>
-  </switch> -->
-
-  <switch name="fcs/prop-governor/min-blade-angle[0]">
-   <default value="8"/>
-   <test value="19.0">
-     propulsion/engine[0]/blade-angle GE 19.0
-     /an24/instrumentation/prop-lock/prop-lock-left == 0
-   </test>
-  </switch>
-
- <pid name="fcs/prop-governor/blade-controller-pid[0]">
-   <input>fcs/prop-governor/propeller-speed-error-switch[0]</input>
-   <kp> -0.001 </kp>
-   <ki> -0.0 </ki>
-   <kd> -0.0 </kd>
+  <pid name="fcs/prop-governor[0]/blade-controller-pid">
+   <input>fcs/prop-governor[0]/propeller-speed-error-rpm</input>
+   <kp>-fcs/prop-governor[0]/kp</kp>
+   <ki>-fcs/prop-governor[0]/ki</ki>
+   <kd>-fcs/prop-governor[0]/kd</kd>
    <!-- <trigger>fcs/prop-governor/windup-trigger[0]</trigger> -->
   </pid>
- 
-  <summer name="fcs/prop-governor/blade-angle[0]">
-<input>fcs/prop-governor/blade-controller-pid[0]</input>
-<input>propulsion/engine[0]/blade-angle</input>
-   <clipto>
-    <min>fcs/prop-governor/min-blade-angle[0]</min>
-    <max>92.5</max>
-   </clipto>
-<output>propulsion/engine[0]/blade-angle</output>
-  </summer>
 
-  </channel>
+  <switch name="fcs/prop-governor[0]/max-blade-angle">
+   <default value="50.0"/>
+   <test value="fcs/prop-governor[0]/feather-command">
+	fcs/prop-governor[0]/feather-command GT 50.0
+   </test>
+  </switch>
 
-  <channel name="Right">
-<summer name="fcs/prop-governor/propeller-speed-error-rpm[1]">
-   <input>fcs/prop-governor/propeller-speed-target</input>
+ <fcs_function name="propulsion/engine[0]/blade-angle-command">
+  <function>
+
+  <ifthen>
+   <eq>
+    <property>fcs/prop-governor[0]/feather-command</property>
+    <value>0.0</value>
+   </eq>
+
+   <sum>
+    <property>fcs/prop-governor[0]/blade-controller-pid</property>
+    <property>propulsion/engine[0]/blade-angle</property>
+   </sum>
+
+   <property>fcs/prop-governor[0]/feather-command</property>
+
+  </ifthen>
+
+  </function>
+  <clipto>
+   <min>fcs/prop-governor[0]/min-blade-angle</min>
+   <max>fcs/prop-governor[0]/max-blade-angle</max>
+  </clipto>
+ </fcs_function>
+
+ </channel>
+
+<!--**** PROP PITCH PUMPS LEFT****-->
+ <channel name="PROP PITCH PUMPS LEFT">
+
+<!-- Normal pump -->
+ <fcs_function name="fcs/prop-governor[0]/nominal-pump-rate">
+  <function>
+
+   <product>
+    <property>/engines/engine[0]/n1</property>
+    <value>0.07</value>
+   </product>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>7.0</max>
+  </clipto>
+ </fcs_function>
+
+<!-- Feathering pump -->
+ <switch name="fcs/prop-governor[0]/NF-pump-rate">
+  <default value="0.0"/>
+  <test logic="AND" value="6.0">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0103 EQ 1.0
+  </test>
+ </switch>
+
+ <switch name="fcs/prop-governor[0]/pump-rate">
+  <default value="fcs/prop-governor[0]/nominal-pump-rate"/>
+  <test value="fcs/prop-governor[0]/NF-pump-rate">
+	fcs/prop-governor[0]/feather-command GT 0.0
+  </test>
+ </switch>
+
+ <actuator name="propulsion/engine[0]/blade-angle">
+  <input>propulsion/engine[0]/blade-angle-command</input>
+  <rate_limit>fcs/prop-governor[0]/pump-rate</rate_limit>
+  <!--bias> number </bias-->
+  <!--deadband_width> number </deadband_width-->
+  <!--hysteresis_width> number </hysteresis_width-->
+ </actuator>
+
+ </channel>
+
+<!--**** FEATHERING TRIGGERS LEFT****-->
+ <channel name="(Auto-)Feather Triggers Left">
+
+  <switch name="/an24/FireFeather/feather-by-ikm_l">
+   <default value="0"/>
+   <test value="1">
+	/an24/FireFeather/sw_check-by-ikm_l EQ 1
+	/controls/engines/engine[0]/throttle-uprt-lever-angle GT 26.0
+	/engines/engine[0]/thruster/torque LT 700
+   </test>
+  </switch>
+
+  <switch name="/an24/FireFeather/feather-by-thrust_l">
+   <default value="0"/>
+   <test value="1">
+	/an24/FireFeather/sw_check-by-thrust_l EQ 1.0
+	/controls/engines/engine[0]/throttle-uprt-lever-angle GT 26.0
+	/engines/engine[0]/thrust_lb LT 700
+   </test>
+  </switch>
+
+  <switch name="fcs/prop-governor[0]/feather-command">
+   <default value="0"/>
+   <test logic="AND" value="92.5">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0103 EQ 1.0
+	<test logic="OR">
+	/an24/FireFeather/feather-by-ikm_l EQ 1
+	/an24/FireFeather/feather-by-thrust_l EQ 1
+	/an24/FireFeather/feather-by-kfl_l EQ 1
+	</test>
+   </test>
+   <test logic="AND" value="55.0">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0103 EQ 1.0
+	/an24/FireFeather/feather-by-test_l EQ 1
+   </test>
+  </switch>
+
+ </channel>
+
+<!--########################################
+## PROP GOVERNOR RIGHT
+#########################################-->
+ <channel name="RightGovernor">
+
+<!-- RPM/Blade Angle Control R-68DT-24 -->
+  <switch name="fcs/prop-governor[1]/propeller-speed-target">
+   <default value="1245"/>
+   <test value="1180">
+	/controls/engines/engine[1]/throttle-uprt-lever-angle LT 36.0
+   </test>
+  </switch>
+
+  <summer name="fcs/prop-governor[1]/propeller-speed-error-rpm">
+   <input>fcs/prop-governor[1]/propeller-speed-target</input>
    <input>-propulsion/engine[1]/propeller-rpm</input>
   </summer>
 
-  <switch name="fcs/prop-governor/propeller-speed-error-switch[1]">
-   <default value="0.0"/>
-   <test value="fcs/prop-governor/propeller-speed-error-rpm[1]">
-     /engines/engine[1]/running == 1
-   </test>
-  </switch>
-
- <!-- <switch name="fcs/prop-governor/windup-trigger[1]">
-   <default value="0.0"/>
-   <test value="-1.0">
-     fcs/prop-governor/blade-controller-pid[1] LT -1.0
-   </test>
-   <test value="1.0">
-     fcs/prop-governor/propeller-speed-error-switch[1] GT 0.0
-     fcs/prop-governor/blade-controller-pid[1] GT 1.0
-   </test>
-  </switch> -->
-
-  <switch name="fcs/prop-governor/min-blade-angle[1]">
-   <default value="8"/>
-   <test value="19.0">
-     propulsion/engine[1]/blade-angle GE 19.0
-     /an24/instrumentation/prop-lock/prop-lock-right == 0
-   </test>
-  </switch>
-
- <pid name="fcs/prop-governor/blade-controller-pid[1]">
-   <input>fcs/prop-governor/propeller-speed-error-switch[1]</input>
-   <kp> -0.001 </kp>
-   <ki> -0.0 </ki>
-   <kd> -0.0 </kd>
-   <!-- <trigger>fcs/prop-governor/windup-trigger[1]</trigger> -->
+  <pid name="fcs/prop-governor[1]/blade-controller-pid">
+   <input>fcs/prop-governor[1]/propeller-speed-error-rpm</input>
+   <kp>-fcs/prop-governor[1]/kp</kp>
+   <ki>-fcs/prop-governor[1]/ki</ki>
+   <kd>-fcs/prop-governor[1]/kd</kd>
+   <!-- <trigger>fcs/prop-governor/windup-trigger[0]</trigger> -->
   </pid>
- 
-  <summer name="fcs/prop-governor/blade-angle[1]">
-<input>fcs/prop-governor/blade-controller-pid[1]</input>
-<input>propulsion/engine[1]/blade-angle</input>
-   <clipto>
-    <min>fcs/prop-governor/min-blade-angle[1]</min>
-    <max>92.5</max>
-   </clipto>
-<output>propulsion/engine[1]/blade-angle</output>
-  </summer>
 
-  </channel>
+  <switch name="fcs/prop-governor[1]/max-blade-angle">
+   <default value="50.0"/>
+   <test value="fcs/prop-governor[1]/feather-command">
+	fcs/prop-governor[1]/feather-command GT 50.0
+   </test>
+  </switch>
+
+ <fcs_function name="propulsion/engine[1]/blade-angle-command">
+  <function>
+
+  <ifthen>
+   <eq>
+    <property>fcs/prop-governor[1]/feather-command</property>
+    <value>0.0</value>
+   </eq>
+
+   <sum>
+    <property>fcs/prop-governor[1]/blade-controller-pid</property>
+    <property>propulsion/engine[1]/blade-angle</property>
+   </sum>
+
+   <property>fcs/prop-governor[1]/feather-command</property>
+
+  </ifthen>
+
+  </function>
+  <clipto>
+   <min>fcs/prop-governor[1]/min-blade-angle</min>
+   <max>fcs/prop-governor[1]/max-blade-angle</max>
+  </clipto>
+ </fcs_function>
+
+ </channel>
+
+<!--**** PROP PITCH PUMPS RIGHT****-->
+ <channel name="PROP PITCH PUMPS RIGHT">
+
+<!-- Normal pump -->
+ <fcs_function name="fcs/prop-governor[1]/nominal-pump-rate">
+  <function>
+
+   <product>
+    <property>/engines/engine[1]/n1</property>
+    <value>0.07</value>
+   </product>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>7.0</max>
+  </clipto>
+ </fcs_function>
+
+ <switch name="fcs/prop-governor[1]/pump-rate">
+  <default value="fcs/prop-governor[1]/nominal-pump-rate"/>
+  <test value="fcs/prop-governor[1]/NF-pump-rate">
+	fcs/prop-governor[1]/feather-command GT 0.0
+  </test>
+ </switch>
+
+ <actuator name="propulsion/engine[1]/blade-angle">
+  <input>propulsion/engine[1]/blade-angle-command</input>
+  <rate_limit>fcs/prop-governor[1]/pump-rate</rate_limit>
+  <!--bias> number </bias-->
+  <!--deadband_width> number </deadband_width-->
+  <!--hysteresis_width> number </hysteresis_width-->
+ </actuator>
+
+ </channel>
+
+ <channel name="PROP FEATHER PUMP RIGHT">
+
+ <switch name="fcs/prop-governor[1]/NF-pump-rate">
+  <default value="0.0"/>
+  <test logic="AND" value="/an24/FireFeather/feather-timer_r">
+	fcs/prop-governor[1]/feather-command GT 0.0
+  </test>
+ </switch>
+
+ </channel>
+
+<!--**** FEATHERING TRIGGERS RIGHT****-->
+ <channel name="(Auto-)Feather Triggers Right">
+
+  <switch name="/an24/FireFeather/feather-by-ikm_r">
+   <default value="0"/>
+   <test value="1">
+	/an24/FireFeather/sw_check-by-ikm_r EQ 1
+	/controls/engines/engine[1]/throttle-uprt-lever-angle GT 26.0
+	/engines/engine[1]/thruster/torque LT 700
+   </test>
+  </switch>
+
+  <switch name="/an24/FireFeather/feather-by-thrust_r">
+   <default value="0"/>
+   <test value="1">
+	/an24/FireFeather/sw_check-by-thrust_r EQ 1.0
+	/controls/engines/engine[1]/throttle-uprt-lever-angle GT 26.0
+	/engines/engine[1]/thrust_lb LT 700
+   </test>
+  </switch>
+
+  <switch name="fcs/prop-governor[1]/feather-command">
+   <default value="0"/>
+   <test logic="AND" value="92.5">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0104 EQ 1.0
+	<test logic="OR">
+	/an24/FireFeather/feather-by-ikm_r EQ 1
+	/an24/FireFeather/feather-by-thrust_r EQ 1
+	/an24/FireFeather/feather-by-kfl_r EQ 1
+	</test>
+   </test>
+   <test logic="AND" value="55.0">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0104 EQ 1.0
+	/an24/FireFeather/feather-by-test_r EQ 1
+   </test>
+  </switch>
+
+ </channel>
+
 </system>
