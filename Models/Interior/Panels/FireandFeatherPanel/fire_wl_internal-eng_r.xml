@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!-- Warning lamp indicating fire in inner right engine; Item 2707 -->
+<PropertyList>
+ <path>../../shared/lamps/warninglamp02.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>holder</object-name>
+  <object-name>lampon</object-name>
+  <texture>../../shared/lamps/warninglamp02redplain.png</texture>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <condition>
+   <equals>
+    <property>an24/Fire-Protection/Rel4243</property>
+    <value>1</value>
+   </equals>
+  </condition>
+  <object-name>lampon</object-name>
+ </animation>
+
+</PropertyList>

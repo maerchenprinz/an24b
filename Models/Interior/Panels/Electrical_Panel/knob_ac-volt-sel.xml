@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<!-- AC Voltage indication source selector -->
+<PropertyList>
+ <path>../../shared/knobs_buttons/11p1n.ac</path>
+
+ <animation>
+   <type>knob</type>
+   <object-name>11p1n</object-name>
+   <property>an24/Electrical_Panel/kn_ac_ind_source</property>
+    <interpolation>
+     <entry><ind>0.0</ind><dep>0</dep></entry>
+     <entry><ind>1.0</ind><dep>30</dep></entry>
+     <entry><ind>2.0</ind><dep>60</dep></entry>
+     <entry><ind>2.9</ind><dep>60</dep></entry>
+     <entry><ind>3.0</ind><dep>120</dep></entry>
+     <entry><ind>4.0</ind><dep>180</dep></entry>
+     <entry><ind>5.0</ind><dep>240</dep></entry>
+     <entry><ind>6.0</ind><dep>300</dep></entry>
+     <entry><ind>7.0</ind><dep>330</dep></entry>
+    </interpolation>
+   <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+   </axis>
+   <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </center>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/Electrical_Panel/kn_ac_ind_source</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>8</max>                
+      <wrap>true</wrap>
+     </binding>
+     <binding>
+      <command>nasal</command>
+      <script>
+	interpolate("an24/Electrical_Panel/ac_ind_source", getprop("an24/Electrical_Panel/kn_ac_ind_source"), 0.4 );
+	sound.click("azr", 3.9, 0.55, 0.4);
+      </script>
+     </binding>
+    </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>acindselect</tooltip-id>
+      <label>%s</label>
+      <property>an24/Electrical_Panel/kn_ac_ind_source</property>
+      <mapping>nasal</mapping>
+      <script>
+        var acindsel = ['None', 'Gen GO-16 L', 'Gen GO-16 R', 'Autopilot', 'Emergency Bus', 'Prop Heat', 'Main Bus', 'Aerodrome'];
+        return acindsel[arg[0]];
+      </script>
+    </binding>
+   </hovered>
+ </animation>
+
+</PropertyList>

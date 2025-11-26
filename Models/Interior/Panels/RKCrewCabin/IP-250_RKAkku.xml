@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!-- IP-250  -->
+<PropertyList>
+
+<path>../../shared/ip-100-250.ac</path>
+
+ <animation>
+  <type>select</type>
+  <object-name>fuse</object-name>
+   <condition>
+    <greater-than>
+    <property>an24/RKCrew/table_hatch</property>
+    <value>0.1</value>
+    </greater-than>
+   </condition>
+ </animation>
+
+ <animation>
+   <type>knob</type>
+   <object-name>fuse</object-name>
+   <property>an24/Electrics/FUSE_RKAkku-RKCrewCab</property>
+   <factor>30.0</factor>
+   <offset-deg>-30</offset-deg>
+   <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>
+   </axis>
+   <center>
+    <x-m>0.042</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+   </center>
+   <action>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/Electrics/FUSE_RKAkku-RKCrewCab" ) == 1.0 ){
+        interpolate("an24/Electrics/FUSE_RKAkku-RKCrewCab", 0.0, 0.5 );
+        }
+        else {
+        interpolate("an24/Electrics/FUSE_RKAkku-RKCrewCab", 1.0, 0.5 );
+        }
+      </script>
+    </binding>
+   </action>
+   <hovered>
+     <binding>
+       <command>set-tooltip</command>
+       <label>Fuse IP-250 Connection
+to RK Accumulator</label>
+       <tooltip-id>fuserkcctoakku</tooltip-id>
+     </binding>
+   </hovered>
+ </animation>
+
+</PropertyList>

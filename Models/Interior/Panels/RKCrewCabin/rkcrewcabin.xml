@@ -1,0 +1,153 @@
+<PropertyList>
+
+<!-- RK ("junction box") under engineer's table -->
+
+<path>rkcrewcabin.ac</path>
+
+ <animation>
+  <type>select</type>
+  <object-name>fuses</object-name>
+   <condition>
+    <greater-than>
+     <property>an24/RKCrew/hood</property>
+     <value>0.1</value>
+    </greater-than>
+   </condition>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>RK_hood</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if( getprop("an24/RKCrew/hood" ) == 0.0 ) {
+	interpolate("an24/RKCrew/hood", 1.0, 0.5 );
+	}
+	else if( getprop("an24/RKCrew/sw01_batt1" ) == 0.0 or getprop("an24/RKCrew/sw02_batt2" ) == 0.0 or getprop("an24/RKCrew/sw03_pt-1000" ) == 0.0) {
+	interpolate("an24/RKCrew/hood", 0.6, 0.2, 1.0, 0.2 );
+	}
+	else {
+	interpolate("an24/RKCrew/hood", 0.0, 0.5 );
+	}
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RK_hood</object-name>
+  <property>an24/RKCrew/hood</property>
+  <factor>70.0</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.112</y-m>
+    <z-m>-0.098</z-m>    
+  </center>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>    
+  </axis>
+ </animation>
+
+<!-- Switches -->
+ <model>
+  <path>sw01_Battery1.xml</path>
+  <condition>
+   <greater-than>
+    <property>an24/RKCrew/hood</property>
+    <value>0.1</value>
+   </greater-than>
+  </condition>
+  <offsets>
+    <x-m>0.1252</x-m>
+    <y-m>-0.102</y-m>
+    <z-m>-0.06</z-m>
+    <heading-deg>-90</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <path>sw02_Battery2.xml</path>
+  <condition>
+   <greater-than>
+    <property>an24/RKCrew/hood</property>
+    <value>0.1</value>
+   </greater-than>
+  </condition>
+  <offsets>
+    <x-m>0.151</x-m>
+    <y-m>-0.102</y-m>
+    <z-m>-0.06</z-m>
+    <heading-deg>-90</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <path>sw03_PT-1000.xml</path>
+  <condition>
+   <greater-than>
+    <property>an24/RKCrew/hood</property>
+    <value>0.1</value>
+   </greater-than>
+  </condition>
+  <offsets>
+    <x-m>0.178</x-m>
+    <y-m>-0.102</y-m>
+    <z-m>-0.06</z-m>
+    <heading-deg>-90</heading-deg>
+  </offsets>
+ </model>
+
+<!-- IP-Fuses -->
+ <model>
+  <path>IP-250_RKAkku.xml</path>
+  <offsets>
+    <x-m>0.01</x-m>
+    <y-m>0.10</y-m>
+    <z-m>0.07</z-m>
+    <heading-deg>0</heading-deg>
+    <roll-deg>-45</roll-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <path>IP-200_1_TsRUR.xml</path>
+  <offsets>
+    <x-m>0.01</x-m>
+    <y-m>0.07</y-m>
+    <z-m>0.04</z-m>
+    <heading-deg>0</heading-deg>
+    <roll-deg>-45</roll-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <path>IP-200_2_TsRUR.xml</path>
+  <offsets>
+    <x-m>0.01</x-m>
+    <y-m>0.04</y-m>
+    <z-m>0.01</z-m>
+    <heading-deg>0</heading-deg>
+    <roll-deg>-45</roll-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <path>IP-200_AZS.xml</path>
+  <offsets>
+    <x-m>0.01</x-m>
+    <y-m>0.01</y-m>
+    <z-m>-0.02</z-m>
+    <heading-deg>0</heading-deg>
+    <roll-deg>-45</roll-deg>
+  </offsets>
+ </model>
+
+</PropertyList>
