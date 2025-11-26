@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<PropertyList>
+ <sim>
+     <model>
+		<livery>
+            <name type="string">CU-T878</name>
+			<an24dvigatel>Liveries/CU-T878/an24dvigatel.png</an24dvigatel>
+			<an24hvost>Liveries/CU-T878/an24hvost.png</an24hvost>
+			<an24korpusLeft>Liveries/CU-T878/an24korpusLeft.png</an24korpusLeft>
+			<an24stabilizator>Liveries/CU-T878/an24stabilizator.png</an24stabilizator>
+			<CIS_An24B_t>Liveries/CU-T878/CIS_An24B_t.png</CIS_An24B_t>
+		</livery>
+     </model>
+ </sim>
+</PropertyList>
