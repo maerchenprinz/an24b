@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<system name="Fire-Protection">
+
+<property value="0.0">/an24/Anti-Ice/vars/probable2</property>
+<!--***************************
+*** POWER CHECKS
+****************************-->
+<channel name="Power Checks" execrate="120">
+
+ <switch name="/an24/Fire-Protection/power-left">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/AZS/sw0208 EQ 1.0
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/FireFeather/main EQ 1.0 <!--Auto-->
+   </test>
+   <test logic="AND" value="-1">
+	/an24/AZS/sw0208 EQ 1.0
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/FireFeather/main EQ -1.0 <!--Test-->
+   </test>
+ </switch>
+
+ <switch name="/an24/Fire-Protection/power-right">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/AZS/sw0209 EQ 1.0
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/FireFeather/main NE 0.0
+   </test>
+ </switch>
+
+ <switch name="/an24/Fire-Protection/power-emerg">
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/AZS/sw0210 EQ 1.0
+	/an24/Electrics/AZSemerg_V GT 24.0
+   </test>
+ </switch>
+
+</channel>
+
+<!--***************************
+*** FIRE TRIGGERS
+****************************-->
+<channel name="Fire Triggers" execrate="360">
+
+ <switch name="/an24/Fire-Protection/Fires/Lengine">
+   <default value="0"/>
+   <test value="1">
+	/an24/Anti-Ice/vars/probable2 GT /an24/Anti-Ice/vars/probable
+   </test>
+ </switch>
+
+
+
+ <fcs_function name="/an24/Anti-Ice/vars/probable2">
+  <function>
+
+  <sum>
+   <property>/an24/Anti-Ice/vars/probable2</property>
+
+   <product>
+
+    <ifthen>
+     <ge>
+      <property>/an24/Anti-Ice/elements/VNA_L_cm</property>
+      <value>1</value>
+     </ge>
+
+     <product>
+      <property>/an24/Anti-Ice/elements/VNA_L_cm</property>
+      <value>0.000001</value><!---->
+     </product>
+
+     <product>
+      <value>-0.001</value><!---->
+      <difference>
+       <value>1</value><!---->
+       <property>/an24/Anti-Ice/elements/VNA_L_cm</property>
+      </difference>
+     </product>
+
+    </ifthen>
+
+    <property>simulation/channel-dt</property>
+
+   </product>
+
+  </sum>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>1.0</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+</system>

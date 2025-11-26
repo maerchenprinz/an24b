@@ -1,0 +1,464 @@
+<?xml version="1.0"?>
+
+<system name="Engine">
+
+<property value="1.0">/controls/engines/idle-lock</property>
+<property value="12.0">/controls/engines/idle-lock-pos</property>
+
+<property value="0.0">/controls/engines/engine[0]/throttle-uprt-lever-force</property>
+<!--property value="0.0">fcs/throttle/throttle-pos-norm[0]</property-->
+<property value="0.0">/controls/engines/engine[1]/throttle-uprt-lever-force</property>
+<!--property value="0.0">fcs/throttle/throttle-pos-norm[1]</property-->
+
+<!--for test/tuning purposes-->
+<property value="0.04">/controls/engines/engine[0]/throttle-kp</property>
+<property value="0.0">/controls/engines/engine[0]/throttle-ki</property>
+<property value="0.01">/controls/engines/engine[0]/throttle-kd</property>
+
+<property value="0.04">/controls/engines/engine[1]/throttle-kp</property>
+<property value="0.0">/controls/engines/engine[1]/throttle-ki</property>
+<property value="0.01">/controls/engines/engine[1]/throttle-kd</property>
+
+<!--########################################
+## THROTTLE IDLE LOCK
+#########################################-->
+<channel name="Throttle Idle Lock">
+
+ <switch name="/controls/engines/engine[0]/throttle-uprt-lever-angle-min">
+  <default value="0.0"/>
+  <test logic="AND" value="/controls/engines/idle-lock-pos">
+	/controls/engines/engine[0]/throttle-uprt-lever-angle GE /controls/engines/idle-lock-pos
+	/controls/engines/idle-lock EQ 1.0
+  </test>
+ </switch>
+
+ <fcs_function name="/controls/engines/engine[0]/throttle-uprt-lever-angle">
+  <function>
+   <product>
+    <property>/controls/engines/engine[0]/throttle-uprt-lever-force</property>
+    <value>100</value>
+   </product>
+  </function>
+  <clipto>
+   <min>/controls/engines/engine[0]/throttle-uprt-lever-angle-min</min>
+   <max>100</max>
+  </clipto>
+ </fcs_function>
+
+ <switch name="/controls/engines/engine[1]/throttle-uprt-lever-angle-min">
+  <default value="0.0"/>
+  <test logic="AND" value="/controls/engines/idle-lock-pos">
+	/controls/engines/engine[1]/throttle-uprt-lever-angle GE /controls/engines/idle-lock-pos
+	/controls/engines/idle-lock EQ 1.0
+  </test>
+ </switch>
+
+ <fcs_function name="/controls/engines/engine[1]/throttle-uprt-lever-angle">
+  <function>
+   <product>
+    <property>/controls/engines/engine[1]/throttle-uprt-lever-force</property>
+    <value>100</value>
+   </product>
+  </function>
+  <clipto>
+   <min>/controls/engines/engine[1]/throttle-uprt-lever-angle-min</min>
+   <max>100</max>
+  </clipto>
+ </fcs_function>
+
+</channel>
+
+<!--########################################
+## ADT-24M AUTOMATIC FUEL DOSING
+#########################################-->
+
+<!--
+### IKM RPM and Torque Limiter ###
+-->
+<channel name="RPM limiter">
+
+<!--left-->
+ <switch name="/an24/FuelControl/auto-fuel-dosing_l">
+   <default value="0.0"/>
+   <test logic="AND" value="1.0">
+	/an24/FuelControl/sw_auto-fuel-dosing EQ 1.0
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0111 EQ 1.0
+   </test>
+ </switch>
+
+ <fcs_function name="/controls/engines/engine[0]/throttle">
+  <function>
+
+  <ifthen>
+
+   <or>
+    <lt>
+     <property>propulsion/engine[0]/propeller-rpm</property>
+     <value>1263.0</value>
+    </lt>
+    <eq>
+     <property>/an24/FuelControl/auto-fuel-dosing_l</property>
+     <value>0.0</value>
+    </eq>
+   </or>
+
+   <quotient>
+    <property>/controls/engines/engine[0]/throttle-uprt-lever-angle</property>
+    <value>100.0</value>
+   </quotient>
+
+   <difference>
+    <quotient>
+     <property>/controls/engines/engine[0]/throttle-uprt-lever-angle</property>
+     <value>100.0</value>
+    </quotient>
+    <property>/controls/engines/engine[0]/throttle-controller-pid</property>
+   </difference>
+
+  </ifthen>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/controls/engines/engine[0]/prop-speed-error-adt-rpm">
+  <function>
+
+   <difference>
+    <property>propulsion/engine[0]/propeller-rpm</property>
+    <value>1265.0</value>
+   </difference>
+
+  </function>
+  <clipto>
+   <min>-5.0</min>
+   <max>50.0</max>
+  </clipto>
+ </fcs_function>
+
+  <pid name="/controls/engines/engine[0]/throttle-controller-pid">
+   <input>/controls/engines/engine[0]/prop-speed-error-adt-rpm</input>
+   <kp>/controls/engines/engine[0]/throttle-kp</kp>
+   <ki>/controls/engines/engine[0]/throttle-ki</ki>
+   <kd>/controls/engines/engine[0]/throttle-kd</kd>
+   <clipto>
+    <min>0.0</min>
+    <max>0.2</max>
+   </clipto>
+  </pid>
+
+<!--right-->
+ <switch name="/an24/FuelControl/auto-fuel-dosing_r">
+   <default value="0.0"/>
+   <test logic="AND" value="1.0">
+	/an24/FuelControl/sw_auto-fuel-dosing EQ 1.0
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0112 EQ 1.0
+   </test>
+ </switch>
+
+ <fcs_function name="/controls/engines/engine[1]/throttle">
+  <function>
+
+  <ifthen>
+
+   <or>
+    <lt>
+     <property>propulsion/engine[1]/propeller-rpm</property>
+     <value>1263.0</value>
+    </lt>
+    <eq>
+     <property>/an24/FuelControl/auto-fuel-dosing_r</property>
+     <value>0.0</value>
+    </eq>
+   </or>
+
+   <quotient>
+    <property>/controls/engines/engine[1]/throttle-uprt-lever-angle</property>
+    <value>100.0</value>
+   </quotient>
+
+   <difference>
+    <quotient>
+     <property>/controls/engines/engine[1]/throttle-uprt-lever-angle</property>
+     <value>100.0</value>
+    </quotient>
+    <property>/controls/engines/engine[1]/throttle-controller-pid</property>
+   </difference>
+
+  </ifthen>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/controls/engines/engine[1]/prop-speed-error-adt-rpm">
+  <function>
+
+   <difference>
+    <property>propulsion/engine[1]/propeller-rpm</property>
+    <value>1265.0</value>
+   </difference>
+
+  </function>
+  <clipto>
+   <min>-5.0</min>
+   <max>50.0</max>
+  </clipto>
+ </fcs_function>
+
+  <pid name="/controls/engines/engine[1]/throttle-controller-pid">
+   <input>/controls/engines/engine[1]/prop-speed-error-adt-rpm</input>
+   <kp>/controls/engines/engine[1]/throttle-kp</kp>
+   <ki>/controls/engines/engine[1]/throttle-ki</ki>
+   <kd>/controls/engines/engine[1]/throttle-kd</kd>
+   <clipto>
+    <min>0.0</min>
+    <max>0.2</max>
+   </clipto>
+  </pid>
+
+ </channel>
+
+<!--########################################
+## PRT-24 EGT LIMITER 
+#########################################-->
+ <channel name="PRT-24 EGT limiter left">
+
+ <fcs_function name="/an24/FuelControl/ADT_tC_target_left">
+  <function>
+
+   <ifthen>
+
+    <gt>
+     <property>/controls/engines/engine[0]/throttle-uprt-lever-angle</property>
+     <value>70.0</value>
+    </gt>
+
+    <sum>
+     <table>
+      <independentVar>/an24/Pressure/StaticS4_out</independentVar>
+       <tableData>
+ 9.775	378 <!--8500m-->
+10.514	379 <!--8000m-->
+11.297	380 <!--7500m-->
+12.127	382 <!--7000m-->
+13.005	384 <!--6500m-->
+13.934	386 <!--6000m-->
+14.916	389 <!--5500m-->
+15.954	392 <!--5000m-->
+17.049	394 <!--4500m-->
+18.204	397 <!--4000m-->
+19.422	401 <!--3500m-->
+20.705	404 <!--3000m-->
+22.056	408 <!--2500m-->
+23.478	413 <!--2000m-->
+24.972	417 <!--1500m-->
+26.543	423 <!--1000m-->
+28.193	428 <!-- 500m-->
+29.921	435
+       </tableData>
+     </table>
+     <ifthen>
+
+      <lt>
+       <property>/controls/engines/engine[0]/throttle-uprt-lever-angle</property>
+       <value>71.5</value>
+      </lt>
+
+      <value>0</value><!--Nominal regime-->
+
+      <value>60</value><!--T/O regime-->
+
+     </ifthen>
+
+    </sum>
+
+    <value>720</value><!--Engine start-->
+
+    </ifthen>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/FuelControl/ADT_tC_max_left">
+  <function>
+
+   <ifthen>
+
+    <gt>
+     <property>/controls/engines/engine[0]/throttle-uprt-lever-angle</property>
+     <value>70.0</value>
+    </gt>
+
+    <ifthen>
+
+     <lt>
+      <property>/controls/engines/engine[0]/throttle-uprt-lever-angle</property>
+      <value>71.5</value>
+     </lt>
+
+     <sum>
+      <property>/an24/FuelControl/ADT_tC_target_left</property>
+      <value>40.0</value><!--Nominal regime-->
+     </sum>
+
+     <sum>
+      <property>/an24/FuelControl/ADT_tC_target_left</property>
+      <value>30.0</value><!--T/O regime-->
+     </sum>
+
+    </ifthen>
+
+    <value>720</value><!--Engine start-->
+
+   </ifthen>
+
+  </function>
+ </fcs_function>
+
+ </channel>
+
+ <channel name="PRT-24 EGT limiter right">
+
+ <fcs_function name="/an24/FuelControl/ADT_tC_target_right">
+  <function>
+
+   <ifthen>
+
+    <gt>
+     <property>/controls/engines/engine[1]/throttle-uprt-lever-angle</property>
+     <value>70.0</value>
+    </gt>
+
+    <sum>
+     <table>
+      <independentVar>/an24/Pressure/StaticS4_out</independentVar>
+       <tableData>
+ 9.775	378 <!--8500m-->
+10.514	379 <!--8000m-->
+11.297	380 <!--7500m-->
+12.127	382 <!--7000m-->
+13.005	384 <!--6500m-->
+13.934	386 <!--6000m-->
+14.916	389 <!--5500m-->
+15.954	392 <!--5000m-->
+17.049	394 <!--4500m-->
+18.204	397 <!--4000m-->
+19.422	401 <!--3500m-->
+20.705	404 <!--3000m-->
+22.056	408 <!--2500m-->
+23.478	413 <!--2000m-->
+24.972	417 <!--1500m-->
+26.543	423 <!--1000m-->
+28.193	428 <!-- 500m-->
+29.921	435
+       </tableData>
+     </table>
+     <ifthen>
+
+      <lt>
+       <property>/controls/engines/engine[1]/throttle-uprt-lever-angle</property>
+       <value>71.5</value>
+      </lt>
+
+      <value>0</value><!--Nominal regime-->
+
+      <value>60</value><!--T/O regime-->
+
+     </ifthen>
+
+    </sum>
+
+    <value>720</value><!--Engine start-->
+
+    </ifthen>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/FuelControl/ADT_tC_max_right">
+  <function>
+
+   <ifthen>
+
+    <gt>
+     <property>/controls/engines/engine[1]/throttle-uprt-lever-angle</property>
+     <value>70.0</value>
+    </gt>
+
+    <ifthen>
+
+     <lt>
+      <property>/controls/engines/engine[1]/throttle-uprt-lever-angle</property>
+      <value>71.5</value>
+     </lt>
+
+     <sum>
+      <property>/an24/FuelControl/ADT_tC_target_right</property>
+      <value>40.0</value><!--Nominal regime-->
+     </sum>
+
+     <sum>
+      <property>/an24/FuelControl/ADT_tC_target_right</property>
+      <value>30.0</value><!--T/O regime-->
+     </sum>
+
+    </ifthen>
+
+    <value>720</value><!--Engine start-->
+
+   </ifthen>
+
+  </function>
+ </fcs_function>
+
+ </channel>
+
+ <channel name="PRT-24 EGT limiter by OAT and pressure left">
+
+ <fcs_function name="/an24/FuelControl/ADT_tC_sector_left">
+  <function>
+
+     <table>
+      <independentVar lookup="row">/environment/temperature-degc</independentVar>
+      <independentVar lookup="column">/an24/Pressure/StaticS4_out</independentVar>
+      <tableData>
+<!--	700	710	720	730	740	750	760	770	780Torr-->
+	27.56	27.95	28.35	28.74	29.13	29.53	29.92	30.31	30.71
+15	1	1	1	1	1	1	1	1	1
+16	2	1	1	1	1	1	1	1	1
+18	2	2	1	1	1	1	1	1	1
+19	2	2	2	1	1	1	1	1	1
+21	2	2	2	2	1	1	1	1	1
+22	2	2	2	2	2	1	1	1	1
+23	2	2	2	2	2	1	1	1	1
+24	2	2	2	2	2	2	1	1	1
+25	2	2	2	2	2	2	2	1	1
+26	2	2	2	2	2	2	2	1	1
+27	2	2	2	2	2	2	2	2	2
+35	2	2	2	2	2	2	2	2	2
+37	3	3	2	2	2	2	2	2	2
+39	3	3	3	2	2	2	2	2	2
+41	3	3	3	3	2	2	2	2	2
+43	3	3	3	3	3	2	2	2	2
+45	3	3	3	3	3	3	2	2	2
+47	3	3	3	3	3	3	3	2	2
+49	3	3	3	3	3	3	3	3	3
+      </tableData>
+     </table>
+
+  </function>
+ </fcs_function>
+
+ <switch name="/an24/FuelControl/ADT_temp-offset_left">
+   <default value="0.0"/>
+   <test logic="AND" value="1.0">
+	/an24/FuelControl/ADT_tC_sector_left LE 1.0
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0111 EQ 1.0
+   </test>
+ </switch>
+
+ </channel>
+
+</system>

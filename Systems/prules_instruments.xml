@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+<!--########################################
+## EXTERIOR LIGHTS
+#########################################-->
+ <filter>
+  <enable>
+   <condition>
+    <or>
+     <property>/an24/lights/OSS-61red</property>
+     <property>/an24/lights/OSS-61white</property>
+    </or>
+   </condition>
+  </enable>
+  <type>gain</type>
+  <gain>540</gain>
+  <input>
+   <property>sim/time/elapsed-sec</property>
+  </input>
+  <output>an24/lights/strobe-timer</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <input>
+   <condition>
+    <less-than>
+     <property>/an24/lights/strobe-timer</property>
+     <value>300.0</value>
+    </less-than>
+   </condition>
+   <property>/an24/lights/OSS-61red</property>
+  </input>
+  <input>
+   <value>0.0</value>
+  </input>
+  <output>/an24/lights/OSS-61red_visible</output>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <input>
+   <condition>
+    <less-than>
+     <property>/an24/lights/strobe-timer</property>
+     <value>210.0</value>
+    </less-than>
+   </condition>
+   <property>/an24/lights/OSS-61white</property>
+  </input>
+  <input>
+   <value>0.0</value>
+  </input>
+  <output>/an24/lights/OSS-61white_visible</output>
+ </filter>
+
+<!--########################################
+## ARK-11
+#########################################-->
+ <filter>
+  <name>M5-2_1_and_oh</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>0.5</filter-time>
+   <input>/an24/ARK-11/signal-1</input>
+   <output>/an24/ARK-11/signal-1_filter</output>
+ </filter>
+
+ <filter>
+  <name>M5-2_2</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>0.5</filter-time>
+   <input>/an24/ARK-11/signal-2</input>
+   <output>/an24/ARK-11/signal-2_filter</output>
+ </filter>
+
+<!--########################################
+## GPK-52
+#########################################-->
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+   <expression>
+    <sum>
+     <property>/orientation/heading-magnetic-deg</property>
+     <property>/an24/GPK-52/init-error-deg</property>
+     <property>/an24/GPK-52/horiz-prec_sum</property>
+     <property>/an24/GPK-52/horiz-prec-corr_sum</property>
+    </sum>
+   </expression>
+  </input>
+  <output>/an24/GPK-52/indicated-heading-deg</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+<!--########################################
+## KPPM
+#########################################-->
+ <filter>
+  <name>KPPM-bug_mp</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>1.8</filter-time>
+   <input>/instrumentation/nav[0]/radials/selected-deg_no_minmax</input>
+   <output>/instrumentation/nav[0]/radials/selected-deg_no_minmax_filter</output>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+   <expression>
+    <dif>
+     <property>/an24/GIK-1/indicated-heading</property>
+     <property>/instrumentation/nav[0]/radials/selected-deg_no_minmax_filter</property>
+    </dif>
+   </expression>
+  </input>
+  <output>/an24/GIK-1/indicated-heading_filter_mp</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+<!---->
+ <filter>
+  <name>KPPM-bug_rp</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>1.8</filter-time>
+   <input>/instrumentation/nav[1]/radials/selected-deg_no_minmax</input>
+   <output>/instrumentation/nav[1]/radials/selected-deg_no_minmax_filter</output>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+   <expression>
+    <dif>
+     <property>/an24/GIK-1/indicated-heading</property>
+     <property>/instrumentation/nav[1]/radials/selected-deg_no_minmax_filter</property>
+    </dif>
+   </expression>
+  </input>
+  <output>/an24/GIK-1/indicated-heading_filter_rp</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+<!--########################################
+## Kurs-MP
+#########################################-->
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>/an24/Kurs-MP/output1-deg</input>
+  <output>/an24/Kurs-MP/output1-deg_filter</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>/an24/Kurs-MP/output2-deg</input>
+  <output>/an24/Kurs-MP/output2-deg_filter</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+<!--########################################
+## URVK-18 Bleed-Air for Conditioning
+#########################################-->
+ <filter>
+  <name>URVK-18L</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>0.5</filter-time>
+   <input>/an24/BleedAir/aircond_bleedL_kgperh</input>
+   <output>/an24/URVK-18/airflowL_filter</output>
+ </filter>
+
+ <filter>
+  <name>URVK-18R</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>0.5</filter-time>
+   <input>/an24/BleedAir/aircond_bleedR_kgperh</input>
+   <output>/an24/URVK-18/airflowR_filter</output>
+ </filter>
+
+<!--########################################
+## VF-150
+#########################################-->
+ <!--filter>
+  <name>VF-150</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>1.0</filter-time>
+   <input>/an24/VF-150/source-indicated_V</input>
+   <output>/an24/VF-150/source-indicated_V_filter</output>
+ </filter-->
+
+  <!--summer name="/an24/VF-150/source-indicated_V_error">
+   <input>/an24/VF-150/source-indicated_V</input>
+   <input>-/an24/VF-150/source-indicated_V_filter</input>
+  </summer-->
+
+  <!--pid-controller>
+   <input>/fdm/jsbsim/fcs/prop-governor/prop-speed-error-adt-rpm[0]</input>
+   <Kp>0.1</Kp>
+   <Ti>0.0</Ti>
+   <Td>0.1</Td>
+   <output>/an24/VF-150/source-indicated_V_filter2</output>
+  </pid-controller-->
+
+<!--########################################
+## ZK-2
+#########################################-->
+ <filter>
+  <name>ZK-2-bug_mp</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>1.8</filter-time>
+   <input>/an24/ZK-2/mp_heading-bug</input>
+   <output>/an24/ZK-2/mp_heading-bug_filter</output>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+   <expression>
+    <dif>
+     <property>/an24/GPK-52/indicated-heading-deg</property>
+     <property>/an24/ZK-2/mp_heading-bug_filter</property>
+    </dif>
+   </expression>
+  </input>
+  <output>/an24/ZK-2/mp_indicated-heading-deg_filter</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+<!---->
+ <filter>
+  <name>ZK-2-bug_rp</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>1.8</filter-time>
+   <input>/an24/ZK-2/rp_heading-bug</input>
+   <output>/an24/ZK-2/rp_heading-bug_filter</output>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+   <expression>
+    <dif>
+     <property>/an24/GPK-52/indicated-heading-deg</property>
+     <property>/an24/ZK-2/rp_heading-bug_filter</property>
+    </dif>
+   </expression>
+  </input>
+  <output>/an24/ZK-2/rp_indicated-heading-deg_filter</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+<!---->
+ <filter>
+  <name>ZK-2-bug_nav</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>1.8</filter-time>
+   <input>/an24/ZK-2/nav_heading-bug</input>
+   <output>/an24/ZK-2/nav_heading-bug_filter</output>
+ </filter>
+
+ <filter>
+  <type>gain</type>
+  <gain>1.0</gain>
+  <input>
+   <expression>
+    <dif>
+     <property>/an24/GPK-52/indicated-heading-deg</property>
+     <property>/an24/ZK-2/nav_heading-bug_filter</property>
+    </dif>
+   </expression>
+  </input>
+  <output>/an24/ZK-2/nav_indicated-heading-deg_filter</output>
+  <period>
+   <min>0</min>
+   <max>360</max>
+  </period>
+ </filter>
+
+</PropertyList>

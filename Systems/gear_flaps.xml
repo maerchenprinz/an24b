@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<system name="Gear">
+
+<channel name="Electromagnetic Valve GA-142/1" execute="/an24/gear/sw_gear">
+
+<!-- Electrical part of Gear -->
+  <switch name="/an24/gear/MagValve_GA-142">
+   <default value="0"/>
+    <test logic="AND" value="/an24/gear/sw_gear">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0314 EQ 1.0
+	   <test logic="OR">
+		   <test logic="AND">
+			/an24/gear/sw_gear GT 0.5
+			/an24/gear/sw_gear-up_protect EQ 0.0
+		   </test>
+		   <test>
+			/an24/gear/sw_gear LT -0.5
+		   </test>
+	   </test>
+    </test>
+  </switch>
+
+</channel>
+
+<channel name="Gear/Flap Signalisation" execrate="20">
+
+  <switch name="/an24/gear/signal_gear_27V">
+   <default value="0"/>
+    <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0316 EQ 1.0
+    </test>
+  </switch>
+
+  <switch name="/an24/gear/signal_flap_27V">
+   <default value="0"/>
+    <test logic="AND" value="1">
+	/an24/Electrics/AZSmain_V GT 24.0
+	/an24/AZS/sw0304 EQ 1.0
+    </test>
+  </switch>
+
+  <switch name="/an24/gear/relais_WoW">
+   <default value="1"/>
+    <test logic="AND" value="0">
+	/an24/gear/signal_gear_27V EQ 1
+	/gear/gear[0]/wow EQ 1.0
+    </test>
+  </switch>
+
+</channel>
+
+</system>

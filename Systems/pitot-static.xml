@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+
+<system name="PitotStatic">
+
+<!--########################################
+## PITOTS AND STATIC PORTS SWAP FROM MAIN TO EMERGENCY/RESERVE
+#########################################-->
+<channel name="SwapPitotStatic">
+
+<!--Pitot A1 to A2 (reserve) by valve U1-->
+  <switch name="/an24/Pressure/A1orA2pressure-inhg">
+   <default value="/an24/Pressure/PitotA1_out"/>
+   <test value="/an24/Pressure/PitotA2_out">
+     /an24/Pressure/lc_pitotvalve LT 0
+   </test>
+  </switch>
+
+<!--Static ports S1/S5 to N1 (emergency) by valve U2-->
+  <switch name="/an24/Pressure/S1orE1pressure-inhg">
+   <default value="/an24/Pressure/StaticS1_out"/>
+   <test value="/an24/Pressure/StaticS5_out">
+     /an24/Pressure/lc_staticvalve LT 0
+   </test>
+  </switch>
+
+
+<!--Static ports S2/S6 to N2 (emergency) by valve U3-->
+  <switch name="/an24/Pressure/S2orE2pressure-inhg">
+   <default value="/an24/Pressure/StaticS2_out"/>
+   <test value="/an24/Pressure/StaticS6_out">
+     /an24/Pressure/rc_staticvalve LT 0
+   </test>
+  </switch>
+
+</channel>
+
+<!--########################################
+## EFFECTS OF ICING
+#########################################-->
+<channel name="IcingEffectsOnPressures">
+
+ <fcs_function name="/an24/Pressure/PitotA1_out">
+  <function>
+   <product>
+    <property>/systems/pitot[0]/total-pressure-inhg</property>
+    <table>
+     <independentVar>/an24/Anti-Ice/elements/pitot_S1S5A1_cm</independentVar>
+     <tableData>
+	0	1.0
+	0.8	0.95
+	0.9	0.4
+	1.0	0.0
+     </tableData>
+    </table>
+   </product>
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Pressure/PitotA2_out">
+  <function>
+   <product>
+    <property>/systems/pitot[1]/total-pressure-inhg</property>
+    <table>
+     <independentVar>/an24/Anti-Ice/elements/pitot_S3A2_cm</independentVar>
+     <tableData>
+	0	1.0
+	0.8	0.95
+	0.9	0.4
+	1.0	0.0
+     </tableData>
+    </table>
+   </product>
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Pressure/PitotA3_out">
+  <function>
+   <product>
+    <property>/systems/pitot[2]/total-pressure-inhg</property>
+    <table>
+     <independentVar>/an24/Anti-Ice/elements/pitot_S2S6A3_cm</independentVar>
+     <tableData>
+	0	1.0
+	0.8	0.95
+	0.9	0.4
+	1.0	0.0
+     </tableData>
+    </table>
+   </product>
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Pressure/StaticS1_out">
+  <function>
+   <product>
+    <property>/systems/static[0]/pressure-inhg</property>
+    <table>
+     <independentVar>/an24/Anti-Ice/elements/pitot_S1S5A1_cm</independentVar>
+     <tableData>
+	0	1.0
+	0.8	0.95
+	0.9	0.4
+	1.0	0.0
+     </tableData>
+    </table>
+   </product>
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Pressure/StaticS2_out">
+  <function>
+   <product>
+    <property>/systems/static[1]/pressure-inhg</property>
+    <table>
+     <independentVar>/an24/Anti-Ice/elements/pitot_S2S6A3_cm</independentVar>
+     <tableData>
+	0	1.0
+	0.8	0.95
+	0.9	0.4
+	1.0	0.0
+     </tableData>
+    </table>
+   </product>
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Pressure/StaticS3_out">
+  <function>
+   <product>
+    <property>/systems/static[2]/pressure-inhg</property>
+    <table>
+     <independentVar>/an24/Anti-Ice/elements/pitot_S3A2_cm</independentVar>
+     <tableData>
+	0	1.0
+	0.8	0.95
+	0.9	0.4
+	1.0	0.0
+     </tableData>
+    </table>
+   </product>
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Pressure/StaticS4_out">
+  <function>
+   <product>
+    <property>/systems/static[3]/pressure-inhg</property>
+    <table>
+     <independentVar>/an24/Anti-Ice/elements/pitot_S4S7_cm</independentVar>
+     <tableData>
+	0	1.0
+	0.8	0.95
+	0.9	0.4
+	1.0	0.0
+     </tableData>
+    </table>
+   </product>
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Pressure/StaticS5_out">
+  <function>
+   <product>
+    <property>/systems/static[3]/pressure-inhg</property>
+    <table>
+     <independentVar>/an24/Anti-Ice/elements/pitot_S1S5A1_cm</independentVar>
+     <tableData>
+	0	1.0
+	0.8	0.95
+	0.9	0.4
+	1.0	0.0
+     </tableData>
+    </table>
+   </product>
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Pressure/StaticS6_out">
+  <function>
+   <product>
+    <property>/systems/static[3]/pressure-inhg</property>
+    <table>
+     <independentVar>/an24/Anti-Ice/elements/pitot_S2S6A3_cm</independentVar>
+     <tableData>
+	0	1.0
+	0.8	0.95
+	0.9	0.4
+	1.0	0.0
+     </tableData>
+    </table>
+   </product>
+  </function>
+ </fcs_function>
+
+</channel>
+
+</system>
