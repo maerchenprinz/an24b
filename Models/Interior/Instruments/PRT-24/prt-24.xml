@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+
+<!-- PRT-24, engine vibration indicator -->
+<PropertyList>
+ <path>prt-24.ac</path>
+
+ <animation>
+   <type>material</type>
+   <object-name>prt_face</object-name>
+   <emission>
+     <red>0.4</red>
+     <green>0.4</green>
+     <blue>0.2</blue>
+     <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   </emission>
+ </animation>
+
+ <animation>
+  <object-name>prtneedleL</object-name>
+  <type>rotate</type>
+  <property>/controls/engines/engine[0]/throttle-controller-pid</property>
+  <factor>450</factor>
+  <offset-deg>-45</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.0296</y-m>
+   <z-m>-0.0304</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>prtneedleR</object-name>
+  <type>rotate</type>
+  <property>/controls/engines/engine[1]/throttle-controller-pid</property>
+  <factor>450</factor>
+  <offset-deg>-45</offset-deg>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0296</y-m>
+   <z-m>-0.0304</z-m>
+  </center>
+  <axis>
+   <x>-1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!--Warning lamp-->
+ <model>
+  <path>wl_prt-24L.xml</path>
+   <offsets>
+    <x-m>0.034</x-m>
+    <y-m>-0.015</y-m>
+    <z-m>0.03</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_prt-24R.xml</path>
+   <offsets>
+    <x-m>0.034</x-m>
+    <y-m>0.015</y-m>
+    <z-m>0.03</z-m>
+   </offsets>
+ </model>
+
+<!-- TEXT OSG -->
+ <animation>
+  <type>select</type>
+   <object-name>textprt</object-name>
+   <condition>
+    <property>sim/panel-hotspots</property>
+   </condition>
+ </animation>
+
+ <text>
+  <name>textprt</name>
+  <type type="string">literal</type>
+  <text type="string">PRT-24</text>
+  <draw-text type="bool">true</draw-text>
+  <font>Helvetica.txf</font>
+  <character-size type="double">0.024</character-size>
+  <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+  <axis-alignment>yz-plane</axis-alignment>
+  <max-height>0.06</max-height>
+  <max-width>0.09</max-width>
+  <font-resolution>
+   <width type="int">64</width>
+   <height type="int">64</height>
+  </font-resolution>
+  <alignment>center-center</alignment>
+  <offsets>
+   <x-m>0.045</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textprt</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>

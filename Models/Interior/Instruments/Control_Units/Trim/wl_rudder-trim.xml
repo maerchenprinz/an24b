@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<!-- "Rudder trim not neutral" lamp -->
+<PropertyList>
+ <path>../../../shared/lamps/sltsn.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>holder</object-name>
+  <object-name>lampon</object-name>
+  <texture>../../../shared/lamps/sltsngreen.png</texture>
+ </animation>
+
+ <animation>
+  <type>select</type>
+   <condition>
+    <and>
+     <equals>
+      <property>an24/AZS/sw0302</property>
+      <value>1.0</value>
+     </equals>
+     <greater-than>
+      <property>an24/Electrics/AZSmain_V</property>
+      <value>20.0</value>
+     </greater-than>
+     <or>
+      <greater-than>
+       <property>controls/flight/rudder-trim</property>
+       <value>0.02</value>
+      </greater-than>
+      <less-than>
+       <property>controls/flight/rudder-trim</property>
+       <value>-0.02</value>
+      </less-than>
+     </or>
+     </and>
+   </condition>
+  <object-name>lampon</object-name>
+ </animation>
+
+</PropertyList>

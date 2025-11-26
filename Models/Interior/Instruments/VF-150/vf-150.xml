@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<!-- VF-150, AC Voltmeter -->
+<PropertyList>
+ <path>vf-150.ac</path>
+
+<animation>
+  <type>rotate</type>
+  <object-name>vf-150-needle</object-name>
+  <property>an24/VF-150/source-indicated_V_filter2</property>
+   <interpolation>
+    <entry><ind>  0.0</ind><dep>-45</dep></entry>
+    <entry><ind> 60.0</ind><dep>-29</dep></entry>
+    <entry><ind> 90.0</ind><dep>-10</dep></entry>
+    <entry><ind>115.0</ind><dep>  0</dep></entry>
+    <entry><ind>120.0</ind><dep> 13</dep></entry>
+    <entry><ind>130.0</ind><dep> 21</dep></entry>
+    <entry><ind>140.0</ind><dep> 30</dep></entry>
+    <entry><ind>150.0</ind><dep> 39</dep></entry>
+   </interpolation>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.006</z-m>
+  </center>
+</animation>
+
+ <animation>
+   <type>material</type>
+   <object-name>back</object-name>
+   <object-name>vf-150-needle</object-name>
+   <emission>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>0.7</blue>
+     <factor-prop>controls/lighting/panel-elec_red</factor-prop>
+   </emission>
+ </animation>
+
+<!-- TEXT OSG -->
+  <animation>
+    <type>select</type>
+    <object-name>textvf150</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+  <text>
+    <name>textvf150</name>
+    <type type="string">literal</type>
+    <text type="string">VF-150 Volt- meter</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.014</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.05</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>0.005</x-m>
+      <y-m>0.000</y-m>
+      <z-m>0.000</z-m>
+    </offsets>
+  </text>
+  <animation>
+    <type>material</type>
+    <object-name>textvf150</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>

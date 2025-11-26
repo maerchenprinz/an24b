@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<!-- Any door/hatch open -->
+<PropertyList>
+ <path>../../../shared/lamps/warninglamp02.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>holder</object-name>
+  <object-name>lampon</object-name>
+  <texture>../../../shared/lamps/warninglamp02green.png</texture>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <condition>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/AZSmain_V</property>
+     <value>20.0</value>
+    </greater-than>
+    <equals>
+     <property>an24/AZS/sw0315</property>
+     <value>1.0</value>
+    </equals>
+    <or>
+     <greater-than>
+      <property>an24/doorshatches/test</property>
+      <value>0.8</value>
+     </greater-than>
+     <greater-than>
+      <property>an24/DoorsHatches/cargodoor</property>
+      <value>0.0</value>
+     </greater-than>
+    <greater-than>
+     <property>an24/DoorsHatches/bagdoor</property>
+     <value>0.0</value>
+    </greater-than>
+    <!--greater-than>
+     <property>an24/DoorsHatches/pressuredoor</property>
+     <value>0.0</value>
+    </greater-than-->
+     <greater-than>
+      <property>an24/DoorsHatches/paxdoor</property>
+      <value>0.0</value>
+     </greater-than>
+    </or>
+    </and>
+   </condition>
+  <object-name>lampon</object-name>
+ </animation>
+
+</PropertyList>

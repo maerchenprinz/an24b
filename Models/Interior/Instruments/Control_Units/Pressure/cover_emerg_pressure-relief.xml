@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<!-- Emergency/descent pressure-relief Valve 127 switch cover -->
+<PropertyList>
+ <path>../../../shared/switches/cover_for_switch.ac</path>
+
+ <animation>
+  <type>pick</type>
+  <object-name>cover</object-name>
+  <visible>true</visible>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+        if( getprop("an24/Air-Cond/cvr_press-relief-Valves_127" ) == 1.0 ){
+        interpolate("an24/Air-Cond/cvr_press-relief-Valves_127", 0.0, 0.2 );
+        }
+        else {
+        interpolate("an24/Air-Cond/cvr_press-relief-Valves_127", 1.0, 0.2 );
+        }
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+   <type>rotate</type>
+   <object-name>cover</object-name>
+   <property>an24/Air-Cond/cvr_press-relief-Valves_127</property>
+   <factor>140</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>-0.02</y-m>
+    <z-m>0.008</z-m>
+  </center>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+ </animation>
+ 
+</PropertyList>

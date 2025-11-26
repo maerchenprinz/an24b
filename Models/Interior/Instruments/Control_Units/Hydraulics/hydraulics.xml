@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<!-- Bottom of mp -->
+<model>
+ <path>mp_sw01_emergpump465.xml</path>
+  <offsets>
+   <pitch-deg>-25</pitch-deg>
+   <x-m>2.113</x-m>
+   <y-m>-0.369</y-m>
+   <z-m>0.652</z-m>
+  </offsets>
+</model>
+
+</PropertyList>

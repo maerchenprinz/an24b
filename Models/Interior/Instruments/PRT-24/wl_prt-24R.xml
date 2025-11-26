@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!-- PRT-24 warning lamp (system inop) -->
+<PropertyList>
+ <path>../../shared/lamps/sltsn.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>holder</object-name>
+  <object-name>lampon</object-name>
+  <texture>../../shared/lamps/sltsnredplain.png</texture>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>lampon</object-name>
+  <visible>false</visible>
+ </animation>
+
+</PropertyList>

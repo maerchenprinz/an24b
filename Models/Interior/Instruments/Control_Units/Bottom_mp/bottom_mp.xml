@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<!-- Lamp row at bottom of middle panel, numbered left to right -->
+
+<PropertyList>
+
+ <model>
+  <path>wl_02_oxygen.xml</path>
+   <offsets>
+    <x-m>2.096</x-m>
+    <y-m>-0.125</y-m>
+    <z-m>0.707</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_03_min_oil_left.xml</path>
+   <offsets>
+    <x-m>2.096</x-m>
+    <y-m>-0.086</y-m>
+    <z-m>0.707</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_04_min_oil_right.xml</path>
+   <offsets>
+    <x-m>2.096</x-m>
+    <y-m>-0.0607</y-m>
+    <z-m>0.707</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_05_STG_failure_left.xml</path>
+   <offsets>
+    <x-m>2.096</x-m>
+    <y-m>-0.019</y-m>
+    <z-m>0.707</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_06_STG_failure_right.xml</path>
+   <offsets>
+    <x-m>2.096</x-m>
+    <y-m>0.003</y-m>
+    <z-m>0.707</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_07_emergency_power_27V.xml</path>
+   <offsets>
+    <x-m>2.096</x-m>
+    <y-m>0.031</y-m>
+    <z-m>0.707</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_08_GO_failure_left.xml</path>
+   <offsets>
+    <x-m>2.096</x-m>
+    <y-m>0.0708</y-m>
+    <z-m>0.707</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_09_GO_failure_right.xml</path>
+   <offsets>
+    <x-m>2.096</x-m>
+    <y-m>0.093</y-m>
+    <z-m>0.707</z-m>
+   </offsets>
+ </model>
+
+</PropertyList>

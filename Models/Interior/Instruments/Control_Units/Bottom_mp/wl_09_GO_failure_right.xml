@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- GO-16 AC generator failure warning light -->
+<PropertyList>
+ <path>../../../shared/lamps/sltsn.ac</path>
+
+<animation>
+ <type>material</type>
+ <object-name>holder</object-name>
+ <object-name>lampon</object-name>
+ <texture>../../../shared/lamps/sltsnredplain.png</texture>
+</animation>
+
+<animation>
+ <type>select</type>
+ <condition>
+  <and>
+   <greater-than>
+    <property>an24/Electrics/AZSemerg_V</property>
+    <value>24.0</value>
+   </greater-than>
+   <or>
+    <less-than>
+     <property>an24/Electrics/AC_Gen_GO16r_V</property>
+     <value>113.0</value>
+    </less-than>
+    <equals>
+     <property>an24/Electrical_Panel/sw_go16r</property>
+     <value>0.0</value>
+    </equals>
+    </or>
+   </and>
+  </condition>
+ <object-name>lampon</object-name>
+</animation>
+
+</PropertyList>
