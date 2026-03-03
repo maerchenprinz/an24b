@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>paxsection.ac</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </offsets>
+
+<!--PAX Door-->
+ <animation>
+  <type>pick</type>
+  <object-name>PAXDoor</object-name>
+  <visible>true</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if( getprop("an24/DoorsHatches/paxdoor" ) == 0.0 ) {
+	interpolate("an24/DoorsHatches/paxdoor", 1.0, 2.0 );
+	}
+	else {
+	interpolate("an24/DoorsHatches/paxdoor", 0.0, 2.0 );
+	}
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>PAXDoor</object-name>
+  <property>an24/DoorsHatches/paxdoor</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>0.15</ind><dep>0.14</dep></entry>
+    <entry><ind>1.0</ind><dep>0.16</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>    
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>PAXDoor</object-name>
+  <property>an24/DoorsHatches/paxdoor</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>0.3</ind><dep>0.0</dep></entry>
+    <entry><ind>1.0</ind><dep>0.61</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>    
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>PAXDoor</object-name>
+  <property>an24/DoorsHatches/paxdoor</property>
+  <interpolation>
+   <entry><ind>0.0</ind><dep>0.0</dep></entry>
+   <entry><ind>0.15</ind><dep>0.0</dep></entry>
+   <entry><ind>1.0</ind><dep>7.0</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>15.76</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>    
+  </center>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>    
+  </axis>
+ </animation>
+
+<!--Baggage Compartment Door-->
+ <animation>
+  <type>pick</type>
+  <object-name>BagDoor</object-name>
+  <visible>true</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if( getprop("an24/DoorsHatches/bagdoor" ) == 0.0 ) {
+	interpolate("an24/DoorsHatches/bagdoor", 1.0, 2.0 );
+	}
+	else {
+	interpolate("an24/DoorsHatches/bagdoor", 0.0, 2.0 );
+	}
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>BagDoor</object-name>
+  <property>an24/DoorsHatches/bagdoor</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>0.1</ind><dep>-0.1</dep></entry>
+    <entry><ind>1.0</ind><dep>-0.18</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>    
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>BagDoor</object-name>
+  <property>an24/DoorsHatches/bagdoor</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>0.15</ind><dep>0.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-0.50</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>    
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>BagDoor</object-name>
+  <property>an24/DoorsHatches/bagdoor</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>0.15</ind><dep>0.0</dep></entry>
+    <entry><ind>1.0</ind><dep>0.02</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>    
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>BagDoor</object-name>
+  <property>an24/DoorsHatches/bagdoor</property>
+  <interpolation>
+   <entry><ind>0.0</ind><dep>0.0</dep></entry>
+   <entry><ind>0.15</ind><dep>0.0</dep></entry>
+   <entry><ind>1.0</ind><dep>7.0</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>17.2</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>    
+  </center>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>    
+  </axis>
+ </animation>
+
+</PropertyList>

@@ -2,6 +2,11 @@
 
 <PropertyList>
  <path>crewsection.ac</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </offsets>
 
   <effect>
    <inherits-from>Effects/model-transparent</inherits-from>
@@ -9,8 +14,6 @@
   </effect>
   <effect>
    <inherits-from>Aircraft/an24b/Models/Effects/alu</inherits-from>
-   <!--object-name>hull</object-name-->
-   <!--object-name>emerg_hatch_top_int</object-name-->
    <object-name>engrack</object-name>
    <object-name>KRP-FM</object-name>
    <object-name>GRP-2M</object-name>
@@ -56,9 +59,9 @@
     <z>0</z>
    </axis>
    <center>
-    <x-m>3.935</x-m>
+    <x-m>4.035</x-m>
     <y-m>0.0</y-m>
-    <z-m>-0.341</z-m>
+    <z-m>-0.6261</z-m>
    </center>
     <action>
      <binding>
@@ -79,9 +82,9 @@
    <property>an24/Air-Cond/handle_left</property>
    <factor>-90</factor>
   <center>
-   <x-m>3.1586</x-m>
+   <x-m>3.2586</x-m>
    <y-m>0.0</y-m>
-   <z-m>0.853</z-m>
+   <z-m>0.5679</z-m>
   </center>
   <axis>
     <x>0.0</x>
@@ -115,9 +118,9 @@
    <property>an24/Air-Cond/handle_right</property>
    <factor>-90</factor>
   <center>
-   <x-m>3.24</x-m>
+   <x-m>3.34</x-m>
    <y-m>0.0</y-m>
-   <z-m>0.756</z-m>
+   <z-m>0.471</z-m>
   </center>
   <axis>
     <x>0.0</x>
@@ -177,7 +180,7 @@
    <entry><ind>1.0</ind><dep>92.0</dep></entry>
   </interpolation>
   <center>
-    <x-m>4.015</x-m>
+    <x-m>4.115</x-m>
     <y-m>-0.276</y-m>
     <z-m>0.0</z-m>    
   </center>
@@ -193,9 +196,9 @@
   <name>RPSN-2</name>
   <path>Instruments/RPSN/block4sh.xml</path>
   <offsets>
-    <x-m>3.33</x-m>
+    <x-m>3.43</x-m>
     <y-m>-0.97</y-m>
-    <z-m>0.8</z-m>
+    <z-m>0.515</z-m>
     <roll-deg>25</roll-deg>
   </offsets>
  </model>
@@ -204,9 +207,9 @@
   <name>SPU-7</name>
   <path>Instruments/SPU-7/navspu-7.xml</path>
   <offsets>
-    <x-m>3.985</x-m>
+    <x-m>4.085</x-m>
     <y-m>-0.69</y-m>
-    <z-m>1.041</z-m>
+    <z-m>0.756</z-m>
     <heading-deg>180</heading-deg>
   </offsets>
  </model>
@@ -215,9 +218,9 @@
   <name>AChS-1</name>
   <path>Instruments/ACHS-1/navachs-1.xml</path>
   <offsets>
-    <x-m>3.9303</x-m>
+    <x-m>4.0303</x-m>
     <y-m>-0.917</y-m>
-    <z-m>0.8706</z-m>
+    <z-m>0.585506</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
  </model>
@@ -226,9 +229,9 @@
   <name>ARK-11-1</name>
   <path>Instruments/ARK-11/navark-11-1.xml</path>
   <offsets>
-    <x-m>3.85</x-m>
+    <x-m>3.95</x-m>
     <y-m>-0.832</y-m>
-    <z-m>1.165</z-m>
+    <z-m>0.88</z-m>
     <heading-deg>90</heading-deg>
     <pitch-deg>130</pitch-deg>
   </offsets>
@@ -238,9 +241,9 @@
   <name>ARK-Indicator-1</name>
   <path>Instruments/M5-2/navm5-2-1.xml</path>
   <offsets>
-    <x-m>3.8141</x-m>
+    <x-m>3.9144</x-m>
     <y-m>-0.747</y-m>
-    <z-m>1.269</z-m>
+    <z-m>0.984</z-m>
     <heading-deg>90</heading-deg>
     <pitch-deg>40</pitch-deg>
   </offsets>
@@ -250,9 +253,9 @@
   <name>ARK-11-2</name>
   <path>Instruments/ARK-11/navark-11-2.xml</path>
   <offsets>
-    <x-m>3.626</x-m>
+    <x-m>3.726</x-m>
     <y-m>-0.832</y-m>
-    <z-m>1.165</z-m>
+    <z-m>0.88</z-m>
     <heading-deg>90</heading-deg>
     <pitch-deg>130</pitch-deg>
   </offsets>
@@ -262,9 +265,9 @@
   <name>ARK-Indicator-2</name>
   <path>Instruments/M5-2/navm5-2-2.xml</path>
   <offsets>
-    <x-m>3.7324</x-m>
+    <x-m>3.8326</x-m>
     <y-m>-0.747</y-m>
-    <z-m>1.269</z-m>
+    <z-m>0.984</z-m>
     <heading-deg>90</heading-deg>
     <pitch-deg>40</pitch-deg>
   </offsets>
@@ -274,9 +277,9 @@
   <name>ARK-USH</name>
   <path>Instruments/ARK-11/nav_ark-ush.xml</path>
   <offsets>
-    <x-m>3.741</x-m>
+    <x-m>3.841</x-m>
     <y-m>-0.907</y-m>
-    <z-m>0.9712</z-m>
+    <z-m>0.6861</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
  </model>
@@ -285,9 +288,9 @@
   <name>ZK-2</name>
   <path>Instruments/ZK-2/nav_zk-2.xml</path>
   <offsets>
-    <x-m>3.8466</x-m>
+    <x-m>3.9466</x-m>
     <y-m>-0.924</y-m>
-    <z-m>0.8705</z-m>
+    <z-m>0.5854</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
  </model>
@@ -296,9 +299,9 @@
   <name>KUS-730-1100</name>
   <path>Instruments/KUS-730/navkus730_1100.xml</path>
   <offsets>
-    <x-m>3.6235</x-m>
+    <x-m>3.7235</x-m>
     <y-m>-0.921</y-m>
-    <z-m>0.817</z-m>
+    <z-m>0.5319</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
  </model>
@@ -307,9 +310,9 @@
   <name>UVO-15M</name>
   <path>Instruments/UVO-15M/navuvo-15m.xml</path>
   <offsets>
-    <x-m>3.6238</x-m>
+    <x-m>3.7238</x-m>
     <y-m>-0.922</y-m>
-    <z-m>0.9104</z-m>
+    <z-m>0.6253</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
  </model>
@@ -318,9 +321,9 @@
   <name>KM-8</name>
   <path>Instruments/KM-8/km-8.xml</path>
   <offsets>
-    <x-m>3.9303</x-m>
+    <x-m>4.0303</x-m>
     <y-m>-0.903</y-m>
-    <z-m>0.957</z-m>
+    <z-m>0.672</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
  </model>
@@ -329,9 +332,9 @@
   <name>PU-27</name>
   <path>Instruments/PU-27/pu-27.xml</path>
   <offsets>
-    <x-m>3.77</x-m>
+    <x-m>3.87</x-m>
     <y-m>-0.928</y-m>
-    <z-m>0.709</z-m>
+    <z-m>0.4239</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
  </model>
@@ -340,9 +343,9 @@
   <name>TNV-1</name>
   <path>Instruments/TNV-1/nav_tnv-1.xml</path>
   <offsets>
-    <x-m>3.938</x-m>
+    <x-m>4.038</x-m>
     <y-m>-0.921</y-m>
-    <z-m>0.7956</z-m>
+    <z-m>0.5105</z-m>
     <heading-deg>90</heading-deg>
   </offsets>
  </model>
@@ -351,9 +354,9 @@
   <name>FireTestPanel</name>
   <path>Panels/FireTestPanel/firetestpanel.xml</path>
   <offsets>
-    <x-m>3.238</x-m>
+    <x-m>3.338</x-m>
     <y-m>-0.71</y-m>
-    <z-m>1.436</z-m>
+    <z-m>1.1509</z-m>
     <pitch-deg>63</pitch-deg>
     <heading-deg>90</heading-deg>
     <roll-deg>-3</roll-deg>
@@ -365,9 +368,9 @@
   <name>Book</name>
   <path>Extras/book1.xml</path>
   <offsets>
-    <x-m>3.73</x-m>
+    <x-m>3.83</x-m>
     <y-m>0.6</y-m>
-    <z-m>0.332</z-m>
+    <z-m>0.047</z-m>
     <heading-deg>-70</heading-deg>
   </offsets>
  </model>
@@ -386,7 +389,7 @@
    <center>
     <x-m>0.0</x-m>
     <y-m>1.147</y-m>
-    <z-m>0.323</z-m>
+    <z-m>0.038</z-m>
    </center>
     <action>
     <binding>
@@ -409,9 +412,9 @@
   <name>Electrical_Panel</name>
   <path>Panels/Electrical_Panel/electrical_panel.xml</path>
   <offsets>
-    <x-m>3.899</x-m>
+    <x-m>4.0</x-m>
     <y-m>0.4698</y-m>
-    <z-m>0.61</z-m>
+    <z-m>0.325</z-m>
     <heading-deg>180</heading-deg>
   </offsets>
  </model>
@@ -420,9 +423,9 @@
   <name>RadioPanel</name>
   <path>Panels/RadioPanel/radiopanel.xml</path>
   <offsets>
-    <x-m>3.905</x-m>
+    <x-m>4.005</x-m>
     <y-m>0.805</y-m>
-    <z-m>0.612</z-m>
+    <z-m>0.327</z-m>
   </offsets>
  </model>
 
@@ -430,9 +433,9 @@
   <name>115_36VAC_Panel</name>
   <path>Panels/115_36VAC_panel_eng/115_36vac.xml</path>
   <offsets>
-    <x-m>3.768</x-m>
+    <x-m>3.868</x-m>
     <y-m>1.057</y-m>
-    <z-m>0.616</z-m>
+    <z-m>0.331</z-m>
     <heading-deg>232</heading-deg>
   </offsets>
  </model>
@@ -441,9 +444,9 @@
   <name>AZSPanel</name>
   <path>Panels/AZSPanel/azspanel.xml</path>
   <offsets>
-    <x-m>3.334</x-m>
+    <x-m>3.434</x-m>
     <y-m>0.886</y-m>
-    <z-m>1.06</z-m>
+    <z-m>0.775</z-m>
     <heading-deg>4</heading-deg>
     <roll-deg>32</roll-deg>
     <pitch-deg>-2</pitch-deg>
@@ -454,9 +457,9 @@
   <name>RKDIM</name>
   <path>Panels/RK_DIM/rkdim.xml</path>
   <offsets>
-    <x-m>3.306</x-m>
+    <x-m>3.406</x-m>
     <y-m>0.6956</y-m>
-    <z-m>1.4319</z-m>
+    <z-m>1.1468</z-m>
     <heading-deg>1.6</heading-deg>
     <roll-deg>61.8</roll-deg>
     <pitch-deg>-2</pitch-deg>
@@ -467,31 +470,9 @@
   <name>RKCrewCabin</name>
   <path>Panels/RKCrewCabin/rkcrewcabin.xml</path>
   <offsets>
-    <x-m>3.19</x-m>
+    <x-m>3.28</x-m>
     <y-m>1.076</y-m>
-    <z-m>0.168</z-m>
-  </offsets>
- </model>
-
- <model>
-  <name>SPU-7</name>
-  <path>Instruments/SPU-7/engspu-7.xml</path>
-  <offsets>
-    <x-m>3.9</x-m>
-    <y-m>0.883</y-m>
-    <z-m>0.64</z-m>
-    <heading-deg>180</heading-deg>
-  </offsets>
- </model>
-
- <model>
-  <name>US-8K</name>
-  <path>Instruments/US-8K/eng_us-8k.xml</path>
-  <offsets>
-    <x-m>3.904</x-m>
-    <y-m>0.849</y-m>
-    <z-m>0.451</z-m>
-    <heading-deg>180</heading-deg>
+    <z-m>-0.1171</z-m>
   </offsets>
  </model>
 
@@ -499,20 +480,9 @@
   <name>R-836b1b2b3b4</name>
   <path>Instruments/R-836/eng_r-836b1b2b3b4.xml</path>
   <offsets>
-    <x-m>3.81</x-m>
+    <x-m>3.91</x-m>
     <y-m>0.6</y-m>
-    <z-m>1.065</z-m>
-  </offsets>
- </model>
-
- <model>
-  <name>R-836b6</name>
-  <path>Instruments/R-836/eng_r-836b6.xml</path>
-  <offsets>
-    <x-m>3.9092</x-m>
-    <y-m>0.7361</y-m>
-    <z-m>0.6516</z-m>
-    <heading-deg>180</heading-deg>
+    <z-m>0.782</z-m>
   </offsets>
  </model>
 
@@ -520,9 +490,9 @@
   <name>SVB-5</name>
   <path>Instruments/SVB-5/medium_wave_block.xml</path>
   <offsets>
-    <x-m>3.815</x-m>
+    <x-m>3.915</x-m>
     <y-m>0.43</y-m>
-    <z-m>1.365</z-m>
+    <z-m>1.08</z-m>
     <heading-deg>-90</heading-deg>
   </offsets>
  </model>
@@ -531,9 +501,9 @@
   <name>SVB-5_PU</name>
   <path>Instruments/SVB-5/svb-pu.xml</path>
   <offsets>
-    <x-m>3.715</x-m>
+    <x-m>3.815</x-m>
     <y-m>0.42</y-m>
-    <z-m>0.3385</z-m>
+    <z-m>0.0534</z-m>
     <heading-deg>-100</heading-deg>
   </offsets>
  </model>
@@ -543,9 +513,9 @@
   <name>WhiteLampleft</name>
   <path>shared/lamps/intlampwhite.xml</path>
   <offsets>
-    <x-m>3.318</x-m>
+    <x-m>3.418</x-m>
     <y-m>-0.558</y-m>
-    <z-m>1.523</z-m>
+    <z-m>1.238</z-m>
     <heading-deg>175</heading-deg>
     <roll-deg>67</roll-deg>
   </offsets>
@@ -555,9 +525,9 @@
   <name>RedLampleft</name>
   <path>shared/lamps/intlampred.xml</path>
   <offsets>
-    <x-m>3.4514</x-m>
+    <x-m>3.5514</x-m>
     <y-m>-0.5668</y-m>
-    <z-m>1.5338</z-m>
+    <z-m>1.2487</z-m>
     <heading-deg>-185</heading-deg>
     <roll-deg>67</roll-deg>
   </offsets>
@@ -567,9 +537,9 @@
   <name>WhiteLampright</name>
   <path>shared/lamps/intlampred.xml</path>
   <offsets>
-    <x-m>3.318</x-m>
+    <x-m>3.418</x-m>
     <y-m>0.558</y-m>
-    <z-m>1.523</z-m>
+    <z-m>1.238</z-m>
     <heading-deg>5</heading-deg>
     <roll-deg>67</roll-deg>
     <!--pitch-deg>-2</pitch-deg-->
@@ -580,9 +550,9 @@
   <name>RedLampright</name>
   <path>shared/lamps/intlampwhite.xml</path>
   <offsets>
-    <x-m>3.4514</x-m>
+    <x-m>3.5514</x-m>
     <y-m>0.566</y-m>
-    <z-m>1.5312</z-m>
+    <z-m>1.238</z-m>
     <heading-deg>5</heading-deg>
     <roll-deg>67</roll-deg>
     <!--pitch-deg>-2</pitch-deg-->
@@ -593,9 +563,9 @@
   <name>SBK_lamp</name>
   <path>shared/lamps/SBK_nav.xml</path>
   <offsets>
-    <x-m>3.91</x-m>
+    <x-m>4.01</x-m>
     <y-m>-0.58</y-m>
-    <z-m>1.16</z-m>
+    <z-m>0.875</z-m>
     <pitch-deg>-90</pitch-deg>
     <roll-deg>190</roll-deg>
   </offsets>

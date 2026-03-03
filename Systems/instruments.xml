@@ -780,7 +780,7 @@
 <!--########################################
 ## R-802 COMM Radios
 #########################################-->
- <channel name="R-802" execrate="80">
+ <channel name="R-802 Power" execrate="80">
 
  <switch name="/an24/R-802/power-1">
   <default value="0"/>
@@ -801,6 +801,46 @@
 	/an24/Electrics/RKRadioOpmain_phIIb_V GT 110.0
   </test>
  </switch>
+
+ </channel>
+
+ <channel name="R-802 Signal" execrate="120">
+
+ <fcs_function name="/instrumentation/comm[0]/volume">
+  <function>
+
+  <ifthen>
+   <eq>
+    <property>/instrumentation/comm[0]/volume-raw</property>
+    <value>0.0</value>
+   </eq>
+   <value>0.0</value>
+   <product>
+    <property>/instrumentation/comm[0]/volume-raw</property>
+    <property>/instrumentation/comm[0]/signal-quality-norm</property>
+   </product>
+  </ifthen>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/instrumentation/comm[1]/volume">
+  <function>
+
+  <ifthen>
+   <eq>
+    <property>/instrumentation/comm[1]/volume-raw</property>
+    <value>0.0</value>
+   </eq>
+   <value>0.0</value>
+   <product>
+    <property>/instrumentation/comm[1]/volume-raw</property>
+    <property>/instrumentation/comm[1]/signal-quality-norm</property>
+   </product>
+  </ifthen>
+
+  </function>
+ </fcs_function>
 
  </channel>
 

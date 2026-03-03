@@ -42,17 +42,16 @@
 </animation>
 
 <!-- TEXT OSG -->
-
   <animation>
     <type>select</type>
-    <object-name>textosg</object-name>
+    <object-name>textosgvp46</object-name>
     <condition>
       <property>sim/panel-hotspots</property>
     </condition>
   </animation>
 
   <text>
-    <name>textosg</name>
+    <name>textosgvp46</name>
     <type type="string">literal</type>
     <text type="string">VP-46 Volt- meter</text>
     <draw-text type="bool">true</draw-text>
@@ -68,18 +67,18 @@
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>  0.005 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m>  0.000 </z-m>
+      <x-m>0.005</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
   <animation>
     <type>material</type>
-    <object-name>textosg</object-name>
+    <object-name>textosgvp46</object-name>
     <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
     </emission>
   </animation>
 

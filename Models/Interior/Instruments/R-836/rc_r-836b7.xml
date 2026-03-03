@@ -134,7 +134,7 @@
 <!-- Text OSG -->
   <animation>
     <type>select</type>
-    <object-name>textosg</object-name>
+    <object-name>textosgr836b7</object-name>
     <condition>
      <or>
       <property>sim/panel-hotspots</property>
@@ -144,16 +144,16 @@
   </animation>
 
   <text>
-    <name>textosg</name>
+    <name>textosgr836b7</name>
     <type type="string">literal</type>
-    <text type="string">R-836 Radio</text>
+    <text type="string">NEON Transmitter R-836</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
-    <character-size type="double">0.014</character-size>
+    <character-size type="double">0.020</character-size>
     <character-aspect-ratio type="double">1.0</character-aspect-ratio>
     <axis-alignment>yz-plane</axis-alignment>
-    <max-height>0.06</max-height>
-    <max-width>0.05</max-width>
+    <max-height>0.08</max-height>
+    <max-width>0.1</max-width>
     <font-resolution>
       <width type="int">64</width>
       <height type="int">64</height>
@@ -167,7 +167,7 @@
   </text>
   <animation>
     <type>material</type>
-    <object-name>textosg</object-name>
+    <object-name>textosgr836b7</object-name>
     <emission>
       <red>1.0</red>
       <green>1.0</green>

@@ -178,23 +178,23 @@ var panelpoweroh_115v = func {
 
 ###########
 var addfreqs1 = func {
- var subband = getprop("an24/ARK-11/sub-band-khz-1");
- var finetune = getprop("an24/ARK-11/fine-khz-1");
- var finalfreq = finetune + subband ;
- setprop("an24/ARK-11/final-freq-1", finalfreq);
- setprop("instrumentation/adf[0]/frequencies/selected-khz", finalfreq);
- setprop("instrumentation/adf[2]/frequencies/selected-khz", finalfreq);
+ var subband1 = getprop("an24/ARK-11/sub-band-khz-1");
+ var finetune1 = getprop("an24/ARK-11/fine-khz-1");
+ var finalfreq1 = finetune1 + subband1 ;
+ setprop("an24/ARK-11/final-freq-1", finalfreq1);
+ setprop("instrumentation/adf[0]/frequencies/selected-khz", finalfreq1);
+ setprop("instrumentation/adf[2]/frequencies/selected-khz", finalfreq1);
 }
  setlistener("an24/ARK-11/sub-band-khz-1", addfreqs1, 0, 0);
  setlistener("an24/ARK-11/fine-khz-1", addfreqs1, 0, 0);
 
 var addfreqs2 = func {
- var subband = getprop("an24/ARK-11/sub-band-khz-2");
- var finetune = getprop("an24/ARK-11/fine-khz-2");
- var finalfreq = finetune + subband ;
- setprop("an24/ARK-11/final-freq-2", finalfreq);
- setprop("/instrumentation/adf[1]/frequencies/selected-khz", finalfreq);
- setprop("/instrumentation/adf[3]/frequencies/selected-khz", finalfreq);
+ var subband2 = getprop("an24/ARK-11/sub-band-khz-2");
+ var finetune2 = getprop("an24/ARK-11/fine-khz-2");
+ var finalfreq2 = finetune2 + subband2 ;
+ setprop("an24/ARK-11/final-freq-2", finalfreq2);
+ setprop("/instrumentation/adf[1]/frequencies/selected-khz", finalfreq2);
+ setprop("/instrumentation/adf[3]/frequencies/selected-khz", finalfreq2);
 }
  setlistener("an24/ARK-11/sub-band-khz-2", addfreqs2, 0, 0);
  setlistener("an24/ARK-11/fine-khz-2", addfreqs2, 0, 0);

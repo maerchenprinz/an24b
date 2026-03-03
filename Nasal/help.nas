@@ -1,3 +1,11 @@
+var help_winSteermode = screen.window.new();
+help_winSteermode.fg = [1,1,1,1];
+help_winSteermode.x = -20 ;
+help_winSteermode.y = 20 ;
+help_winSteermode.align = "right" ;
+help_winSteermode.maxlines = 1 ;
+help_winSteermode.autoscroll = 2 ;
+
 var help_winFlaps = screen.window.new();
 help_winFlaps.fg = [1,1,1,1];
 help_winFlaps.x = -20 ;
@@ -48,10 +56,35 @@ help_winMass.align = "left" ;
 help_winMass.maxlines = 1 ;
 help_winMass.autoscroll = 10 ;
 
+# Setting Steer mode to OFF/Pedal steering 
+var SteerModeAuto = func {
+	var GearPosition = getprop("gear/gear/position-norm");
+	var SteerMode = getprop("an24/gear/steer_mode");
+	var SteerModePowered = getprop("an24/AZS/sw0317");
+	var AutoSteerModeON = getprop("/fdm/jsbsim/fcs/realism/auto_steer_mode");
+ 
+	if (GearPosition == 1.0 and SteerModePowered == 1.0 and AutoSteerModeON == 1) {
+	SteerMode = 2.0;
+        setprop("controls/gear/nose-wheel-steering", 1.0 );
+        setprop("fdm/jsbsim/gear/nose-wheel-steering", 1.0 );
+        setprop("controls/gear/steering", 10.0 );
+        setprop("fdm/jsbsim/gear/steering", 10.0 );
+	help_winSteermode.write(sprintf("Pedal Steering ON"));
+	}
+	if (GearPosition == 0.0 and AutoSteerModeON == 1) {
+	SteerMode = 1.0;
+        setprop("controls/gear/nose-wheel-steering", 0.0 );
+        setprop("fdm/jsbsim/gear/nose-wheel-steering", 0.0 );
+	help_winSteermode.write(sprintf("Steering OFF"));
+	}
+	setprop("an24/gear/steer_mode", SteerMode);
+}
+ setlistener("gear/gear/position-norm", SteerModeAuto, 0, 0 );
+
 # Printing flaps position when in transit
 var flaps = func {
    var flaps_pos_deg = getprop("/fdm/jsbsim/fcs/flap-pos-deg");
-   if(  flaps_pos_deg == nil ) flaps_pos_deg = 0.0;
+   if (  flaps_pos_deg == nil ) flaps_pos_deg = 0.0;
    help_winFlaps.write(sprintf("Flaps position: %.0f degrees", flaps_pos_deg) );
 }
  setlistener( "surface-positions/flap-pos-norm", flaps, 0, 0 );
@@ -79,7 +112,7 @@ var idle_lock = func {
    if(  idle_lock_pos == nil ) idle_lock_pos = 12;
    if ( idle_lock_pos < 12) idle_lock_pos = 12;
    if ( idle_lock_pos > 22) idle_lock_pos = 22;
-   setprop("/controls/engines/idle-lock-pos", idle_lock_pos); 
+   setprop("/controls/engines/idle-lock-pos", idle_lock_pos);
    help_winIdleLock.write(sprintf("Idle lock: %.0f degrees UPRT", idle_lock_pos) );
 }
  setlistener( "/controls/engines/idle-lock-pos", idle_lock, 0, 0 );

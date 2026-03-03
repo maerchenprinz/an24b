@@ -50,11 +50,15 @@
   </axis>
     <action>
      <binding>
-      <command>property-adjust</command>
+     <command>property-cycle</command>
       <property>an24/ARK-11/mode-2</property>
-      <factor>-1</factor>
+      <value type="int">4</value>
+      <value type="int">3</value>
+      <value type="int">2</value>
+      <value type="int">1</value>
+      <value type="int">0</value>
       <min>0</min>
-      <max>4</max>                
+      <max>4</max>
       <wrap>false</wrap>
      </binding>
     <binding>
@@ -62,7 +66,7 @@
       <script>
 	var adf2mode = ['off', 'adf', 'ant', 'off', 'adf'];
 	setprop("/instrumentation/adf[1]/mode", adf2mode[getprop("an24/ARK-11/mode-2")] );
-	var adf4mode = ['off', 'off', 'adf', 'adf', 'off'];
+	var adf4mode = ['off', 'adf', 'off', 'adf', 'adf'];
 	setprop("/instrumentation/adf[3]/mode", adf4mode[getprop("an24/ARK-11/mode-2")] );
 	if ( getprop("an24/ARK-11/mode-2") == 1.0 or getprop("an24/ARK-11/mode-2") == 4.0 ) {
 	interpolate("an24/ARK-11/frame-offset-2", 0.0, 1.2 );

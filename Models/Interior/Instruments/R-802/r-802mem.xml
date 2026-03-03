@@ -156,7 +156,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/comm/cutoff-signal-quality", 0.6, 0.1 );
+        interpolate("instrumentation/comm[0]/cutoff-signal-quality", 0.8, 0.1 );
       </script>
     </binding>
   </action>
@@ -164,7 +164,7 @@
      <binding>
       <command>set-tooltip</command>
       <tooltip-id>r802-1-nron</tooltip-id>
-      <label>  Noise
+      <label>   Noise
 Reduction
      ON</label>
      </binding>
@@ -181,7 +181,7 @@ Reduction
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/comm/cutoff-signal-quality", 0.1, 0.1 );
+        interpolate("instrumentation/comm[0]/cutoff-signal-quality", 0.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -189,7 +189,7 @@ Reduction
      <binding>
       <command>set-tooltip</command>
       <tooltip-id>r802-1-nroff</tooltip-id>
-      <label>  Noise
+      <label>   Noise
 Reduction
     OFF</label>
      </binding>
@@ -199,10 +199,10 @@ Reduction
  <animation>
    <type>rotate</type>
    <object-name>lever_nr1</object-name>
-   <property>instrumentation/comm/cutoff-signal-quality</property>
+   <property>instrumentation/comm[0]/cutoff-signal-quality</property>
   <interpolation>
-    <entry><ind>0.1</ind><dep>30.0</dep></entry>
-    <entry><ind>0.6</ind><dep>-30.0</dep></entry>
+    <entry><ind>0.0</ind><dep>30.0</dep></entry>
+    <entry><ind>0.8</ind><dep>-30.0</dep></entry>
   </interpolation>
    <axis>
     <x>0</x>

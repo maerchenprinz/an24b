@@ -292,7 +292,7 @@ setprop("an24/AChS/rc_wind_up", 1000 );
 		settimer( func{
 		setprop("an24/ARK-11/mode-nav", 1 );
 		setprop("/instrumentation/adf/mode", "adf" );
-		setprop("/instrumentation/adf[2]/mode", "off" );
+		setprop("/instrumentation/adf[2]/mode", "adf" );
 		interpolate("an24/ARK-11/kn_volume-nav", 1.0, 1.0 );
 		setprop("an24/R-802/sw_power-1", 1.0 );
 		setprop("an24/R-802/sw_power-2", 1.0 );

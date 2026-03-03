@@ -1109,24 +1109,24 @@
   <text>
     <name>textosgr836</name>
     <type type="string">literal</type>
-    <text type="string">R-836 Radio</text>
+    <text type="string">NEON Transmitter R-836</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.06</character-size>
     <character-aspect-ratio type="double">1.0</character-aspect-ratio>
     <axis-alignment>yz-plane</axis-alignment>
     <max-height>0.16</max-height>
-    <max-width>0.16</max-width>
+    <max-width>0.26</max-width>
     <font-resolution>
       <width type="int">64</width>
       <height type="int">64</height>
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>-0.2</x-m>
+      <x-m>-0.145</x-m>
       <y-m>0.0</y-m>
       <z-m>0.0</z-m>
-        <heading-deg>180</heading-deg>
+      <heading-deg>180</heading-deg>
     </offsets>
   </text>
   <animation>

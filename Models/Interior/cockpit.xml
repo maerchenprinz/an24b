@@ -2,6 +2,11 @@
 
 <PropertyList>
  <path>cockpit.ac</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </offsets>
 
   <model>
    <path>Aircraft/Generic/marker.xml</path>
@@ -432,6 +437,49 @@
     </action>
  </animation>
 
+<!-- Nose Gear Lock View Cap -->
+ <animation>
+  <type>pick</type>
+  <object-name>GearComp_Cap</object-name>
+  <visible>true</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if( getprop("an24/DoorsHatches/gearcomp_cap" ) == 0.0 ) {
+	interpolate("an24/DoorsHatches/gearcomp_cap", 1.0, 0.2 );
+	}
+	else {
+	interpolate("an24/DoorsHatches/gearcomp_cap", 0.0, 0.2 );
+	}
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>GearComp_Cap</object-name>
+  <property>an24/DoorsHatches/gearcomp_cap</property>
+  <interpolation>
+   <entry><ind>0.0</ind><dep>0.0</dep></entry>
+   <entry><ind>1.0</ind><dep>179.0</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.309</y-m>
+    <z-m>0.145</z-m>    
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>    
+  </axis>
+ </animation>
+
+
 <!--Yokes-->
 <animation>
   <type>rotate</type>
@@ -529,7 +577,7 @@
 <!-- Throttle levers -->
  <animation>
   <type>knob</type>
-   <object-name>thrustleverL</object-name>
+   <object-name>ThrustLeverL</object-name>
    <property>controls/engines/engine[0]/throttle-uprt-lever-force</property>
    <factor>-0.05</factor>
    <center>
@@ -561,9 +609,10 @@
   <object-name>ThrustLeverGlassL</object-name>
   <object-name>ThrustLeverSpringL</object-name>
   <object-name>IdleLockL</object-name>
+  <object-name>TripCatchL</object-name>
   <property>controls/engines/engine[0]/throttle-uprt-lever-angle</property>
-  <factor>0.6</factor><!--should maybe be 1.0(100deg)?-->
-  <offset-deg>-30.0</offset-deg>
+  <factor>0.7</factor><!--should maybe be 1.0(100deg)?-->
+  <offset-deg>-35.0</offset-deg>
   <center>
     <x-m>2.474</x-m>
     <y-m>0.0</y-m>
@@ -578,7 +627,7 @@
 
  <animation>
   <type>knob</type>
-   <object-name>thrustleverR</object-name>
+   <object-name>ThrustLeverR</object-name>
    <property>controls/engines/engine[1]/throttle-uprt-lever-force</property>
    <factor>-0.05</factor>
    <center>
@@ -610,6 +659,7 @@
   <object-name>ThrustLeverGlassR</object-name>
   <object-name>ThrustLeverSpringR</object-name>
   <object-name>IdleLockR</object-name>
+  <object-name>TripCatchR</object-name>
   <property>controls/engines/engine[1]/throttle-uprt-lever-angle</property>
   <factor>0.6</factor><!--should probably be 1.0(100deg)-->
   <offset-deg>-30.0</offset-deg>
@@ -627,20 +677,20 @@
 
  <animation>
   <type>rotate</type>
-  <object-name>idle-lockL</object-name>
-  <object-name>idle-lockR</object-name>
+  <object-name>IdleLockL</object-name>
+  <object-name>IdleLockR</object-name>
   <property>controls/engines/idle-lock</property>
-  <factor>-55.0</factor>
-  <offset-deg>55.0</offset-deg>
+  <factor>-45.0</factor>
+  <offset-deg>45.0</offset-deg>
   <axis>
     <x>0</x>
     <y>1</y>
     <z>0</z>    
   </axis>
   <center>
-    <x-m>2.475</x-m>
+    <x-m>2.4802</x-m>
     <y-m>0.0</y-m>
-    <z-m>0.645</z-m>
+    <z-m>0.6843</z-m>
   </center>
  </animation>
 
@@ -694,7 +744,7 @@
    <z-min>0.1</z-min>
    <x-factor>0.0</x-factor>
    <y-factor>0.0</y-factor>
-   <z-factor>1.0</z-factor>
+   <z-factor>0.04</z-factor>
  </animation>
 
 <!--Windows-->
@@ -796,7 +846,6 @@
     <z-m>0.9321</z-m>
   </offsets>
 </model>
-
 
 <!-- *************************************** -->
 <model>
@@ -925,7 +974,6 @@
   </offsets>
 </model>
 
-
 <!-- *************************************** -->
 <model>
   <name>UV-1</name>
@@ -940,7 +988,6 @@
 <!--##################################################
 # MIDDLE PANEL
 ###################################################-->
-
 <model>
   <name>Achs-1</name>
   <path>Instruments/ACHS-1/mpachs-1.xml</path>
@@ -970,8 +1017,6 @@
     <z-m>0.846</z-m>
   </offsets>
 </model>
-
-
 
 <!-- *************************************** -->
 <model>
@@ -2581,10 +2626,10 @@
 
 <!--########################################
 #### RPSN lamp -->
-<model>
+<!--model>
   <name>Above_AGD</name>
   <path>Instruments/Control_Units/Above_AGD/rpsn.xml</path>
-</model>
+</model-->
 
 <!--########################################
 #### AGD, EUP, CGV, GIK, GPK Switches -->
@@ -2936,6 +2981,14 @@
   <name>Signal-Horn</name>
   <path>Instruments/Control_Units/Signal-Horn/signal_horn.xml</path>
 </model>
+
+<!--########################################
+#### Transmission Warnings -->
+<model>
+  <name>TX_Warnings</name>
+  <path>Instruments/Control_Units/TransmissionWarnings/txwarnings.xml</path>
+</model>
+
 
 <!--########################################
 #### TG-16 -->

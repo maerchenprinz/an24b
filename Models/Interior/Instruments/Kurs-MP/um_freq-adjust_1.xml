@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- UM, Device to adjust frequency -->
+<!-- UM, Device to adjust frequency... -->
 <PropertyList>
  <path>um_freq-adjust.ac</path>
 

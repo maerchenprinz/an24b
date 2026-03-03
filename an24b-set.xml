@@ -96,7 +96,6 @@
    <tag>turboprop</tag>
    <tag>twin-engine</tag>
    <tag>variable-pitch</tag>
-   <tag>rembrandt</tag>
   </tags>
 
   <urls>
@@ -110,27 +109,31 @@
    <splash-texture>an-24b.jpg</splash-texture>
   </startup>
 
- <previews>
-  <preview>
-    <type>exterior</type>
-    <splash type="bool">false</splash>
-    <path>exterior.jpg</path>
-  </preview>
-  <preview>
-    <type>panel</type>
-    <splash type="bool">false</splash>
-    <path>panel.jpg</path>
-  </preview>
- </previews>
+  <previews>
+   <preview>
+     <type>exterior</type>
+     <splash type="bool">false</splash>
+     <path>exterior.jpg</path>
+   </preview>
+   <preview>
+     <type>panel</type>
+     <splash type="bool">false</splash>
+     <path>panel.jpg</path>
+   </preview>
+  </previews>
 
- <model>
-  <path>Models/An-24B.xml</path>
-  <fallback-model-index type="int">217</fallback-model-index>
- </model>
+  <model>
+   <path>Aircraft/an24b/Models/An-24B.xml</path>
+   <fallback-model-index type="int">217</fallback-model-index>
+  </model>
 
- <mouse>
-  <invert-mouse-wheel type="bool">1</invert-mouse-wheel>
- </mouse>
+  <sound>
+   <path>Aircraft/an24b/Sound/an24b-sound.xml</path>
+  </sound>
+
+  <mouse>
+   <invert-mouse-wheel type="bool">1</invert-mouse-wheel>
+  </mouse>
 
   <multiplay>
    <comm-transmit-frequency-hz type="double">100.00</comm-transmit-frequency-hz>
@@ -144,19 +147,17 @@
   <flight-model>jsb</flight-model>
   <aero>an24b</aero>
 
-  <sound>
-   <path>Sound/an24b-sound.xml</path>
-  </sound>
+  <chase-distance-m type="double" >-40.0</chase-distance-m>
 
   <view n="0">
    <name>Captain View</name>
-   <internal archive="y">true</internal>
+   <internal type="bool">true</internal>
    <config>
-   <x-offset-m archive="y">-0.47</x-offset-m>
-   <y-offset-m archive="y">1.27</y-offset-m>
-   <z-offset-m archive="y">-5.6</z-offset-m>
+   <x-offset-m>-0.47</x-offset-m>
+   <y-offset-m>-0.54</y-offset-m>
+   <z-offset-m>-5.99</z-offset-m>
    <pitch-offset-deg type="double">-13.0</pitch-offset-deg>
-   <default-field-of-view-deg type="double">74.0</default-field-of-view-deg>
+   <default-field-of-view-deg type="double">83.0</default-field-of-view-deg>
    </config>
   </view>
 
@@ -167,13 +168,13 @@
     <config>
       <from-model type="bool">true</from-model>
       <x-offset-m type="double" >0.47</x-offset-m>
-      <y-offset-m type="double" >1.28</y-offset-m>
-      <z-offset-m type="double" >-5.6</z-offset-m>
-      <pitch-offset-deg type="double">-11.0</pitch-offset-deg>
+      <y-offset-m type="double" >-0.5</y-offset-m>
+      <z-offset-m type="double" >-5.88</z-offset-m>
+      <pitch-offset-deg type="double">-14.0</pitch-offset-deg>
       <from-model-idx type="int">0</from-model-idx>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
-      <default-field-of-view-deg type="double">64.0</default-field-of-view-deg>
-      <default-pitch-deg type="double">0</default-pitch-deg>
+      <default-field-of-view-deg type="double">82.0</default-field-of-view-deg>
+      <!--default-pitch-deg type="double">0</default-pitch-deg>
       <default-heading-deg type="double">0</default-heading-deg>
       <front-direction-deg type="double">0</front-direction-deg>
       <front-left-direction-deg type="double">45</front-left-direction-deg>
@@ -183,7 +184,7 @@
       <back-right-direction-deg type="double">225</back-right-direction-deg>
       <right-direction-deg type="double">270</right-direction-deg>
       <front-right-direction-deg type="double">315</front-right-direction-deg>
-      <dynamic-view type="bool">true</dynamic-view>
+      <dynamic-view type="bool">true</dynamic-view-->
     </config>
   </view>
 
@@ -193,9 +194,9 @@
     <internal type="bool">true</internal>
     <config>
       <from-model type="bool">true</from-model>
-      <x-offset-m type="double" >0.66</x-offset-m>
-      <y-offset-m type="double" >0.84</y-offset-m>
-      <z-offset-m type="double" >-5.06</z-offset-m>
+      <x-offset-m type="double" >0.55</x-offset-m>
+      <y-offset-m type="double" >-0.94</y-offset-m>
+      <z-offset-m type="double" >-5.6</z-offset-m>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
       <default-field-of-view-deg type="double">84.0</default-field-of-view-deg>
       <default-pitch-deg type="double">0</default-pitch-deg>
@@ -212,9 +213,9 @@
     <internal type="bool">true</internal>
     <config>
       <from-model type="bool">true</from-model>
-      <x-offset-m type="double" >-0.33</x-offset-m>
-      <y-offset-m type="double" >1.15</y-offset-m>
-      <z-offset-m type="double" >-4.87</z-offset-m>
+      <x-offset-m type="double" >-0.43</x-offset-m>
+      <y-offset-m type="double" >-0.53</y-offset-m>
+      <z-offset-m type="double" >-5.21</z-offset-m>
       <from-model-idx type="int">0</from-model-idx>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
       <default-field-of-view-deg type="double">84.0</default-field-of-view-deg>
@@ -232,9 +233,9 @@
     <internal type="bool">true</internal>
     <config>
       <from-model type="bool">true</from-model>
-      <x-offset-m type="double" >-1.0</x-offset-m>
-      <y-offset-m type="double" >0.8</y-offset-m>
-      <z-offset-m type="double" >1.7</z-offset-m>
+      <x-offset-m type="double" >-1.11</x-offset-m>
+      <y-offset-m type="double" >-0.98</y-offset-m>
+      <z-offset-m type="double" >2.25</z-offset-m>
       <from-model-idx type="int">0</from-model-idx>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
       <default-field-of-view-deg type="double">84.0</default-field-of-view-deg>
@@ -394,8 +395,16 @@ Vref for less than 19 t: 200 km/h (flaps 38)
    <path>an24/radio-equip</path>
    <path>sim/gui/an24b/radio-standard</path>
    <path>sim/gui/an24b/radio-kurs_mp</path>
+
    <path>an24/ARK-11/mem1/fix1ff</path>
    <path>an24/ARK-11/mem1/fix1sb</path>
+   <path>instrumentation/comm[0]/frequencies/selected-mhz</path>
+   <path>instrumentation/comm[1]/frequencies/selected-mhz</path>
+   <path>fdm/jsbsim/fcs/realism/dme-enabled</path>
+   <path>fdm/jsbsim/fcs/realism/tiller-enabled</path>
+   <path>fdm/jsbsim/fcs/realism/auto_steer_mode</path>
+   <path>fdm/jsbsim/fcs/realism/disable_sp-50_offset</path>
+
    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[10]</path>
    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[11]</path>
    <path>fdm/jsbsim/inertia/pointmass-weight-lbs[12]</path>
@@ -1014,6 +1023,7 @@ Vref for less than 19 t: 200 km/h (flaps 38)
     <heading type="string">NONE</heading>
    </locks>
   </autopilot>
+
  <controls>
   <electric>
    <engine n="0">
@@ -1061,32 +1071,32 @@ Vref for less than 19 t: 200 km/h (flaps 38)
     <fuel>
       <tank n="0">
         <name>MAIN3 LH</name>
-        <!--unusable fuel becomes effective by fuel.nas-->
+        <!--unusable fuel becomes effective by fuelsystem.xml-->
         <!--unusable-gal_us>2.5</unusable-gal_us-->
       </tank>
       <tank n="1">
       <name>AUX2 LH</name>
-        <!--unusable fuel becomes effective by fuel.nas-->
+        <!--unusable fuel becomes effective by fuelsystem.xml-->
         <!--unusable-gal_us>2.5</unusable-gal_us-->
       </tank>
       <tank n="2">
       <name>AUX1 LH</name>
-        <!--unusable fuel becomes effective by fuel.nas-->
+        <!--unusable fuel becomes effective by fuelsystem.xml-->
         <!--unusable-gal_us>0.0</unusable-gal_us-->
       </tank>
       <tank n="3">
       <name>AUX1 RH</name>
-        <!--unusable fuel becomes effective by fuel.nas-->
+        <!--unusable fuel becomes effective by fuelsystem.xml-->
         <!--unusable-gal_us>0.0</unusable-gal_us-->
       </tank>
       <tank n="4">
         <name>AUX2 RH</name>
-        <!--unusable fuel becomes effective by fuel.nas-->
+        <!--unusable fuel becomes effective by fuelsystem.xml-->
         <!--unusable-gal_us>2.5</unusable-gal_us-->
       </tank>
       <tank n="5">
         <name>MAIN3 RH</name>
-        <!--unusable fuel becomes effective by fuel.nas-->
+        <!--unusable fuel becomes effective by fuelsystem.xml-->
         <!--unusable-gal_us>2.5</unusable-gal_us-->
       </tank>
     </fuel>
@@ -1096,9 +1106,10 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   <jsbsim>
    <fcs>
     <realism>
-     <dme-enabled type="double">1</dme-enabled>
-     <disable_sp-50_offset type="double">1</disable_sp-50_offset>
-     <tiller-enabled type="double">0</tiller-enabled>
+     <auto_steer_mode type="int">0</auto_steer_mode>
+     <disable_sp-50_offset type="int">1</disable_sp-50_offset>
+     <dme-enabled type="int">1</dme-enabled>
+     <tiller-enabled type="int">0</tiller-enabled>
     </realism>
     <steering>
      <steer-cmd-norm-final type="double">0</steer-cmd-norm-final>
@@ -1195,16 +1206,20 @@ Vref for less than 19 t: 200 km/h (flaps 38)
     <serviceable type="bool">true</serviceable>
   </clock>
   <comm n="0">
-   <cutoff-signal-quality type="double">0.1</cutoff-signal-quality>
+   <add-noise type="bool">false</add-noise>
+   <cutoff-signal-quality type="float">0.0</cutoff-signal-quality>
    <frequencies>
-    <selected-mhz type="double">100.0</selected-mhz>
+    <selected-mhz type="double">120.0</selected-mhz>
    </frequencies>
+   <volume-raw type="float">0.0</volume-raw>
   </comm>
   <comm n="1">
-   <cutoff-signal-quality type="double">0.1</cutoff-signal-quality>
+   <add-noise type="bool">false</add-noise>
+   <cutoff-signal-quality type="float">0.0</cutoff-signal-quality>
    <frequencies>
-    <selected-mhz type="double">100.0</selected-mhz>
+    <selected-mhz type="double">120.0</selected-mhz>
    </frequencies>
+   <volume-raw type="float">0.0</volume-raw>
   </comm>
   <marker-beacon>
     <audio-btn type="bool">false</audio-btn>
@@ -1267,6 +1282,8 @@ Vref for less than 19 t: 200 km/h (flaps 38)
     <!-- Necessary workaround to set operable to true -->
     <adf n="0" type="double">28.0</adf>
     <adf n="1" type="double">28.0</adf>
+    <adf n="2" type="double">28.0</adf>
+    <adf n="3" type="double">28.0</adf>
     <dme type="double">28.0</dme>
     <nav type="double">28.0</nav>
    </outputs>
@@ -1707,7 +1724,6 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   <sw0716 type="double">1.0</sw0716>
   <sw0717 type="double">1.0</sw0717>
   <sw0718 type="double">1.0</sw0718>
-
  </AZS>
 
  <DoorsHatches>
@@ -2123,7 +2139,16 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   </URVK-18>
 
   <US-8K>
+   <cnsl-choice type="int">0</cnsl-choice>
    <band type="int">0</band>
+   <band_eng type="int">0</band_eng>
+   <band_rc type="int">0</band_rc>
+   <mode type="int">0</mode>
+   <mode_eng type="int">0</mode_eng>
+   <mode_rc type="int">0</mode_rc>
+   <volume_gain type="float">0.0</volume_gain>
+   <volume_gain_eng type="float">0.0</volume_gain_eng>
+   <volume_gain_rc type="float">0.0</volume_gain_rc>
   </US-8K>
 
   <UZP-1>
@@ -2213,6 +2238,9 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   <stations>
     <file>Nasal/stations.nas</file>
   </stations>
+  <extras>
+    <file>Nasal/canvasbook.nas</file>
+  </extras>
   <view>
     <file>Nasal/view.nas</file>
   </view>

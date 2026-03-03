@@ -18,6 +18,10 @@
 <property value="0.04">/controls/engines/engine[1]/throttle-kp</property>
 <property value="0.0">/controls/engines/engine[1]/throttle-ki</property>
 <property value="0.01">/controls/engines/engine[1]/throttle-kd</property>
+<!--########################################
+## APD START SEQUENCE
+#########################################-->
+
 
 <!--########################################
 ## THROTTLE IDLE LOCK

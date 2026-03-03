@@ -3,7 +3,6 @@
 <PropertyList>
 
 <!-- switch below lp; Emergency red light or white cabin lighting-->
-
 <model>
  <path>sw_instrlights.xml</path>
   <offsets>
@@ -15,7 +14,6 @@
 </model>
 
 <!-- knobs on upper lc -->
-
 <model>
  <path>knob_l_panel_red.xml</path>
   <offsets>
@@ -47,7 +45,6 @@
 </model>
 
 <!-- knobs on lower rc -->
-
 <model>
  <path>knob_r_panel_red.xml</path>
   <offsets>
@@ -69,7 +66,6 @@
 </model>
 
 <!-- knobs on overhead panel -->
-
 <model>
  <path>knob_overhead_instr.xml</path>
   <offsets>
@@ -91,14 +87,13 @@
 </model>
 
 <!-- knobs on radio panel -->
-
 <model>
  <path>knob_radio_panel_instr.xml</path>
   <offsets>
     <pitch-deg>180</pitch-deg>
-    <x-m>3.897</x-m>
+    <x-m>3.997</x-m>
     <y-m>0.83</y-m>
-    <z-m>0.77</z-m>
+    <z-m>0.76</z-m>
   </offsets>
 </model>
 
@@ -106,19 +101,18 @@
  <path>knob_radio_panel.xml</path>
   <offsets>
     <pitch-deg>180</pitch-deg>
-    <x-m>3.897</x-m>
+    <x-m>3.997</x-m>
     <y-m>0.90</y-m>
-    <z-m>0.77</z-m>
+    <z-m>0.76</z-m>
   </offsets>
 </model>
 
 <!-- knobs on nav panel -->
-
 <model>
  <path>knob_nav_panel_instr_red.xml</path>
   <offsets>
     <heading-deg>90</heading-deg>
-    <x-m>3.65</x-m>
+    <x-m>3.75</x-m>
     <y-m>-0.918</y-m>
     <z-m>0.736</z-m>
   </offsets>
@@ -128,7 +122,7 @@
  <path>knob_nav_panel_red.xml</path>
   <offsets>
     <heading-deg>90</heading-deg>
-    <x-m>3.885</x-m>
+    <x-m>3.985</x-m>
     <y-m>-0.918</y-m>
     <z-m>0.736</z-m>
   </offsets>

@@ -2,8 +2,7 @@
  
 <PropertyList>
 
-<fx>
- 
+ <fx>
   <ai-24>
    <name>Left engine starter internal</name>
    <mode>once</mode>
@@ -167,7 +166,7 @@
    <mode>looped</mode>
    <path>Aircraft/an24b/Sound/Engine/AI-24_xProp1-2.wav</path>
    <condition>
-      <not><property>sim/current-view/internal</property></not>
+     <not><property>sim/current-view/internal</property></not>
      <property>engines/engine[0]/running</property>
    </condition>
    <volume>
@@ -183,14 +182,14 @@
     <max>2.0</max>
     <offset>0.0</offset>
    </pitch>
-  <position>
-    <x>5.94</x>
-    <y>3.95</y>
-    <z>1.185</z>
-  </position>
+   <position>
+     <x>5.94</x>
+     <y>3.95</y>
+     <z>1.185</z>
+   </position>
   </propeller>
 <!-- Right engine -->
-<propeller>
+  <propeller>
    <name>Right engine external</name>
    <mode>looped</mode>
    <path>Aircraft/an24b/Sound/Engine/AI-24_xProp1-2.wav</path>
@@ -211,11 +210,11 @@
     <max>2.0</max>
     <offset>0.0</offset>
    </pitch>
-  <position>
-    <x>5.94</x>
-    <y>-3.95</y>
-    <z>1.185</z>
-  </position>
+   <position>
+     <x>5.94</x>
+     <y>-3.95</y>
+     <z>1.185</z>
+   </position>
   </propeller>
 
 <!-- Negative thrust sound left-->
@@ -224,11 +223,11 @@
    <mode>looped</mode>
    <path>Aircraft/an24b/Sound/Engine/AI-24_xProp1-1.wav</path>
    <condition>
-      <not><property>sim/current-view/internal</property></not>
-     <property>engines/engine[0]/running</property>
+    <not><property>sim/current-view/internal</property></not>
+    <property>engines/engine[0]/running</property>
     <less-than>
-      <property>/engines/engine[0]/thrust_lb</property>
-      <value>0</value>
+     <property>/engines/engine[0]/thrust_lb</property>
+     <value>0</value>
     </less-than>
    </condition>
    <volume>
@@ -243,11 +242,11 @@
     <max>2.0</max>
     <offset>0.0</offset>
    </pitch>
-  <position>
+   <position>
     <x>5.94</x>
     <y>3.95</y>
     <z>1.185</z>
-  </position>
+   </position>
   </propeller_rev>
 <!-- Negative thrust sound right-->
   <propeller_rev>
@@ -274,11 +273,11 @@
     <max>2.0</max>
     <offset>0.0</offset>
    </pitch>
-  <position>
+   <position>
     <x>5.94</x>
     <y>-3.95</y>
     <z>1.185</z>
-  </position>
+   </position>
   </propeller_rev>
 
 <!-- Gear Sounds -->
@@ -406,11 +405,12 @@
    </pitch>
   </wind>
 
-<!-- Stall alarm(s) -->
+<!--****AVIONICS**** -->
   <stall>
-   <name>stall</name>
+   <name>Stall</name>
    <mode>looped</mode>
    <path>Aircraft/an24b/Sound/Systems/vibrator.wav</path>
+   <type>avionics</type>
    <condition>
     <and>
      <greater-than>
@@ -423,7 +423,6 @@
        <property>/gear/gear[2]/wow</property>
      </not>
     </and>
-    <!-- <property>/sim/current-view/internal</property> -->
    </condition>
    <volume>
     <value>1</value>
@@ -435,9 +434,10 @@
 
 <!-- Switches -->
   <switch>
-   <name>AZR</name>
+   <name>AZRSwitch</name>
    <mode>once</mode>
    <path>Sounds/click.wav</path>
+   <type>avionics</type>
    <condition>
     <property>an24/sound/click_azr</property>
    </condition>
@@ -451,9 +451,10 @@
   </switch>
 
   <switch>
-   <name>AZS</name>
+   <name>AZSSwitch</name>
    <mode>once</mode>
    <path>Sounds/click.wav</path>
+   <type>avionics</type>
    <condition>
     <equals>
      <property>an24/sound/click_azs</property>
@@ -469,49 +470,48 @@
    <!--max-dist>5.0</max-dist-->
   </switch>
 
-
-<!-- Marker -->
- <marker>
-  <name>inner</name>
-  <path>Aircraft/an24b/Sound/Systems/Innermk.wav</path>
-   <condition>
-    <property>instrumentation/marker-beacon/inner</property>
-    <property>sim/current-view/internal</property>
-   </condition>
-  <mode>once</mode>
-  <volume>
-   <offset type="double">0.5</offset>
-  </volume>
- </marker>
- <marker>
-  <name>middle</name>
-  <path>Aircraft/an24b/Sound/Systems/Middmk.wav</path>
-   <condition>
-    <property>instrumentation/marker-beacon/middle</property>
-    <property>sim/current-view/internal</property>
-   </condition>
-  <mode>once</mode>
-  <volume>
-   <offset type="double">0.5</offset>
-  </volume>
- </marker>
- <marker>
-  <name>outer</name>
-  <path>Aircraft/an24b/Sound/Systems/Outermk.wav</path>
-   <condition>
-    <property>instrumentation/marker-beacon/outer</property>
-    <property>sim/current-view/internal</property>
-   </condition>
-  <mode>once</mode>
-  <volume>
-   <offset type="double">0.5</offset>
-  </volume>
- </marker>
+  <marker>
+   <name>InnerMarker</name>
+   <path>Aircraft/an24b/Sound/Systems/Innermk.wav</path>
+   <type>avionics</type>
+    <condition>
+     <property>instrumentation/marker-beacon/inner</property>
+    </condition>
+   <mode>once</mode>
+   <volume>
+    <offset type="double">0.5</offset>
+   </volume>
+  </marker>
+  <marker>
+   <name>MiddleMarker</name>
+   <path>Aircraft/an24b/Sound/Systems/Middmk.wav</path>
+   <type>avionics</type>
+    <condition>
+     <property>instrumentation/marker-beacon/middle</property>
+    </condition>
+   <mode>once</mode>
+   <volume>
+    <offset type="double">0.5</offset>
+   </volume>
+  </marker>
+  <marker>
+   <name>OuterMarker</name>
+   <path>Aircraft/an24b/Sound/Systems/Outermk.wav</path>
+   <type>avionics</type>
+    <condition>
+     <property>instrumentation/marker-beacon/outer</property>
+    </condition>
+   <mode>once</mode>
+   <volume>
+    <offset type="double">0.5</offset>
+   </volume>
+  </marker>
 
 <!-- PPS warnings by siren S1 (wrong landing or T/O configuration) and VS-46 (cabin altitude) -->
   <siren>
-   <name>pps</name>
+   <name>PPS</name>
    <path>Aircraft/an24b/Sound/Systems/siren_constant.wav</path>
+   <type>avionics</type>
    <condition>
     <greater-than>
      <property>an24/Siren/constant</property>
@@ -531,8 +531,9 @@
 
 <!-- Radio Altitude warning -->
   <siren>
-   <name>radioalt</name>
+   <name>RadioAlt</name>
    <path>Aircraft/an24b/Sound/Systems/telefony.wav</path>
+   <type>avionics</type>
    <condition>
     <greater-than>
      <property>an24/RV-UM/warning-triggered</property>
@@ -551,64 +552,150 @@
   </siren>
 
 <!-- Radio(s) -->
-  <radio>
-   <name>ark1</name>
+  <ADF>
+   <name>Ark1</name>
    <path>Sounds/radionoise.wav</path>
+   <type>avionics</type>
     <condition>
-     <or>
-      <not-equals>
-       <property>/instrumentation/adf[0]/mode</property>
-       <value type="string">off</value>
-      </not-equals>
-      <not-equals>
-       <property>/instrumentation/adf[2]/mode</property>
-       <value type="string">off</value>
-      </not-equals>
-     </or>
+     <and>
+      <or>
+       <greater-than>
+        <property>instrumentation/adf[0]/volume</property>
+        <value>0.0</value>
+       </greater-than>
+       <greater-than>
+        <property>instrumentation/adf[2]/volume</property>
+        <value>0.0</value>
+       </greater-than>
+      </or>
+      <or>
+       <not-equals>
+        <property>instrumentation/adf[0]/mode</property>
+        <value type="string">off</value>
+       </not-equals>
+       <not-equals>
+        <property>instrumentation/adf[2]/mode</property>
+        <value type="string">off</value>
+       </not-equals>
+      </or>
+     </and>
     </condition>
    <mode>looped</mode>
    <volume>
-    <property>/instrumentation/adf[0]/volume-norm</property>
+    <property>instrumentation/adf[0]/volume-norm</property>
    </volume>
-  </radio>
+  </ADF>
 
-  <radio>
-   <name>ark2</name>
+  <ADF>
+   <name>Ark2</name>
    <path>Sounds/radionoise.wav</path>
+   <type>avionics</type>
     <condition>
-     <or>
-      <not-equals>
-       <property>/instrumentation/adf[1]/mode</property>
-       <value type="string">off</value>
-      </not-equals>
-      <not-equals>
-       <property>/instrumentation/adf[3]/mode</property>
-       <value type="string">off</value>
-      </not-equals>
-     </or>
+     <and>
+      <or>
+       <greater-than>
+        <property>instrumentation/adf[1]/volume</property>
+        <value>0.0</value>
+       </greater-than>
+       <greater-than>
+        <property>instrumentation/adf[3]/volume</property>
+        <value>0.0</value>
+       </greater-than>
+      </or>
+      <or>
+       <not-equals>
+        <property>instrumentation/adf[1]/mode</property>
+        <value type="string">off</value>
+       </not-equals>
+       <not-equals>
+        <property>instrumentation/adf[3]/mode</property>
+        <value type="string">off</value>
+       </not-equals>
+      </or>
+     </and>
     </condition>
    <mode>looped</mode>
    <volume>
-    <property>/instrumentation/adf[1]/volume-norm</property>
+    <property>instrumentation/adf[1]/volume-norm</property>
    </volume>
-  </radio>
+  </ADF>
+
+  <COMM>
+   <name>Comm1</name>
+   <path>Sounds/radionoise.wav</path>
+   <type>avionics</type>
+    <condition>
+     <and>
+      <equals>
+       <property>an24/R-802/power-1</property>
+       <value>1</value>
+      </equals>
+      <greater-than>
+       <property>/instrumentation/comm[0]/volume-raw</property>
+       <value>0.0</value>
+      </greater-than>
+     </and>
+    </condition>
+   <mode>looped</mode>
+   <volume>
+    <expression>
+     <product>
+      <difference>
+       <value>1.0</value>
+       <property>instrumentation/comm[0]/cutoff-signal-quality</property>
+      </difference>
+      <property>instrumentation/comm[0]/volume-raw</property>
+     </product>
+    </expression>
+   </volume>
+  </COMM>
+
+  <COMM>
+   <name>Comm2</name>
+   <path>Sounds/radionoise.wav</path>
+   <type>avionics</type>
+    <condition>
+     <and>
+      <equals>
+       <property>an24/R-802/power-2</property>
+       <value>1</value>
+      </equals>
+      <greater-than>
+       <property>/instrumentation/comm[1]/volume-raw</property>
+       <value>0.0</value>
+      </greater-than>
+     </and>
+    </condition>
+   <mode>looped</mode>
+   <volume>
+    <expression>
+     <product>
+      <difference>
+       <value>1.0</value>
+       <property>instrumentation/comm[1]/cutoff-signal-quality</property>
+      </difference>
+      <property>instrumentation/comm[1]/volume-raw</property>
+     </product>
+    </expression>
+   </volume>
+  </COMM>
 
 <!-- Fun stuff -->
   <other>
-    <name>honk</name>
-    <path>Aircraft/an24b/Sound/Systems/honk.wav</path>
-     <condition>
-     <less-than>
-      <property>an24/DoorsHatches/nose</property>
-      <value>1.0</value>
-     </less-than>
-     </condition>
-    <mode>once</mode>
-    <volume>
-      <offset type="double">0.5</offset>
-    </volume>
+   <name>honk</name>
+   <path>Aircraft/an24b/Sound/Systems/honk.wav</path>
+    <condition>
+    <less-than>
+     <property>an24/DoorsHatches/nose</property>
+     <value>1.0</value>
+    </less-than>
+    </condition>
+   <mode>once</mode>
+   <volume>
+    <offset type="double">0.5</offset>
+   </volume>
   </other>
 
-</fx>
+ </fx>
  
 </PropertyList>

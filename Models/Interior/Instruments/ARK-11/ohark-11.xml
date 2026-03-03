@@ -81,25 +81,29 @@
   </axis>
     <action>
      <binding>
-      <command>property-adjust</command>
+     <command>property-cycle</command>
       <property>an24/ARK-11/mode-oh</property>
-      <factor>-1</factor>
+      <value type="int">4</value>
+      <value type="int">3</value>
+      <value type="int">2</value>
+      <value type="int">1</value>
+      <value type="int">0</value>
       <min>0</min>
-      <max>4</max>                
+      <max>4</max>
       <wrap>false</wrap>
      </binding>
     <binding>
       <command>nasal</command>
       <script>
-	if ( getprop("an24/ARK-11/panelpoweroh_27V") == 1.0 and getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
-	var adf1mode = ['off', 'adf', 'ant', 'off', 'adf'];
-	setprop("/instrumentation/adf/mode", adf1mode[getprop("an24/ARK-11/mode-oh")] );
-	var adf3mode = ['off', 'off', 'adf', 'adf', 'off'];
-	setprop("/instrumentation/adf[2]/mode", adf3mode[getprop("an24/ARK-11/mode-oh")] );
-	if ( getprop("an24/ARK-11/mode-oh") == 1.0 or getprop("an24/ARK-11/mode-oh") == 4.0 ) {
-	interpolate("an24/ARK-11/frame-offset-1", 0.0, 1.2 );
+	if ( getprop("an24/ARK-11/panel_nav_oh") == 1.0 ) {
+		var adf1mode = ['off', 'adf', 'ant', 'off', 'adf'];
+		setprop("/instrumentation/adf/mode", adf1mode[getprop("an24/ARK-11/mode-oh")] );
+		var adf3mode = ['off', 'adf', 'off', 'adf', 'adf'];
+		setprop("/instrumentation/adf[2]/mode", adf3mode[getprop("an24/ARK-11/mode-oh")] );
+		if ( getprop("an24/ARK-11/mode-oh") == 1.0 or getprop("an24/ARK-11/mode-oh") == 4.0 ) {
+		interpolate("an24/ARK-11/frame-offset-1", 0.0, 1.2 );
+		}
 	}
-}
 <!-- regarding literature, even in Compass Mode, offset remains applied... seems technically and in operational purposes illogical -->
       </script>
     </binding>
@@ -559,7 +563,7 @@ if ( getprop("an24/ARK-11/panelpoweroh_27V") == 1.0 ) {
         setprop("an24/ARK-11/mem1/animfix9", 0.0 );
 	var adf1mode = ['off', 'adf', 'ant', 'off', 'adf'];
 	setprop("/instrumentation/adf/mode", adf1mode[getprop("an24/ARK-11/mode-oh")] );
-	var adf3mode = ['off', 'off', 'adf', 'adf', 'off'];
+	var adf3mode = ['off', 'adf', 'off', 'adf', 'adf'];
 	setprop("/instrumentation/adf[2]/mode", adf3mode[getprop("an24/ARK-11/mode-oh")] );
 	if ( getprop("an24/ARK-11/mode-oh") == 1.0 or getprop("an24/ARK-11/mode-oh") == 4.0 ) {
 	interpolate("an24/ARK-11/frame-offset-1", 0.0, 1.2 );

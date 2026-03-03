@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 
 <!-- US-8K radio station -->
-
 <PropertyList>
   <path>us-8k.ac</path>
 
 <model>
   <name>console-switch</name>
-  <path>btn_console-switch.xml</path>
+  <path>eng_btn_console-switch.xml</path>
   <offsets>
     <x-m>-0.006</x-m>
     <y-m>-0.0112</y-m>
@@ -27,11 +26,11 @@
    </emission>
  </animation>
 
-<!-- Mode handle; OFF, telephone wtth, without gain control, telegraph with, without gc -->
+<!-- Mode handle; OFF, telephone with, without gain control, telegraph with, without gc -->
  <animation>
    <type>knob</type>
    <object-name>mode_handle</object-name>
-    <property>an24/US-8K/mode</property>
+    <property>an24/US-8K/mode_eng</property>
    <factor>30</factor>
   <center>
    <x-m>0.0</x-m>
@@ -46,13 +45,80 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>an24/US-8K/mode</property>
+      <property>an24/US-8K/mode_eng</property>
       <factor>-1</factor>
       <min>0</min>
-      <max>4</max>                
+      <max>5</max>                
       <wrap>false</wrap>
      </binding>
+  <binding>
+   <command>nasal</command>
+    <script>
+	if ( getprop("an24/US-8K/cnsl-choice") == 1 ) {
+	setprop("an24/US-8K/mode", getprop("an24/US-8K/mode_eng") );
+	}
+    </script>
+  </binding>
     </action>
+   <hovered>
+    <binding>
+      <command>set-tooltip</command>
+      <tooltip-id>us8modeeng</tooltip-id>
+      <label>%s</label>
+      <property>an24/US-8K/mode_eng</property>
+      <mapping>nasal</mapping>
+      <script>
+        var us8modeeng = ['OFF', 'TLF with Gain Control', 'TLF without Gain Control', 'TLG with Gain Control', 'TLG without Gain Control'];
+        return us8modeeng[arg[0]];
+      </script>
+    </binding>
+   </hovered>
+ </animation>
+
+<!-- Volume and Gain Control knob -->
+ <animation>
+   <type>knob</type>
+   <object-name>kn_vol_gain</object-name>
+    <property>an24/US-8K/volume_gain_eng</property>
+   <factor>30</factor>
+  <center>
+   <x-m>0.0</x-m>
+   <y-m>-0.0594</y-m>
+   <z-m>-0.0194</z-m>
+  </center>
+  <axis>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/US-8K/volume_gain_eng</property>
+      <factor>-0.05</factor>
+      <min>0</min>
+      <max>1</max>                
+      <wrap>false</wrap>
+     </binding>
+  <binding>
+   <command>nasal</command>
+    <script>
+	if ( getprop("an24/US-8K/cnsl-choice") == 1 ) {
+	setprop("an24/US-8K/volume_gain", getprop("an24/US-8K/volume_gain_eng") );
+	}
+    </script>
+  </binding>
+    </action>
+   <hovered>
+       <binding>
+         <command>set-tooltip</command>
+         <label>Volume/Gain %3d%%</label>
+         <measure-text>Volume/Gain 100p</measure-text>
+         <tooltip-id>us8voleng</tooltip-id>
+         <mapping>percent</mapping>
+         <property>an24/US-8K/volume_gain_eng</property>
+       </binding>
+     </hovered>
  </animation>
 
 <!-- Band handle -->
@@ -60,22 +126,22 @@
    <type>knob</type>
    <object-name>band_handle</object-name>
    <object-name>band_disk</object-name>
-    <property>an24/US-8K/band</property>
+    <property>an24/US-8K/band_eng</property>
     <interpolation>
      <entry>
-      <ind>0.0</ind> <dep>0.0</dep>
+      <ind>0.0</ind><dep>0.0</dep>
      </entry>
      <entry>
-      <ind>1.0</ind> <dep>60.0</dep>
+      <ind>1.0</ind><dep>60.0</dep>
      </entry>
      <entry>
-      <ind>2.0</ind> <dep>150.0</dep>
+      <ind>2.0</ind><dep>150.0</dep>
      </entry>
      <entry>
-      <ind>3.0</ind> <dep>210.0</dep>
+      <ind>3.0</ind><dep>210.0</dep>
      </entry>
      <entry>
-      <ind>4.0</ind> <dep>285.0</dep>
+      <ind>4.0</ind><dep>285.0</dep>
      </entry>
     </interpolation>
   <center>
@@ -91,12 +157,20 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>an24/US-8K/band</property>
+      <property>an24/US-8K/band_eng</property>
       <factor>-1</factor>
       <min>0</min>
       <max>5</max>                
       <wrap>true</wrap>
      </binding>
+  <binding>
+   <command>nasal</command>
+    <script>
+	if ( getprop("an24/US-8K/cnsl-choice") == 1 ) {
+	setprop("an24/US-8K/band", getprop("an24/US-8K/band_eng") );
+	}
+    </script>
+  </binding>
     </action>
  </animation>
 
@@ -182,8 +256,8 @@
    <object-name>ant-tune_lever</object-name>
    <property>an24/US-8K/lever_ant-tune</property>
   <interpolation>
-    <entry><ind>-1.0</ind>	<dep>30.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>-30.0</dep></entry>
+    <entry><ind>-1.0</ind><dep>30.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-30.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>
@@ -212,7 +286,7 @@
   <text>
     <name>textus8eng</name>
     <type type="string">literal</type>
-    <text type="string">US-8K Radio</text>
+    <text type="string">NEON Receiver US-8K</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.02</character-size>
@@ -226,18 +300,18 @@
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>  0.018</x-m>
-      <y-m>  0.000 </y-m>
-      <z-m>  0.000 </z-m>
+      <x-m>0.018</x-m>
+      <y-m>0.000</y-m>
+      <z-m>0.000</z-m>
     </offsets>
   </text>
   <animation>
     <type>material</type>
     <object-name>textus8eng</object-name>
     <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
     </emission>
   </animation>
 

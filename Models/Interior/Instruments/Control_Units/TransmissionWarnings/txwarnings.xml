@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<!-- Attention, transmission may interfere with other instruments! -->
+<PropertyList>
+
+ <model>
+  <path>wl_locator_rpsn.xml</path>
+   <offsets>
+    <x-m>2.1</x-m>
+    <y-m>-0.45</y-m>
+    <z-m>1.06</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_locator_rpsn.xml</path>
+   <offsets>
+    <x-m>2.1</x-m>
+    <y-m>0.47</y-m>
+    <z-m>1.065</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_txneon.xml</path>
+   <offsets>
+    <x-m>2.089</x-m>
+    <y-m>-0.191</y-m>
+    <z-m>0.952</z-m>
+   </offsets>
+ </model>
+
+ <model>
+  <path>wl_txneon.xml</path>
+   <offsets>
+    <x-m>2.099</x-m>
+    <y-m>0.811</y-m>
+    <z-m>0.845</z-m>
+   </offsets>
+ </model>
+
+</PropertyList>

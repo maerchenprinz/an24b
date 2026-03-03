@@ -72,7 +72,7 @@
   <text>
     <name>textsvbpu</name>
     <type type="string">literal</type>
-    <text type="string">NEON SVB-5 Remote Panel</text>
+    <text type="string">NEON Transmitter SVB-5 Remote</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.02</character-size>

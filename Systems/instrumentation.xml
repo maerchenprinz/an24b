@@ -9,21 +9,25 @@ Specific for AN-24B
   <adf>
     <name>adf</name>
     <number>0</number>
+    <power-supply>/an24/ARK-11/power-1_115V</power-supply>
   </adf>
 
   <adf>
     <name>adf</name>
     <number>1</number>
+    <power-supply>/an24/ARK-11/power-2_115V</power-supply>
   </adf>
 
   <adf>
     <name>adf</name>
     <number>2</number>
+    <power-supply>/an24/ARK-11/power-1_115V</power-supply>
   </adf>
 
   <adf>
     <name>adf</name>
     <number>3</number>
+    <power-supply>/an24/ARK-11/power-2_115V</power-supply>
   </adf>
 
 <!-- Left KUS730 -->

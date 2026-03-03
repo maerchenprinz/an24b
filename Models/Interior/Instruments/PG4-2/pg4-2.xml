@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- PG4-2 selector for fuel indicator 2PPT1-4 (Item 685) -->
-
 <PropertyList>
 
  <path>pg4-2.ac</path>
@@ -27,7 +26,6 @@
      <factor-prop>controls/lighting/panel-m_red</factor-prop>
    </emission>
  </animation>
-
 
 <!-- Knob -->
   <animation>
@@ -66,16 +64,17 @@ Tank Selection</label>
    </hovered>
   </animation>
 
+<!-- TEXT OSG -->
   <animation>
     <type>select</type>
-    <object-name>textosg</object-name>
+    <object-name>textpg4</object-name>
     <condition>
       <property>sim/panel-hotspots</property>
     </condition>
   </animation>
 
   <text>
-    <name>textosg</name>
+    <name>textpg4</name>
     <type type="string">literal</type>
     <text type="string">PG4-2 Selector</text>
     <draw-text type="bool">true</draw-text>
@@ -91,10 +90,19 @@ Tank Selection</label>
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>  0.005 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m>  0.000 </z-m>
+      <x-m>0.005</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
+  <animation>
+    <type>material</type>
+    <object-name>textpg4</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
 
 </PropertyList>

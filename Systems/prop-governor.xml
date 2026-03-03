@@ -79,7 +79,7 @@
 
  </channel>
 
-<!--**** PROP PITCH PUMPS LEFT****-->
+<!--**** PROP PITCH PUMPS LEFT ****-->
  <channel name="PROP PITCH PUMPS LEFT">
 
 <!-- Normal pump -->
@@ -188,7 +188,7 @@
    <kp>-fcs/prop-governor[1]/kp</kp>
    <ki>-fcs/prop-governor[1]/ki</ki>
    <kd>-fcs/prop-governor[1]/kd</kd>
-   <!-- <trigger>fcs/prop-governor/windup-trigger[0]</trigger> -->
+   <!-- <trigger>fcs/prop-governor/windup-trigger[1]</trigger> -->
   </pid>
 
   <switch name="fcs/prop-governor[1]/max-blade-angle">
@@ -225,7 +225,7 @@
 
  </channel>
 
-<!--**** PROP PITCH PUMPS RIGHT****-->
+<!--**** PROP PITCH PUMPS RIGHT ****-->
  <channel name="PROP PITCH PUMPS RIGHT">
 
 <!-- Normal pump -->
@@ -244,6 +244,15 @@
   </clipto>
  </fcs_function>
 
+<!-- Feathering pump -->
+ <switch name="fcs/prop-governor[1]/NF-pump-rate">
+  <default value="0.0"/>
+  <test logic="AND" value="6.0">
+	/an24/Electrics/AZSemerg_V GT 24.0
+	/an24/AZS/sw0104 EQ 1.0
+  </test>
+ </switch>
+
  <switch name="fcs/prop-governor[1]/pump-rate">
   <default value="fcs/prop-governor[1]/nominal-pump-rate"/>
   <test value="fcs/prop-governor[1]/NF-pump-rate">
@@ -258,17 +267,6 @@
   <!--deadband_width> number </deadband_width-->
   <!--hysteresis_width> number </hysteresis_width-->
  </actuator>
-
- </channel>
-
- <channel name="PROP FEATHER PUMP RIGHT">
-
- <switch name="fcs/prop-governor[1]/NF-pump-rate">
-  <default value="0.0"/>
-  <test logic="AND" value="/an24/FireFeather/feather-timer_r">
-	fcs/prop-governor[1]/feather-command GT 0.0
-  </test>
- </switch>
 
  </channel>
 

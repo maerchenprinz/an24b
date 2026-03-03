@@ -36,6 +36,40 @@
    </emission>
  </animation>
 
+<!-- Instruments -->
+ <model>
+  <name>R-836b6</name>
+  <path>../../Instruments/R-836/eng_r-836b6.xml</path>
+  <offsets>
+    <x-m>0.0</x-m>
+    <y-m>-0.0698</y-m>
+    <z-m>0.0426</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>SPU-7</name>
+  <path>../../Instruments/SPU-7/engspu-7.xml</path>
+  <offsets>
+    <x-m>-0.01</x-m>
+    <y-m>0.0789</y-m>
+    <z-m>0.0359</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+ </model>
+
+ <model>
+  <name>US-8K</name>
+  <path>../../Instruments/US-8K/eng_us-8k.xml</path>
+  <offsets>
+    <x-m>-0.004</x-m>
+    <y-m>0.0437</y-m>
+    <z-m>-0.1539</z-m>
+    <heading-deg>180</heading-deg>
+  </offsets>
+ </model>
+
 <!-- Switches -->
 <model>
  <path>sw02_azspanel_illumination.xml</path>

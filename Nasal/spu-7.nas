@@ -13,35 +13,35 @@ var spu7_to_headset = func {
 	}
 # R-802 No.1
 	if ( source == 0.0 ) {
-	interpolate("instrumentation/comm[0]/volume", volumeknob * getprop("an24/R-802/output-vol-1"), 0.2 );
+	interpolate("instrumentation/comm[0]/volume-raw", volumeknob * getprop("an24/R-802/output-vol-1"), 0.2 );
 	setprop("controls/radios/comm-radio-selected", 1 );
 	}
 	else {
-	interpolate("instrumentation/comm[0]/volume", 0.0, 0.2 );
+	interpolate("instrumentation/comm[0]/volume-raw", 0.0, 0.2 );
 	}
-# US-8k
-#	if ( source == 1.0 ) {
-#	interpolate("instrumentation/comm[1]/volume", volumeknob * getprop("an24/R-802/output-vol-2"), 0.2 );
-#	setprop("controls/radios/comm-radio-selected", 0 );
-#	}
-#	else {
-#	interpolate("instrumentation/comm[1]/volume", 0.0, 0.2 );
-#	}
-# R-836
-#	if ( source == 2.0 ) {
-#	interpolate("instrumentation/comm[1]/volume", volumeknob * getprop("an24/R-802/output-vol-2"), 0.2 );
-#	setprop("controls/radios/comm-radio-selected", 0 );
-#	}
-#	else {
-#	interpolate("instrumentation/comm[1]/volume", 0.0, 0.2 );
-#	}
+# US-8k with R-836
+	if ( source == 1.0 ) {
+	interpolate("instrumentation/comm[2]/volume", volumeknob * getprop("an24/US-8K/volume_gain"), 0.2 );
+	setprop("controls/radios/comm-radio-selected", 2 );
+	}
+	else {
+	interpolate("instrumentation/comm[2]/volume", 0.0, 0.2 );
+	}
+# US-8k with SVB-5
+	if ( source == 2.0 ) {
+	interpolate("instrumentation/comm[2]/volume", volumeknob * getprop("an24/US-8K/volume_gain"), 0.2 );
+	setprop("controls/radios/comm-radio-selected", 3 );
+	}
+	else {
+	interpolate("instrumentation/comm[2]/volume", 0.0, 0.2 );
+	}
 # R-802 No.2
 	if ( source == 3.0 ) {
-	interpolate("instrumentation/comm[1]/volume", volumeknob * getprop("an24/R-802/output-vol-2"), 0.2 );
+	interpolate("instrumentation/comm[1]/volume-raw", volumeknob * getprop("an24/R-802/output-vol-2"), 0.2 );
 	setprop("controls/radios/comm-radio-selected", 4 );
 	}
 	else {
-	interpolate("instrumentation/comm[1]/volume", 0.0, 0.2 );
+	interpolate("instrumentation/comm[1]/volume-raw", 0.0, 0.2 );
 	}
 # ARK-11 No.1/ Kurs-MP No.1
 	if ( source == 4.0 ) {

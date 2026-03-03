@@ -270,7 +270,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/comm[1]/cutoff-signal-quality", 0.6, 0.1 );
+        interpolate("instrumentation/comm[1]/cutoff-signal-quality", 0.8, 0.1 );
       </script>
     </binding>
   </action>
@@ -295,7 +295,7 @@ Reduction
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("instrumentation/comm[1]/cutoff-signal-quality", 0.1, 0.1 );
+        interpolate("instrumentation/comm[1]/cutoff-signal-quality", 0.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -315,8 +315,8 @@ Reduction
    <object-name>lever_nr2</object-name>
    <property>instrumentation/comm[1]/cutoff-signal-quality</property>
   <interpolation>
-    <entry><ind>0.1</ind><dep>30.0</dep></entry>
-    <entry><ind>0.6</ind><dep>-30.0</dep></entry>
+    <entry><ind>0.0</ind><dep>30.0</dep></entry>
+    <entry><ind>0.8</ind><dep>-30.0</dep></entry>
   </interpolation>
    <axis>
     <x>0</x>

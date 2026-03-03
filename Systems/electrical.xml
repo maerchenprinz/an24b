@@ -372,18 +372,19 @@
   </switch>
   <!--End Batteries-->
 
+  <switch name="/an24/Electrics/CONN_RKCrewCab-RKNavmain"><!--Item 1500-->
+   <default value="0"/>
+   <test logic="AND" value="1">
+	/an24/Electrics/FUSE_RKCrewCab-RKNavmain EQ 1.0
+	/an24/Electrics/RKCrewCab_V GE 24.0
+   </test>
+  </switch>
+
   <switch name="/an24/Electrics/CONN_AZSmain-RKNavmain"><!--Item 1500-->
    <default value="1"/>
    <test logic="OR" value="0">
 	/an24/Electrics/FUSE_AZSmain-RKNavmain EQ 0
-	/an24/Electrics/AZSmain_V LT 24.0
-   </test>
-  </switch>
-
-  <switch name="/an24/Electrics/CONN_RKCrewCab-RKNavmain"><!--Item 1500-->
-   <default value="0"/>
-   <test value="1">
-	/an24/Electrics/CONN_AZSmain-RKNavmain EQ 0
+	/an24/Electrics/CONN_RKCrewCab-RKNavmain EQ 1.0
    </test>
   </switch>
 
@@ -432,7 +433,6 @@
    </test-->
   </switch>
 
-
   <switch name="/an24/Electrics/TsRUr_V">
    <default value="0"/>
    <test logic="AND" value="/an24/Electrics/DC_Gen_18TMOparallel_V">
@@ -443,6 +443,9 @@
 	/an24/Electrics/contactorr EQ 1
    </test>
 
+   <test value="/an24/Electrics/TsRUl_V">
+	/an24/Electrics/CONN_TsRUl-TsRUr EQ 1
+   </test>
   <!-- Battery Part -->
    <!--CrewCab-->
    <test value="/an24/Electrics/RKCrewCab_V">
@@ -451,10 +454,6 @@
    <!--AZSemerg -> AZSmain -> RKCrewCab-->
    <test value="/an24/Electrics/RKCrewCab_V">
 	/an24/Electrics/CONN_AZSmain-RKCrewCab EQ 1
-   </test>
-
-   <test value="/an24/Electrics/TsRUl_V">
-	/an24/Electrics/CONN_TsRUl-TsRUr EQ 1
    </test>
   </switch>
 
@@ -476,7 +475,6 @@
 	/an24/Electrics/FUSE_AZSmain-RKCrewCab EQ 1
    </test>
   </switch>
-
 
   <switch name="/an24/Electrics/RKCrewCab_V">
    <default value="0"/>
@@ -501,7 +499,6 @@
    </test>
   </switch>
 
-
   <switch name="/an24/Electrics/AZSemerg_V">
    <default value="0"/>
    <test value="/an24/Electrics/AZSmain_V">
@@ -511,7 +508,6 @@
 	/an24/Electrics/CONN_RKAkku-AZSemerg EQ 1
    </test>
   </switch>
-
 
   <switch name="/an24/Electrics/RKAkku_V">
    <default value="0"/>
@@ -530,11 +526,11 @@
  <!--RKs with just one connection-->
   <switch name="/an24/Electrics/RKNavmain_V">
    <default value="0"/>
-   <test value="/an24/Electrics/AZSmain_V">
-	/an24/Electrics/CONN_AZSmain-RKNavmain EQ 1
-   </test>
    <test value="/an24/Electrics/RKCrewCab_V">
 	/an24/Electrics/CONN_RKCrewCab-RKNavmain EQ 1
+   </test>
+   <test value="/an24/Electrics/AZSmain_V">
+	/an24/Electrics/CONN_AZSmain-RKNavmain EQ 1
    </test>
   </switch>
 

@@ -37,8 +37,8 @@ itt_delay [-] time constant for ITT change
   <psfc unit="LBS/HR/HP">         0.566 </psfc> <!-- take-off, ISA -->
   <!-- psfc unit="LBS/HR/HP">         0.502 </psfc> cruise @6km, Mach 0.44 -->
   <n1idle_max_delay>              1     </n1idle_max_delay>
-  <maxstartingtime>               0     </maxstartingtime>
-  <startern1>                    24     </startern1><!-- 48% -->
+  <maxstartingtime>              69     </maxstartingtime>
+  <startern1>                    24     </startern1><!-- 24=48% -->
   <ielumaxtorque unit="FT*LB">    0     </ielumaxtorque>
   <itt_delay>                     0.05  </itt_delay>
   <betarangeend>                 64     </betarangeend>

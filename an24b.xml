@@ -19,19 +19,22 @@
         <vtailarea unit="M2"> 13.28 </vtailarea>
         <vtailarm unit="M"> 11.297 </vtailarm>
         <location name="AERORP" unit="M">
-            <x> 8.86337 </x>
-            <y> 0 </y>
-            <z> 0.73 </z> <!-- 1.392 -->
+            <x>8.866</x> <!--Book Ан-24 ТЕХНИЧЕСКОЕ ОПИСАНИЕ 1-->
+            <y>0.0</y> <!--Book Ан-24 ТЕХНИЧЕСКОЕ ОПИСАНИЕ 1-->
+            <z>1.467</z> <!--Book Ан-24 ТЕХНИЧЕСКОЕ ОПИСАНИЕ 1-->
+            <!--x>8.86337</x-->
+            <!--y>0</y-->
+            <!--z>0.73</z--> <!--1.392-->
         </location>
         <location name="EYEPOINT" unit="M">
-            <x> 2.1 </x>
-            <y> -0.48 </y>
-            <z> 1.1 </z>
+            <x>2.7</x>
+            <y>-0.47</y>
+            <z>0.95</z>
         </location>
         <location name="VRP" unit="M">
-            <x> 8.5 </x>
-            <y> 0 </y>
-            <z> 0 </z>
+            <x>8.866</x>
+            <y>0.0</y>
+            <z>1.467</z>
         </location>
     </metrics>
 
@@ -280,40 +283,40 @@
     <ground_reactions>
         <contact type="BOGEY" name="NOSE">
             <location unit="M">
-                <x> 2.42 </x>
-                <y> 0 </y>
-                <z> -1.91 </z>
+                <x>2.42 </x>
+                <y>0.0</y>
+                <z>-2.14</z>
             </location>
-            <static_friction> 0.6 </static_friction>
-            <dynamic_friction> 0.5 </dynamic_friction>
-            <rolling_friction> 0.02 </rolling_friction>
+            <static_friction>0.6</static_friction>
+            <dynamic_friction>0.5</dynamic_friction>
+            <rolling_friction>0.02</rolling_friction>
             <spring_coeff unit="LBS/FT"> 15000 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC"> 6000 </damping_coeff>
             <damping_coeff_rebound unit="LBS/FT/SEC">9000</damping_coeff_rebound>
             <max_steer unit="DEG"> 45 </max_steer>
             <brake_group> NONE </brake_group>
-            <retractable> 1 </retractable>
+            <retractable>1</retractable>
         </contact>
         <contact type="BOGEY" name="LEFT_MAIN">
             <location unit="M">
-                <x> 10.27 </x>
-                <y> -3.95 </y>
-                <z> -1.91 </z>
+                <x>10.2733</x>
+                <y>-3.95</y>
+                <z>-2.135</z>
             </location>
-            <static_friction> 0.6 </static_friction>
-            <dynamic_friction> 0.5 </dynamic_friction>
-            <rolling_friction> 0.02 </rolling_friction>
+            <static_friction>0.6</static_friction>
+            <dynamic_friction>0.5</dynamic_friction>
+            <rolling_friction>0.02</rolling_friction>
             <spring_coeff unit="LBS/FT"> 27300 </spring_coeff>
             <damping_coeff unit="LBS/FT/SEC"> 5000 </damping_coeff>
-            <max_steer unit="DEG"> 0 </max_steer>
+            <max_steer unit="DEG">0</max_steer>
             <brake_group> LEFT </brake_group>
-            <retractable> 1 </retractable>
+            <retractable>1</retractable>
         </contact>
         <contact type="BOGEY" name="RIGHT_MAIN">
             <location unit="M">
                 <x> 10.27 </x>
                 <y> 3.95 </y>
-                <z> -1.91 </z>
+                <z> -2.135 </z>
             </location>
             <static_friction> 0.6 </static_friction>
             <dynamic_friction> 0.5 </dynamic_friction>
@@ -487,12 +490,12 @@
         <tank type="FUEL">
             <location unit="M">
                 <x> 9.65 </x>
-                <y> -3 </y>
+                <y> -3.0 </y>
                 <z> 1.523 </z>
             </location>
             <drain_location unit="M">
                 <x> 9.696</x>
-                <y> -3 </y>
+                <y> -3.0 </y>
                 <z> 1.207 </z>
             </drain_location>
             <capacity unit="KG">275</capacity>
@@ -542,12 +545,12 @@
         <tank type="FUEL">
             <location unit="M">
                 <x> 9.65 </x>
-                <y> 3 </y>
+                <y> 3.0 </y>
                 <z> 1.523 </z>
             </location>
             <drain_location unit="M">
                 <x> 9.696</x>
-                <y> 3 </y>
+                <y> 3.0 </y>
                 <z> 1.207 </z>
             </drain_location>
             <capacity unit="KG">275</capacity>
@@ -809,29 +812,25 @@
                     <value>267.55</value>
                   </sum>
                 </function>
-                <output> inertia/pointmass-location-X-inches[25] </output>
+                <output>inertia/pointmass-location-X-inches[25]</output>
             </fcs_function>
 
  <!--Helpers-->
  <fcs_function name="propulsion/engine[0]/engine-rpm-percent">
   <function>
-
    <quotient>
     <property>propulsion/engine[0]/engine-rpm</property>
     <value>151.0</value>
    </quotient>
-
   </function>
  </fcs_function>
 
  <fcs_function name="propulsion/engine[1]/engine-rpm-percent">
   <function>
-
    <quotient>
     <property>propulsion/engine[1]/engine-rpm</property>
     <value>151.0</value>
    </quotient>
-
   </function>
  </fcs_function>
 
@@ -857,7 +856,7 @@
     
         <force name="exhaust-thrust-left" frame="BODY">
             <location unit="M">
-            <x>7.5</x>
+            <x>8.9</x>
             <y>-4.2</y>
             <z>1.185</z>
             </location>
@@ -870,7 +869,7 @@
 
         <force name="exhaust-thrust-right" frame="BODY">
             <location unit="M">
-            <x>7.5</x>
+            <x>8.9</x>
             <y>4.2</y>
             <z>1.185</z>
             </location>
@@ -884,9 +883,9 @@
 	<force name="ai-wake" frame="BODY">
 	    <location unit="M">
 	<!-- Copy of AERORP -->
-            <x>8.86337 </x>
+            <x>8.866</x>
             <y>0.0</y>
-            <z>0.73</z> <!-- 1.392 -->
+            <z>1.467</z>
         </location>
         <direction>
             <x>0.0</x>

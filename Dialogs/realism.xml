@@ -36,7 +36,6 @@
     <halign>left</halign>
     <valign>top</valign>
     <padding>5</padding>
-    <pref-width>600</pref-width>
   
     <checkbox>
       <halign>left</halign>
@@ -48,10 +47,12 @@
     </checkbox>
 
     <text>
-      <label>-Show slant range from VORDME/ILS/SP-50 though</label>
+      <halign>left</halign>
+      <label>-Show slant range from VORDME/ILS/SP-50
+  though there is no DME equipment on board</label>
     </text>
     <text>
-      <label> there is no DME equipment on board</label>
+      <label></label>
     </text>
   </group>
 
@@ -63,22 +64,55 @@
     <halign>left</halign>
     <valign>top</valign>
     <padding>5</padding>
-    <pref-width>600</pref-width>
+    <!--pref-width>350</pref-width-->
   
     <checkbox>
       <halign>left</halign>
       <label>Tiller Steering</label>
-      <property>/fdm/jsbsim/fcs/realism/tiller-enabled</property>
+      <property>fdm/jsbsim/fcs/realism/tiller-enabled</property>
       <binding>
         <command>dialog-apply</command>
       </binding>
     </checkbox>
 
     <text>
-      <label>- When steering mode is set to taxiing, nosewheel</label>
+      <halign>left</halign>
+      <label>-When steering mode is set to "TAXI", nosewheel
+   will be steerable only from tiller, not pedals</label>
     </text>
     <text>
-      <label> will be steerable only from tiller, not pedals</label>
+      <halign>left</halign>
+      <label></label>
+    </text>
+  </group>
+
+  <group>
+    <stretch>true</stretch>
+    <layout>vbox</layout>
+    <halign>left</halign>
+    <valign>top</valign>
+    <padding>5</padding>
+  
+    <checkbox>
+      <halign>left</halign>
+      <label>Automatic Steering Mode</label>
+      <property>fdm/jsbsim/fcs/realism/auto_steer_mode</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </checkbox>
+
+    <text>
+      <halign>left</halign>
+      <label>-Automatically switch steering mode
+   -"OFF" when gear retracts
+   -"T/O Land" when gear extends</label>
+    </text>
+    <text>
+      <label></label>
+    </text>
+    <text>
+      <label></label>
     </text>
   </group>
 
@@ -90,22 +124,23 @@
     <halign>left</halign>
     <valign>top</valign>
     <padding>5</padding>
-    <pref-width>600</pref-width>
   
     <checkbox>
       <halign>left</halign>
       <label>Disable ILS/SP-50 Offset</label>
-      <property>/fdm/jsbsim/fcs/realism/disable_sp-50_offset</property>
+      <property>fdm/jsbsim/fcs/realism/disable_sp-50_offset</property>
       <binding>
         <command>dialog-apply</command>
       </binding>
     </checkbox>
 
     <text>
-      <label>- Disable ILS/SP-50 phase offset</label>
+      <halign>left</halign>
+      <label>-Disable ILS/SP-50 phase offset
+  (no need to calibrate)</label>
     </text>
     <text>
-      <label> (no need to calibrate)</label>
+      <label></label>
     </text>
 
   </group>
@@ -118,7 +153,6 @@
     <halign>left</halign>
     <valign>top</valign>
     <padding>5</padding>
-    <pref-width>600</pref-width>
   
     <checkbox>
       <halign>left</halign>

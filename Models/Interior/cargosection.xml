@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <path>cargosection.ac</path>
+  <offsets>
+   <x-m>0.0</x-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0</z-m>
+  </offsets>
+
+  <!--effect>
+   <inherits-from>Effects/model-transparent</inherits-from>
+   <object-name>foil</object-name>
+  </effect-->
+
+<!-- Cargo Door -->
+ <animation>
+  <type>pick</type>
+  <object-name>CargoDoor</object-name>
+  <visible>true</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+    <binding>
+      <command>nasal</command>
+      <script>
+	if( getprop("an24/DoorsHatches/cargodoor" ) == 0.0 ) {
+	interpolate("an24/DoorsHatches/cargodoor", 1.0, 3.0 );
+	}
+	else {
+	interpolate("an24/DoorsHatches/cargodoor", 0.0, 3.0 );
+	}
+      </script>
+    </binding>
+  </action>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>CargoDoor</object-name>
+  <property>an24/DoorsHatches/cargodoor</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>0.2</ind><dep>0.12</dep></entry>
+    <entry><ind>1.0</ind><dep>0.12</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0</x>
+    <y>-1</y>
+    <z>0</z>    
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>CargoDoor</object-name>
+  <property>an24/DoorsHatches/cargodoor</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>0.0</dep></entry>
+    <entry><ind>0.5</ind><dep>0.0</dep></entry>
+    <entry><ind>1.0</ind><dep>50.0</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>    
+  </center>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>    
+  </axis>
+ </animation>
+
+ <!--model>
+  <name>ARK-11-2</name>
+  <path>Instruments/ARK-11/navark-11-2.xml</path>
+  <offsets>
+    <x-m>3.626</x-m>
+    <y-m>-0.832</y-m>
+    <z-m>1.165</z-m>
+    <heading-deg>90</heading-deg>
+    <pitch-deg>130</pitch-deg>
+  </offsets>
+ </model-->
+
+</PropertyList>

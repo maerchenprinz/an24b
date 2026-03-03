@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- ARK-Indicator M5-2, remote panel of the ARK-P (ADF) system  -->
-
 <PropertyList>
  <path>m5-2.ac</path>
 
@@ -30,36 +29,44 @@
 </animation>
 
 <!-- Text OSG -->
-
   <animation>
     <type>select</type>
-    <object-name>textosg</object-name>
+    <object-name>textohm51</object-name>
     <condition>
       <property>sim/panel-hotspots</property>
     </condition>
   </animation>
 
   <text>
-    <name>textosg</name>
+    <name>textohm51</name>
     <type type="string">literal</type>
     <text type="string">M5-2 ARK I Indicator</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
-    <character-size type="double">0.014</character-size>
+    <character-size type="double">0.012</character-size>
     <character-aspect-ratio type="double">1.0</character-aspect-ratio>
     <axis-alignment>yz-plane</axis-alignment>
     <max-height>0.06</max-height>
-    <max-width>0.05</max-width>
+    <max-width>0.06</max-width>
     <font-resolution>
       <width type="int">64</width>
       <height type="int">64</height>
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>  0.005 </x-m>
-      <y-m>  0.0 </y-m>
-      <z-m>  0.01 </z-m>
+      <x-m>0.005</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.015</z-m>
     </offsets>
   </text>
+  <animation>
+    <type>material</type>
+    <object-name>textohm51</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
 
 </PropertyList>

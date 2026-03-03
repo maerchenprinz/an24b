@@ -63,8 +63,7 @@ var engage_ap = func(APbtn) {
 ####################
 var RollControl = func(rollstep) {
 	if ( getprop("an24/AP-28l1/sw_roll-mode") == -1.0 ) {
-#	setprop("an24/ZK-2/mp_heading-bug", math.periodic(0, 360, getprop("an24/ZK-2/mp_heading-bug") + rollstep) ); #leads to ZK turning in wrong directions
-	setprop("an24/ZK-2/mp_heading-bug", getprop("an24/ZK-2/mp_heading-bug") + rollstep );
+	setprop("an24/ZK-2/mp_heading-bug", math.periodic(0, 360, getprop("an24/ZK-2/mp_heading-bug") + rollstep) );
 	}
 	else {
 	setprop("an24/AP-28l1/knob_roll-control", math.clamp( (getprop("an24/AP-28l1/knob_roll-control") + (rollstep*2.5) ), -30, 30 ) );
