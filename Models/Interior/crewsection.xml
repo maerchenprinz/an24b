@@ -368,10 +368,10 @@
   <name>Book</name>
   <path>Extras/book1.xml</path>
   <offsets>
-    <x-m>3.83</x-m>
-    <y-m>0.6</y-m>
+    <x-m>3.84</x-m>
+    <y-m>0.7</y-m>
     <z-m>0.047</z-m>
-    <heading-deg>-70</heading-deg>
+    <heading-deg>-80</heading-deg>
   </offsets>
  </model>
 

@@ -17,8 +17,8 @@
    </emission>
  </animation>
 
-<model>
-  <name>Signal_lamp</name>
+ <!--model>
+  <name>50km_ON</name>
   <path>sl_01.xml</path>
   <offsets>
     <x-m>-0.003</x-m>
@@ -26,9 +26,9 @@
     <z-m>0.0035</z-m>
     <roll-deg>30</roll-deg>
   </offsets>
-</model>
+ </model>
 
-<model>
+ <model>
   <name>Signal_lamp</name>
   <path>sl_02.xml</path>
   <offsets>
@@ -37,9 +37,9 @@
     <z-m>0.0035</z-m>
     <roll-deg>30</roll-deg>
   </offsets>
-</model>
+ </model>
 
-<model>
+ <model>
   <name>Signal_lamp</name>
   <path>sl_03.xml</path>
   <offsets>
@@ -48,9 +48,9 @@
     <z-m>-0.08</z-m>
     <roll-deg>30</roll-deg>
   </offsets>
-</model>
+ </model>
 
-<model>
+ <model>
   <name>Signal_lamp</name>
   <path>sl_04.xml</path>
   <offsets>
@@ -59,6 +59,6 @@
     <z-m>-0.033</z-m>
     <roll-deg>30</roll-deg>
   </offsets>
-</model>
+ </model-->
 
 </PropertyList>

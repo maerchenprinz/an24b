@@ -23,11 +23,11 @@
   <property>an24/URVK-18/airflowR_filter</property>
   <interpolation>
     <entry><ind>0.0</ind><dep>0.0</dep></entry>
-    <entry><ind>100.0</ind><dep>10.0</dep></entry>
-    <entry><ind>300.0</ind><dep>94.0</dep></entry>
-    <entry><ind>500.0</ind><dep>168.0</dep></entry>
-    <entry><ind>700.0</ind><dep>230.0</dep></entry>
-    <entry><ind>1000.0</ind><dep>310.0</dep></entry>
+    <entry><ind>200.0</ind><dep>10.0</dep></entry>
+    <entry><ind>600.0</ind><dep>94.0</dep></entry>
+    <entry><ind>1000.0</ind><dep>168.0</dep></entry>
+    <entry><ind>1400.0</ind><dep>230.0</dep></entry>
+    <entry><ind>2000.0</ind><dep>310.0</dep></entry>
   </interpolation>
   <axis>
     <x>-1.0</x>

@@ -2,11 +2,11 @@
 
 <system name="Air Conditioning">
 
- <property value="320.0">/an24/BleedAir/aircond_bleedL_kgperh_target</property>
- <property value="320.0">/an24/BleedAir/aircond_bleedR_kgperh_target</property>
+ <property value="640.0">/an24/BleedAir/aircond_bleedL_kgperh_target</property>
+ <property value="640.0">/an24/BleedAir/aircond_bleedR_kgperh_target</property>
 
 <!-- BLEED AIR FOR AIR CONDITIONING
-(should be less than 700kg/h) -->
+(should be less than 700kg/h per engine) -->
  <channel name="Bleed Air for AirCond" execrate="20">
 
  <fcs_function name="/an24/BleedAir/aircond_bleedL_kgperh">
@@ -14,7 +14,7 @@
 
    <product>
     <property>/engines/engine[0]/n1</property>
-    <value>4.5</value>
+    <value>7.2</value><!--max. 720kg/h-->
     <property>/an24/BleedAir/aircond_valveL</property>
    </product>
 
@@ -26,7 +26,7 @@
 
    <product>
     <property>/engines/engine[1]/n1</property>
-    <value>4.5</value>
+    <value>7.2</value><!--max. 720kg/h-->
     <property>/an24/BleedAir/aircond_valveR</property>
    </product>
 
@@ -287,64 +287,214 @@
 #########################################-->
  <channel name="ARD 2077" execrate="80">
 
-<!-- Conversions -->
- <pure_gain name="/an24/Air-Cond/ARD-2077/env_pressure-mmHg">
+<!-- Conversions and calculations-->
+ <pure_gain name="/an24/Air-Cond/ARD-2077/env_pressure_mmHg">
   <input>/environment/pressure-inhg</input>
-  <gain>25.4</gain>
+  <gain>25.3999</gain>
  </pure_gain>
 
- <pure_gain name="/an24/Air-Cond/ARD-2077/diff-set-mmHg">
-  <input>/an24/Air-Cond/ARD-2077/diff-set-kgcm2</input>
+ <pure_gain name="/an24/Air-Cond/ARD-2077/env_pressure_mbar">
+  <input>/environment/pressure-inhg</input>
+  <gain>33.8639</gain>
+ </pure_gain>
+
+ <pure_gain name="/an24/Air-Cond/ARD-2077/env_air-density_kgperm3">
+  <input>atmosphere/rho-slugs_ft3</input><!--differs slightly from /environment/density-slugft3?-->
+  <gain>515.379</gain>
+ </pure_gain>
+
+ <pure_gain name="/an24/Air-Cond/ARD-2077/cab_air-mass_kg">
+  <input>/an24/Air-Cond/ARD-2077/cab_air_volume_m3</input>
+  <gain>/an24/Air-Cond/ARD-2077/env_air-density_kgperm3</gain>
+ </pure_gain>
+
+ <pure_gain name="/an24/Air-Cond/ARD-2077/ARD_diff-set_mmHg">
+  <input>/an24/Air-Cond/ARD-2077/ARD_diff-set_kgcm2</input>
   <gain>735.56</gain>
  </pure_gain>
-<!-- -->
 
- <switch name="/an24/Air-Cond/ARD-2077/cab_sealed">
+ <switch name="/an24/Air-Cond/ARD-2077/ARD_cab-seal_command">
    <default value="0.0"/>
    <test logic="AND" value="1.0">
-	/an24/Air-Cond/ARD-2077/cab_sealing_start-mmHg GT /an24/Air-Cond/ARD-2077/env_pressure-mmHg
+	/an24/Air-Cond/ARD-2077/ARD_cab-seal-start_mmHg GT /an24/Air-Cond/ARD-2077/env_pressure_mmHg
    </test>
  </switch>
 
  <summer name="/an24/Air-Cond/ARD-2077/press-diff_mmHg">
-  <input>/an24/Air-Cond/ARD-2077/env_pressure-mmHg</input>
-  <input>-/an24/Air-Cond/ARD-2077/cab_pressure-mmHg</input>
+  <input>/an24/Air-Cond/ARD-2077/env_pressure_mmHg</input>
+  <input>-/an24/Air-Cond/ARD-2077/cab_pressure_mmHg</input>
  </summer>
 
- <fcs_function name="/an24/Air-Cond/ARD-2077/cabin-press-command_mmHg">
+<!-- Vapor pressure (table by "enhanced" Magnus approximation, https://de.wikibooks.org/wiki/Tabellensammlung_Chemie/_Stoffdaten_Wasser#S%C3%A4ttigungsdampfdruck) -->
+ <fcs_function name="/an24/Air-Cond/ARD-2077/vapor_pressure_mbar">
+  <function>
+
+  <table>
+   <independentVar lookup="row">/environment/temperature-degc</independentVar>
+   <tableData>
+	-50.0	0.064454
+	-40.0	0.19048
+	-35.0	0.31544
+	-30.0	0.5106
+	-25.0	0.80902
+	-20.0	1.2563
+	-15.0	1.9144
+	-10.0	2.8657
+	-5.0	4.2184
+	0.0	6.11213
+	5.0	8.72469
+	10.0	12.2794
+	12.0	14.0251
+	14.0	15.9856
+	16.0	18.1829
+	18.0	20.6409
+	20.0	23.3854
+	22.0	26.4442
+	24.0	29.847
+	26.0	33.626
+	28.0	37.8154
+	30.0	42.452
+	35.0	56.2645
+	40.0	73.8127
+	45.0	95.8984
+	50.0	123.4478
+   </tableData>
+  </table>
+
+  </function>
+ </fcs_function>
+
+<!-- Density of air with water vapor-->
+ <fcs_function name="/an24/Air-Cond/ARD-2077/cab_air-density_kgperm3_01">
+  <function>
+
+  <quotient>
+   <value>287.058</value><!--gas constant dry air-->
+
+   <difference>
+
+    <value>1</value>
+
+    <product>
+     <quotient>
+      <property>/environment/relative-humidity</property><!--needs calculation (PAX breathing/sweating...)-->
+      <value>100.0</value>
+     </quotient>
+
+     <quotient>
+      <property>/an24/Air-Cond/ARD-2077/vapor_pressure_mbar</property>
+      <property>/an24/Air-Cond/ARD-2077/env_pressure_mbar</property><!--needs to be cab_press-->
+     </quotient>
+
+     <value>0.37802</value><!-- = 1-(gas constant dry air/gas constant water vapor) -->
+
+    </product>
+
+   </difference>
+
+  </quotient>
+
+  </function>
+ </fcs_function>
+
+ <fcs_function name="/an24/Air-Cond/ARD-2077/cab_air-density_kgperm3_02">
+  <function>
+
+  <quotient>
+   <product>
+    <property>/an24/Air-Cond/ARD-2077/env_pressure_mbar</property><!--needs to be cab_press-->
+    <value>100.0</value><!--Pascal-->
+   </product>
+   <product>
+    <property>/an24/Air-Cond/ARD-2077/cab_air-density_kgperm3_01</property>
+    <sum>
+     <property>/environment/temperature-degc</property><!--needs to be cab_temp-->
+     <value>273.15</value><!--Kelvin-->
+    </sum>
+   </product>
+  </quotient>
+
+  </function>
+ </fcs_function>
+
+<!-- -->
+
+ <fcs_function name="/an24/Air-Cond/ARD-2077/cabin-openings_kgperh">
+  <function>
+
+  <product>
+
+   <quotient>
+    <property>/an24/Air-Cond/ARD-2077/press-diff_mmHg</property>
+    <value>500.0</value><!-- ~ca. 0-8000m difference ISA, gives factor 1.0 -->
+   </quotient>
+
+   <sum>
+    <value>100.0</value><!--cabin not fully airtight-->
+<!--
+    <product>
+     <property>/an24/Air-Cond/ARD-2077/Valve_2176B</property>
+     <value>2800.0</value><!max. flow capacity 1400, two installed
+    </product>
+-->
+    <product>
+     <property>/an24/Air-Cond/SafetyValve_127</property>
+     <value>350.0</value><!--max. flow capacity-->
+    </product>
+    <product>
+     <property>/an24/DoorsHatches/bagdoor</property>
+     <value>6000.0</value><!--total not even educated guess-->
+    </product>
+    <product>
+     <property>/an24/DoorsHatches/cargodoor</property>
+     <value>4000.0</value><!--total not even educated guess-->
+    </product>
+    <product>
+     <property>/an24/DoorsHatches/paxdoor</property>
+     <value>5000.0</value><!--total not even educated guess-->
+    </product>
+   </sum>
+
+  </product>
+
+  </function>
+ </fcs_function>
+
+<!-- -->
+ <fcs_function name="/an24/Air-Cond/ARD-2077/ARD_cabin-press-command_mmHg">
   <function>
 
   <ifthen>
 
    <and>
-    <lt>
-     <property>/an24/Air-Cond/ARD-2077/env_pressure-mmHg</property>
-     <property>/an24/Air-Cond/ARD-2077/cab_sealing_start-mmHg</property>
-    </lt>
+    <eq>
+     <property>/an24/Air-Cond/ARD-2077/ARD_cab-seal_command</property>
+     <value>1.0</value>
+    </eq>
     <gt>
      <abs>
       <property>/an24/Air-Cond/ARD-2077/press-diff_mmHg</property>
      </abs>
-     <property>/an24/Air-Cond/ARD-2077/diff-set-mmHg</property>
+     <property>/an24/Air-Cond/ARD-2077/ARD_diff-set_mmHg</property>
     </gt>
    </and>
 
    <difference>
-    <property>/an24/Air-Cond/ARD-2077/env_pressure-mmHg</property>
-    <property>/an24/Air-Cond/ARD-2077/diff-set-mmHg</property>
+    <property>/an24/Air-Cond/ARD-2077/env_pressure_mmHg</property>
+    <property>/an24/Air-Cond/ARD-2077/ARD_diff-set_mmHg</property>
    </difference>
 
-   <property>/an24/Air-Cond/ARD-2077/env_pressure-mmHg</property>
+   <property>/an24/Air-Cond/ARD-2077/env_pressure_mmHg</property>
 
   </ifthen>
 
   </function>
  </fcs_function>
 
- <actuator name="/an24/Air-Cond/ARD-2077/cab_pressure-mmHg">
-  <input>/an24/Air-Cond/ARD-2077/cabin-press-command_mmHg</input>
-  <rate_limit>/an24/Air-Cond/ARD-2077/press-change-rate_mmHg_per_s</rate_limit>
- </actuator>
+ <!--actuator name="/an24/Air-Cond/ARD-2077/cab_pressure-mmHg">
+  <input>/an24/Air-Cond/ARD-2077/ard_cabin-press-command_mmHg</input>
+  <rate_limit>/an24/Air-Cond/ARD-2077/ard_press-change-rate_mmHg_per_s</rate_limit>
+ </actuator-->
 
 <!-- Main Valves 2176B -->
  <!--switch name="/an24/Air-Cond/ARD-2077/MainValve_2176B">
@@ -355,7 +505,7 @@
    </test>
  </switch-->
 
-<!-- Overpressure Safety Valves 127 and Magnet Valve 772 (772 can "control" 172) -->
+<!-- Overpressure Automatic Safety Valve 127 and Magnet Valve 772 (772 can "control" 172) -->
  <switch name="/an24/Air-Cond/SafetyValve_127">
    <default value="0.0"/>
    <test logic="OR" value="1.0">
@@ -373,14 +523,13 @@
    </test>
  </switch>
 
-
 <!-- VS-46 Height Signalisation -->
- <switch name="/an24/Air-Cond/VS-46_warning_triggered">
+ <switch name="/an24/Air-Cond/VS-46_warning_triggered"><!-- triggered by UVPD > 3000m -->
    <default value="0.0"/>
    <test logic="AND" value="1.0">
 	/an24/Electrics/AZSmain_V GT 24.0
 	/an24/AZS/sw0615 EQ 1.0
-	/an24/Air-Cond/ARD-2077/cab_pressure-mmHg LT 526.0<!--ca. 3000m-->
+	/an24/Air-Cond/ARD-2077/cab_pressure_mmHg LT 526.0<!-- ~ca. 3000m ISA -->
    </test>
  </switch>
 

@@ -11,29 +11,29 @@
     <button>0</button>
     <repeatable>false</repeatable>
    <binding>
-<condition>
-  <equals>
-    <property>an24/Extras/book1_cover</property>
-    <value>0.0</value>
-  </equals>
-</condition>
+    <condition>
+     <equals>
+      <property>an24/Extras/book1_cover</property>
+      <value>0.0</value>
+     </equals>
+    </condition>
     <command>property-interpolate</command>
     <property>an24/Extras/book1_cover</property>
     <value>1.0</value>
-    <time>0.4</time>
+    <time>4.4</time>
    </binding>
 
    <binding>
-<condition>
-  <equals>
-    <property>an24/Extras/book1_cover</property>
-    <value>1.0</value>
-  </equals>
-</condition>
+    <condition>
+     <equals>
+     <property>an24/Extras/book1_cover</property>
+     <value>1.0</value>
+    </equals>
+    </condition>
     <command>property-interpolate</command>
     <property>an24/Extras/book1_cover</property>
     <value>0.0</value>
-    <time>0.4</time><!-- 2 seconds to 0 from 1, 0.5, -1 etc. -->
+    <time>4.4</time>
    </binding>
    </action>
  </animation>
@@ -85,6 +85,27 @@
   <axis>
    <x>0</x>
    <y>1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Book1Page1a</object-name>
+  <property>an24/Extras/book1_cover</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>176</dep></entry>
+    <entry><ind>0.5</ind><dep>176</dep></entry>
+    <entry><ind>1.0</ind><dep>0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0532</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.0008</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
    <z>0</z>
   </axis>
  </animation>

@@ -37,21 +37,24 @@
     <type>select</type>
     <object-name>textvr10</object-name>
     <condition>
+     <or>
       <property>sim/panel-hotspots</property>
+      <property>sim/panel-hotspots_cond</property>
+     </or>
     </condition>
   </animation>
 
   <text>
     <name>textvr10</name>
     <type type="string">literal</type>
-    <text type="string">VR-10 Vario- meter</text>
+    <text type="string">VR-10 Cabin Variometer</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.014</character-size>
     <character-aspect-ratio type="double">1.0</character-aspect-ratio>
     <axis-alignment>yz-plane</axis-alignment>
     <max-height>0.06</max-height>
-    <max-width>0.05</max-width>
+    <max-width>0.06</max-width>
     <font-resolution>
       <width type="int">64</width>
       <height type="int">64</height>

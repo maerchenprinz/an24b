@@ -190,12 +190,12 @@ var WaterLevel = func() {
 	setprop("an24/WaterInjection/sl_right_empty", 0);
 	}
 }
-  setlistener("an24/WaterInjection/power_27V", WaterLevel, 0, 0 );
-  setlistener("an24/WaterInjection/sw_test_tanks", WaterLevel, 0, 0 );
-  setlistener("/fdm/jsbsim/inertia/pointmass-weight-lbs[3]", WaterLevel, 0, 0 );
-  setlistener("/fdm/jsbsim/inertia/pointmass-weight-lbs[4]", WaterLevel, 0, 0 );
+ setlistener("an24/WaterInjection/power_27V", WaterLevel, 0, 0 );
+ setlistener("an24/WaterInjection/sw_test_tanks", WaterLevel, 0, 0 );
+# tied property! setlistener("/fdm/jsbsim/inertia/pointmass-weight-lbs[3]", WaterLevel, 0, 0 );
+# tied property! setlistener("/fdm/jsbsim/inertia/pointmass-weight-lbs[4]", WaterLevel, 0, 0 );
 
-var WIValveLeft = maketimer(0.35, func(){
+var WIValveLeft = maketimer(0.4, func(){
 	var WIValveDirectionL = getprop("an24/WaterInjection/sw_triggerL");
 	var WaterInjPowerL = getprop("an24/WaterInjection/power_27V") ;
 	var WaterInjValveL = getprop("an24/WaterInjection/ValveL");

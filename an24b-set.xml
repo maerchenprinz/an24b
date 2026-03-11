@@ -450,7 +450,6 @@ Vref for less than 19 t: 200 km/h (flaps 38)
  <instrumentation>
   <path>Systems/instrumentation.xml</path>
  </instrumentation>
-
  <systems>
   <path>Systems/systems.xml</path>
   <autopilot>
@@ -462,7 +461,11 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   </property-rule>
  </systems>
 
- <allow-toggle-cockpit type="bool">0</allow-toggle-cockpit>
+ <allow-toggle-cockpit type="bool">false</allow-toggle-cockpit>
+
+  <controls>
+   <brake-cancels-parking-brake type="bool">false</brake-cancels-parking-brake>
+  </controls>
 
 </sim>
 
@@ -1380,41 +1383,39 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   </AChS>
 
   <AGD>
-   <agd-l type="double">0.0</agd-l>
-   <agd-r type="double">0.0</agd-r>
-   <sw_agd-l type="double">0.0</sw_agd-l>
-   <sw_agd-r type="double">0.0</sw_agd-r>
+   <agd-l type="float">0.0</agd-l>
+   <agd-r type="float">0.0</agd-r>
+   <sw_agd-l type="float">0.0</sw_agd-l>
+   <sw_agd-r type="float">0.0</sw_agd-r>
   </AGD>
 
   <Air-Cond>
    <ARD-2077>
-    <diff-set-kgcm2 type="double">0.2</diff-set-kgcm2>
-    <press-change-rate_mmHg_per_s type="double">0.18</press-change-rate_mmHg_per_s>
-    <cab_sealing_start-mmHg type="int">716</cab_sealing_start-mmHg>
+    <ARD_cab-seal-start_mmHg type="int">715</ARD_cab-seal-start_mmHg>
+    <ARD_diff-set_kgcm2 type="float">0.2</ARD_diff-set_kgcm2>
+    <ARD_press-change-rate_mmHg_per_s type="float">0.18</ARD_press-change-rate_mmHg_per_s>
+    <cab_pressure_mmHg type="float">760.0</cab_pressure_mmHg>
    </ARD-2077>
-   <auto_temp-c type="double">18.0</auto_temp-c>
-
-   <cvr_press-relief-Valves_127 type="double">0.0</cvr_press-relief-Valves_127>
+   <auto_temp-c type="float">18.0</auto_temp-c>
+   <cvr_press-relief-Valves_127 type="float">0.0</cvr_press-relief-Valves_127>
    <!--bleedair_autoL type="int">0</bleedair_autoL-->
    <!--bleedair_autoR type="int">0</bleedair_autoR-->
-   <handle_left type="double">0.0</handle_left>
-   <handle_right type="double">0.0</handle_right>
-   <lp_footpedal type="double">0.0</lp_footpedal>
-   <mix-valveL type="double">0.0</mix-valveL>
-   <mix-valveR type="double">0.0</mix-valveR>
-   <radioop_footpedal type="double">0.0</radioop_footpedal>
-   <rp_footpedal type="double">0.0</rp_footpedal>
-   <sw_bleedairL type="double">0.0</sw_bleedairL>
-   <sw_bleedairL1 type="double">0.0</sw_bleedairL1>
-   <sw_bleedairR type="double">0.0</sw_bleedairR>
-   <sw_bleedairR1 type="double">0.0</sw_bleedairR1>
-
-   <sw_press-relief-Valves_127 type="double">0.0</sw_press-relief-Valves_127>
-
-   <sw_rack-panel type="double">-1.0</sw_rack-panel>
-   <sw_turbo-cooler_valve type="double">-1.0</sw_turbo-cooler_valve>
-   <temp_auto-manual type="double">1.0</temp_auto-manual>
-   <turbo-cooler_valve type="double">0.0</turbo-cooler_valve>
+   <handle_left type="float">0.0</handle_left>
+   <handle_right type="float">0.0</handle_right>
+   <lp_footpedal type="float">0.0</lp_footpedal>
+   <mix-valveL type="float">0.0</mix-valveL>
+   <mix-valveR type="float">0.0</mix-valveR>
+   <radioop_footpedal type="float">0.0</radioop_footpedal>
+   <rp_footpedal type="float">0.0</rp_footpedal>
+   <sw_bleedairL type="float">0.0</sw_bleedairL>
+   <sw_bleedairL1 type="float">0.0</sw_bleedairL1>
+   <sw_bleedairR type="float">0.0</sw_bleedairR>
+   <sw_bleedairR1 type="float">0.0</sw_bleedairR1>
+   <sw_press-relief-Valves_127 type="float">0.0</sw_press-relief-Valves_127>
+   <sw_rack-panel type="float">-1.0</sw_rack-panel>
+   <sw_turbo-cooler_valve type="float">-1.0</sw_turbo-cooler_valve>
+   <temp_auto-manual type="float">1.0</temp_auto-manual>
+   <turbo-cooler_valve type="float">0.0</turbo-cooler_valve>
   </Air-Cond>
 
   <Anti-Ice>
@@ -1422,7 +1423,7 @@ Vref for less than 19 t: 200 km/h (flaps 38)
 
    <environment-set type="int">0</environment-set>
    <controlL-R type="int">0</controlL-R>
-   <sw_controlL-R type="double">0.0</sw_controlL-R>
+   <sw_controlL-R type="float">0.0</sw_controlL-R>
    <so-4_icedL type="int">0</so-4_icedL>
    <so-4_icedR type="int">0</so-4_icedR>
    <D2R_time type="int">0</D2R_time>

@@ -75,7 +75,6 @@
 <!--########################################
 ## ADT-24M AUTOMATIC FUEL DOSING
 #########################################-->
-
 <!--
 ### IKM RPM and Torque Limiter ###
 -->
@@ -462,6 +461,55 @@
 	/an24/AZS/sw0111 EQ 1.0
    </test>
  </switch>
+
+ </channel>
+
+<!--########################################
+## Water Injection
+#########################################-->
+ <channel name="Water Injection Left" execrate="10" execute="/an24/WaterInjection/ValveL">
+
+ <fcs_function name="inertia/pointmass-weight-lbs[3]">
+  <function>
+
+   <difference>
+    <property>inertia/pointmass-weight-lbs[3]</property>
+    <product>
+     <property>/an24/BleedAir/waterinj_bleedL_norm</property>
+     <property>/an24/WaterInjection/ValveL</property>
+     <value>0.4</value>
+    </product>
+   </difference>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>inertia/pointmass-weight-lbs[3]</max>
+  </clipto>
+ </fcs_function>
+
+ </channel>
+
+ <channel name="Water Injection Right" execrate="10" execute="/an24/WaterInjection/ValveR">
+
+ <fcs_function name="inertia/pointmass-weight-lbs[4]">
+  <function>
+
+   <difference>
+    <property>inertia/pointmass-weight-lbs[4]</property>
+    <product>
+     <property>/an24/BleedAir/waterinj_bleedR_norm</property>
+     <property>/an24/WaterInjection/ValveR</property>
+     <value>0.4</value>
+    </product>
+   </difference>
+
+  </function>
+  <clipto>
+   <min>0.0</min>
+   <max>inertia/pointmass-weight-lbs[4]</max>
+  </clipto>
+ </fcs_function>
 
  </channel>
 

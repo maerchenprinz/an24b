@@ -7,7 +7,7 @@
  <animation>
   <type>rotate</type>
   <object-name>needle_alt</object-name>
-  <property>an24/Air-Cond/ARD-2077/cab_pressure-mmHg</property>
+  <property>an24/Air-Cond/ARD-2077/cab_pressure_mmHg</property>
   <interpolation>
     <entry><ind>1013.25</ind><dep>17.0</dep></entry>
     <entry><ind>405.23</ind><dep>72.0</dep></entry><!--5000m-->
@@ -74,7 +74,7 @@
     <character-aspect-ratio type="double">1.0</character-aspect-ratio>
     <axis-alignment>yz-plane</axis-alignment>
     <max-height>0.06</max-height>
-    <max-width>0.05</max-width>
+    <max-width>0.06</max-width>
     <font-resolution>
       <width type="int">64</width>
       <height type="int">64</height>

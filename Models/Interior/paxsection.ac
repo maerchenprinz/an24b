@@ -28741,7 +28741,6 @@ OBJECT poly
 name "PAXDoor"
 data 16
 paxdoor.mesh.003
-texture "/home/adrian/blenderuv/Fuselage/fuselagecombined.png"
 crease 45.000000
 numvert 134
 16.1396 0.893296 1.0507
@@ -29818,7 +29817,6 @@ OBJECT poly
 name "BagDoor"
 data 16
 paxdoor.mesh.003
-texture "/home/adrian/blenderuv/Fuselage/fuselagecombined.png"
 crease 45.000000
 numvert 136
 17.575 0.21376 -1.34353

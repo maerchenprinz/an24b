@@ -16,7 +16,7 @@
   <object-name>filter</object-name>
   <condition>
    <equals>
-    <property>an24/WaterInjection/has_power_27V</property>
+    <property>an24/WaterInjection/power_27V</property>
     <value>1</value>
    </equals>
    <greater-than>

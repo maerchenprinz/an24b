@@ -506,9 +506,10 @@ var r836_channelchange = func {
  setlistener("an24/R-836/operator", r836_channelchange, 0, 0 );
 
 var dectobin = func {
-	var decnr = getprop("an24/R-836/b1_knob_A") -1 ;# 1 is first in the list
+	var decnr = getprop("an24/R-836/b1_knob_C") -1 ;# 1 is first in the list
 	var binnr = [0,0,0,0,0,0] ;
-	for(var i=0; decnr>0; i=i+1) {
+	foreach (var i; decnr[i]) {
+#	for(var i=0; decnr>0; i=i+1) {
 		binnr[i] = math.fmod(decnr, 2) ;
 		var decnr = int(decnr/2) ;
 	}

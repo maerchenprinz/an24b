@@ -152,3 +152,53 @@ var mass_info = func {
       help_winMass.write(sprintf("Total mass: %.0f kg, CAX: %.1f%%, Total fuel: %.0f kg, Vref: %.0f km/h", mass_kg, cax, fuel_kg, vref) );
    }
 }
+
+# Trigger for People On Board/Cargo calculation (as weights are tied properties)
+var triggerLoadCalc = func {
+	if ( streq( getprop("sim/gui/dialogs/current-dialog"), "WeightAndFuel") == 1) {
+	setprop("an24/Air-Cond/ARD-2077/calctrigger", 1);
+	}
+	else {
+	setprop("an24/Air-Cond/ARD-2077/calctrigger", 0);
+	}
+}
+ setlistener( "sim/gui/dialogs/current-dialog", triggerLoadCalc, 0, 0 );
+
+# People On Board and Cargo weight/volume calculation for air-conditioning (and loadmaster?)
+var POBLoadCalc = func (fromWeightIndex, toWeightIndex) {
+	var TotalPAX_lbs = 0;
+	var TotalCrew_lbs = getprop("fdm/jsbsim/inertia/pointmass-weight-lbs[0]") + getprop("fdm/jsbsim/inertia/pointmass-weight-lbs[1]"); # 4 Pilots + 1 F/A
+	var PAXnumber = {};
+	for (var i = fromWeightIndex; i <= toWeightIndex; i += 1) {
+		PAXnumber[i] = getprop("payload/weight[" ~ fromWeightIndex ~ "]/weight-lb");
+		var fromWeightIndex = fromWeightIndex + 1;
+		var TotalPAX_lbs = TotalPAX_lbs + PAXnumber[i];
+#		setprop("/an24/Air-Cond/ARD-2077/pax" ~ i ~ "", PAXnumber[i]);
+#		print(i, ": ", PAXnumber[i] * 0.453592,"kg");
+	}
+	setprop("an24/Air-Cond/ARD-2077/paxcrew_weight_kg", (TotalPAX_lbs + TotalCrew_lbs) * 0.45359237 );
+	setprop("an24/Air-Cond/ARD-2077/paxcrew_volume_m3", (TotalPAX_lbs + TotalCrew_lbs) * 0.45359237 * 0.0010152 ); # humans: 985kg/m3 according to that internet
+}
+ setlistener( "an24/Air-Cond/ARD-2077/calctrigger", func {POBLoadCalc(1,13);}, 1, 0 );
+
+var CargoLoadCalc = func (fromWeightIndex, toWeightIndex) {
+	var TotalCargo_lbs = 0;
+	var ExtraCargo_lbs = getprop("payload/weight/weight-lb[0]") ; # "Buffet"
+	var Cargonumber = {};
+	for (var i = fromWeightIndex; i <= toWeightIndex; i += 1) {
+		Cargonumber[i] = getprop("payload/weight[" ~ fromWeightIndex ~ "]/weight-lb");
+		var fromWeightIndex = fromWeightIndex + 1;
+		var TotalCargo_lbs = TotalCargo_lbs + Cargonumber[i];
+#		setprop("/an24/Air-Cond/ARD-2077/cargo" ~ i ~ "", cargonumber[i]);
+#		print(i, ": ", Cargonumber[i] * 0.453592,"kg");
+	}
+	setprop("an24/Air-Cond/ARD-2077/cargo_weight_kg", (TotalCargo_lbs + ExtraCargo_lbs) * 0.45359237 );
+	setprop("an24/Air-Cond/ARD-2077/cargo_volume_m3", (TotalCargo_lbs + ExtraCargo_lbs) * 0.45359237 * 0.004 ); # luggage: 250kg/m3 according to that internet
+}
+ setlistener( "an24/Air-Cond/ARD-2077/calctrigger", func {CargoLoadCalc(14,17);}, 1, 0 );
+
+var CabinAirCalc = func {
+	setprop("an24/Air-Cond/ARD-2077/cab_air_volume_m3", 63.9 - getprop("an24/Air-Cond/ARD-2077/paxcrew_volume_m3") - getprop("an24/Air-Cond/ARD-2077/cargo_volume_m3") );
+}
+ setlistener( "an24/Air-Cond/ARD-2077/paxcrew_volume_m3", CabinAirCalc, 1, 0 );
+ setlistener( "an24/Air-Cond/ARD-2077/cargo_volume_m3", CabinAirCalc, 1, 0 );
