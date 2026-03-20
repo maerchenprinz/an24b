@@ -35,12 +35,10 @@
        <product>
         <property>an24/Electrical_Panel/v-1_akk1</property>
         <property>an24/Electrics/DC_Batt_12SAM1_V</property>
-        <property>an24/RKCrew/sw01_batt1</property>
        </product>
        <product>
         <property>an24/Electrical_Panel/v-1_akk2</property>
         <property>an24/Electrics/DC_Batt_12SAM2_V</property>
-        <property>an24/RKCrew/sw02_batt2</property>
        </product>
        <product>
         <property>an24/Electrical_Panel/v-1_gs-24</property>
@@ -69,8 +67,8 @@
       </sum>
         <value>120.0</value>
       </mod>
-    <entry><ind>  0.0</ind>	<dep>-120</dep></entry>
-    <entry><ind> 30.0</ind>	<dep>120</dep></entry>
+    <entry><ind>0.0</ind><dep>-120</dep></entry>
+    <entry><ind>30.0</ind><dep>120</dep></entry>
     </table>
   </expression>
   <axis>

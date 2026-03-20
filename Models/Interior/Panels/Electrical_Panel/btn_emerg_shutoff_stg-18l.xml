@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Emergency shut-off of STG-18 left -->
-
+<!--Manual emergency disconnect STG-18 left by AZP-8M auto surge protection (Item 1160)-->
 <PropertyList>
  <path>../../shared/knobs_buttons/205k.ac</path>
 
@@ -29,6 +28,15 @@
     </binding>
     </mod-up>
    </action>
+   <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>stg18ldisconnect</tooltip-id>
+    <label>Emergency
+Disconnect
+  STG-18L</label>
+   </binding>
+   </hovered>
  </animation>
 
  <animation>

@@ -167,9 +167,9 @@
     <internal type="bool">true</internal>
     <config>
       <from-model type="bool">true</from-model>
-      <x-offset-m type="double" >0.47</x-offset-m>
-      <y-offset-m type="double" >-0.5</y-offset-m>
-      <z-offset-m type="double" >-5.88</z-offset-m>
+      <x-offset-m type="double">0.47</x-offset-m>
+      <y-offset-m type="double">-0.5</y-offset-m>
+      <z-offset-m type="double">-5.88</z-offset-m>
       <pitch-offset-deg type="double">-14.0</pitch-offset-deg>
       <from-model-idx type="int">0</from-model-idx>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
@@ -194,9 +194,9 @@
     <internal type="bool">true</internal>
     <config>
       <from-model type="bool">true</from-model>
-      <x-offset-m type="double" >0.55</x-offset-m>
-      <y-offset-m type="double" >-0.94</y-offset-m>
-      <z-offset-m type="double" >-5.6</z-offset-m>
+      <x-offset-m type="double">0.55</x-offset-m>
+      <y-offset-m type="double">-0.94</y-offset-m>
+      <z-offset-m type="double">-5.35</z-offset-m>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
       <default-field-of-view-deg type="double">84.0</default-field-of-view-deg>
       <default-pitch-deg type="double">0</default-pitch-deg>
@@ -213,9 +213,9 @@
     <internal type="bool">true</internal>
     <config>
       <from-model type="bool">true</from-model>
-      <x-offset-m type="double" >-0.43</x-offset-m>
-      <y-offset-m type="double" >-0.53</y-offset-m>
-      <z-offset-m type="double" >-5.21</z-offset-m>
+      <x-offset-m type="double">-0.43</x-offset-m>
+      <y-offset-m type="double">-0.53</y-offset-m>
+      <z-offset-m type="double">-5.21</z-offset-m>
       <from-model-idx type="int">0</from-model-idx>
       <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
       <default-field-of-view-deg type="double">84.0</default-field-of-view-deg>
@@ -1742,7 +1742,7 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   <btn_add_go16l type="double">0.0</btn_add_go16l>
   <gs24_voltreg type="double">1.02</gs24_voltreg>
   <go-16l_voltreg type="double">1.01</go-16l_voltreg>
-  <go-16r_voltreg type="double">0.98</go-16r_voltreg>
+  <go-16r_voltreg type="double">0.99</go-16r_voltreg>
   <slider type="double">1.0</slider>
   <stg-18l_voltreg type="double">1.01</stg-18l_voltreg>
   <stg-18r_voltreg type="double">0.98</stg-18r_voltreg>
@@ -1762,31 +1762,37 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   <CONN_Akku2-RKAkku type="int">0</CONN_Akku2-RKAkku>
   <CONN_TsRUl-TsRUr type="int">1</CONN_TsRUl-TsRUr>
 
-  <FUSE_Akku1-RKAkku type="int">1</FUSE_Akku1-RKAkku>
-  <FUSE_Akku2-RKAkku type="int">1</FUSE_Akku2-RKAkku>
+  <FUSE_Akku1 type="int">1</FUSE_Akku1>
+  <FUSE_Akku2 type="int">1</FUSE_Akku2>
 
-  <FUSE_AZSemerg-RKNavemerg type="int">1</FUSE_AZSemerg-RKNavemerg>
-  <FUSE_AZSemerg-RKFlAttemerg type="int">1</FUSE_AZSemerg-RKFlAttemerg>
+  <FUSE_AZSemerg-RK_Navemerg type="int">1</FUSE_AZSemerg-RK_Navemerg>
+  <FUSE_AZSemerg-RK_FlAttemerg type="int">1</FUSE_AZSemerg-RK_FlAttemerg>
 
-  <FUSE_AZSmain-RKCrewCab type="int">1</FUSE_AZSmain-RKCrewCab>
-  <FUSE_AZSmain-RKNavmain type="int">1</FUSE_AZSmain-RKNavmain>
+  <FUSE_AZSmain-RK_Radiomain type="int">1</FUSE_AZSmain-RK_Radiomain>
+  <FUSE_AZSmain-RK_Navmain type="int">1</FUSE_AZSmain-RK_Navmain>
 
   <FUSE_RKAkku-AZSemerg type="int">1</FUSE_RKAkku-AZSemerg>
   <FUSE_RKAkku-RKCrewCab type="int">1</FUSE_RKAkku-RKCrewCab>
 
-  <FUSE_RKCrewCab-TsRUr1 type="int">1</FUSE_RKCrewCab-TsRUr1>
-  <FUSE_RKCrewCab-TsRUr2 type="int">1</FUSE_RKCrewCab-TsRUr2>
-  <FUSE_RKCrewCab-RKNavmain type="int">1</FUSE_RKCrewCab-RKNavmain>
+  <FUSE_RK_CrewCab-AZSmaina type="int">1</FUSE_RK_CrewCab-AZSmaina>
+  <FUSE_RK_CrewCab-AZSmainb type="int">1</FUSE_RK_CrewCab-AZSmainb>
+  <FUSE_RK_CrewCab-RK_Navmain type="int">1</FUSE_RK_CrewCab-RK_Navmain>
+  <FUSE_RK_CrewCab-RK_Radiomain type="int">1</FUSE_RK_CrewCab-RK_Radiomain>
 
   <FUSE_TsRUl-TsRUr type="int">1</FUSE_TsRUl-TsRUr>
-  <FUSE_TsRUl-AZSmain type="int">1</FUSE_TsRUl-AZSmain>
-  <FUSE_TsRUl-RKFlAttmain type="int">1</FUSE_TsRUl-RKFlAttmain>
-  <FUSE_TsRUl-RKFuelPumps type="int">1</FUSE_TsRUl-RKFuelPumps>
+  <FUSE_TsRUl-AZSmain1a type="int">1</FUSE_TsRUl-AZSmain1a>
+  <FUSE_TsRUl-AZSmain1b type="int">1</FUSE_TsRUl-AZSmain1b>
+  <FUSE_TsRUl-AZSmain2a type="int">1</FUSE_TsRUl-AZSmain2a>
+  <FUSE_TsRUl-AZSmain2b type="int">1</FUSE_TsRUl-AZSmain2b>
+  <FUSE_TsRUl-RK_FlAttmain type="int">1</FUSE_TsRUl-RK_FlAttmain>
+  <FUSE_TsRUl-RK_Fuel type="int">1</FUSE_TsRUl-RK_Fuel>
 
-  <FUSE_TsRUr-RKCrewCab1 type="int">1</FUSE_TsRUr-RKCrewCab1>
-  <FUSE_TsRUr-RKCrewCab2 type="int">1</FUSE_TsRUr-RKCrewCab2>
-  <FUSE_TsRUr-RKFlAttmain type="int">1</FUSE_TsRUr-RKFlAttmain>
-  <FUSE_TsRUr-RKFuelPumps type="int">1</FUSE_TsRUr-RKFuelPumps>
+  <FUSE_TsRUr-RK_CrewCab1a type="int">1</FUSE_TsRUr-RK_CrewCab1a>
+  <FUSE_TsRUr-RK_CrewCab1b type="int">1</FUSE_TsRUr-RK_CrewCab1b>
+  <FUSE_TsRUr-RK_CrewCab2a type="int">1</FUSE_TsRUr-RK_CrewCab2a>
+  <FUSE_TsRUr-RK_CrewCab2b type="int">1</FUSE_TsRUr-RK_CrewCab2b>
+  <FUSE_TsRUr-RK_FlAttmain type="int">1</FUSE_TsRUr-RK_FlAttmain>
+  <FUSE_TsRUr-RK_Fuel type="int">1</FUSE_TsRUr-RK_Fuel>
  
   <FUSE_RK115V-RKRadioOpmain type="int">1</FUSE_RK115V-RKRadioOpmain>
 

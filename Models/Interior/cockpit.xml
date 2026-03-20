@@ -2018,7 +2018,7 @@
 </model>
 
 <!--********************************************-->
-<model>
+ <model>
   <name>PRT-24</name>
   <path>Instruments/PRT-24/prt-24.xml</path>
   <offsets>
@@ -2029,12 +2029,12 @@
     <pitch-deg>30</pitch-deg>
     <roll-deg>-3</roll-deg>
   </offsets>
-</model>
+ </model>
 
 <!--*************** Overhead back *****************-->
 
 <!--Select animation-->
-<animation>
+ <animation>
   <type>select</type>
   <object-name>overhead1</object-name>
   <object-name>sro-2_blind</object-name>
@@ -2044,9 +2044,9 @@
     <value>Standard</value>
     </equals>
    </condition>
-</animation>
+ </animation>
 
-<animation>
+ <animation>
   <type>select</type>
   <object-name>overhead2</object-name>
    <condition>
@@ -2055,10 +2055,10 @@
     <value>Kurs-MP</value>
     </equals>
    </condition>
-</animation>
+ </animation>
 
 <!--******************************-->
-<model>
+ <model>
   <name>ARK-11</name>
   <path>Instruments/ARK-11/ohark-11.xml</path>
   <offsets>
@@ -2067,9 +2067,9 @@
     <z-m>1.393</z-m>
     <pitch-deg>169.5</pitch-deg>
   </offsets>
-</model>
+ </model>
 
-<model>
+ <model>
   <name>ARK-Indicator</name>
     <condition>
     <equals>
@@ -2084,9 +2084,9 @@
     <z-m>1.416</z-m>
     <pitch-deg>79.5</pitch-deg>
   </offsets>
-</model>
+ </model>
 
-<model>
+ <model>
   <name>ARK-Indicator</name>
     <condition>
     <equals>
@@ -2101,10 +2101,10 @@
     <z-m>1.416</z-m>
     <pitch-deg>79.5</pitch-deg>
   </offsets>
-</model>
+ </model>
 
 <!--************* Transponder **************-->
-<model>
+ <model>
   <name>SO-63</name>
   <path>Instruments/SOM-64/so-63.xml</path>
   <offsets>
@@ -2113,9 +2113,9 @@
     <z-m>1.463</z-m>
     <pitch-deg>79.5</pitch-deg>
   </offsets>
-</model>
+ </model>
 
-<model>
+ <model>
   <name>SRO-2std</name>
     <condition>
     <equals>
@@ -2130,9 +2130,9 @@
     <z-m>1.45</z-m>
     <pitch-deg>169.5</pitch-deg>
   </offsets>
-</model>
+ </model>
 
-<model>
+ <model>
   <name>SRO-2kmp</name>
     <condition>
     <equals>
@@ -2147,10 +2147,10 @@
     <z-m>1.462</z-m>
     <pitch-deg>169.5</pitch-deg>
   </offsets>
-</model>
+ </model>
 
 <!--*************** SP-50 *****************-->
-<model>
+ <model>
   <name>SP-50</name>
     <condition>
     <equals>
@@ -2165,7 +2165,7 @@
     <z-m>1.45</z-m>
     <pitch-deg>79.5</pitch-deg>
   </offsets>
-</model>
+ </model>
 
 <!--************* Kurs-MP ***************-->
 <model>

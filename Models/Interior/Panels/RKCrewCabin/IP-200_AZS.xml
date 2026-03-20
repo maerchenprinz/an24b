@@ -11,7 +11,7 @@
    <condition>
     <greater-than>
     <property>an24/RKCrew/table_hatch</property>
-    <value>0.1</value>
+    <value>0.0</value>
     </greater-than>
    </condition>
  </animation>
@@ -19,7 +19,7 @@
  <animation>
    <type>knob</type>
    <object-name>fuse</object-name>
-   <property>an24/Electrics/FUSE_AZSmain-RKCrewCab</property>
+   <property>an24/Electrics/FUSE_RK_CrewCab-AZSmaina</property>
    <factor>30.0</factor>
    <offset-deg>-30</offset-deg>
    <axis>
@@ -36,22 +36,22 @@
     <binding>
      <command>nasal</command>
       <script>
-        if( getprop("an24/Electrics/FUSE_AZSmain-RKCrewCab" ) == 1.0 ){
-        interpolate("an24/Electrics/FUSE_AZSmain-RKCrewCab", 0.0, 0.5 );
+        if( getprop("an24/Electrics/FUSE_RK_CrewCab-AZSmaina" ) == 1.0 ){
+        interpolate("an24/Electrics/FUSE_RK_CrewCab-AZSmaina", 0.0, 0.5 );
         }
         else {
-        interpolate("an24/Electrics/FUSE_AZSmain-RKCrewCab", 1.0, 0.5 );
+        interpolate("an24/Electrics/FUSE_RK_CrewCab-AZSmaina", 1.0, 0.5 );
         }
       </script>
     </binding>
    </action>
    <hovered>
-     <binding>
-       <command>set-tooltip</command>
-       <label>Fuse IP-200 Connection
+    <binding>
+     <command>set-tooltip</command>
+     <label>Fuse IP-200 Connection
       to AZS panel</label>
-       <tooltip-id>fuserkcctoazs</tooltip-id>
-     </binding>
+     <tooltip-id>fuserkcctoazs</tooltip-id>
+    </binding>
    </hovered>
  </animation>
 

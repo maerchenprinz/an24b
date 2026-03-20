@@ -3,10 +3,10 @@
 <PropertyList>
  <path>book1.ac</path>
 
-<!-- -->
+<!--Covers-->
  <animation>
   <type>pick</type>
-   <object-name>cover1</object-name>
+   <object-name>Book1FrontCover</object-name>
    <action>
     <button>0</button>
     <repeatable>false</repeatable>
@@ -20,7 +20,7 @@
     <command>property-interpolate</command>
     <property>an24/Extras/book1_cover</property>
     <value>1.0</value>
-    <time>4.4</time>
+    <time>0.4</time>
    </binding>
 
    <binding>
@@ -33,81 +33,121 @@
     <command>property-interpolate</command>
     <property>an24/Extras/book1_cover</property>
     <value>0.0</value>
-    <time>4.4</time>
+    <time>0.4</time>
    </binding>
    </action>
  </animation>
 
  <animation>
-  <object-name>cover2</object-name>
+  <object-name>Book1FrontCover</object-name>
   <type>rotate</type>
-  <property>an24/Extras/book1_cover</property>
-  <factor>-80</factor>
-  <center>
-   <x-m>-0.0627</x-m>
-   <y-m>0</y-m>
-   <z-m>-0.0069</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
- </animation>
-
- <animation>
-  <object-name>cover1</object-name>
-  <type>rotate</type>
-  <property>an24/Extras/book1_cover</property>
-  <factor>-80</factor>
-  <center>
-   <x-m>-0.0627</x-m>
-   <y-m>0</y-m>
-   <z-m>-0.0069</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
- </animation>
-
- <animation>
-  <object-name>cover1</object-name>
-  <type>rotate</type>
-  <property>an24/Extras/book1_cover</property>
-  <factor>-80</factor>
-  <center>
-   <x-m>-0.0643</x-m>
-   <y-m>0</y-m>
-   <z-m>0.00397</z-m>
-  </center>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>Book1Page1a</object-name>
   <property>an24/Extras/book1_cover</property>
   <interpolation>
-    <entry><ind>0.0</ind><dep>176</dep></entry>
-    <entry><ind>0.5</ind><dep>176</dep></entry>
-    <entry><ind>1.0</ind><dep>0</dep></entry>
+    <entry><ind>0.0</ind><dep>0</dep></entry>
+    <entry><ind>0.8</ind><dep>60</dep></entry>
+    <entry><ind>1.0</ind><dep>60</dep></entry>
   </interpolation>
   <center>
-   <x-m>0.0532</x-m>
+   <x-m>-0.0627</x-m>
    <y-m>0</y-m>
-   <z-m>-0.0008</z-m>
+   <z-m>-0.0069</z-m>
   </center>
   <axis>
    <x>0</x>
    <y>-1</y>
    <z>0</z>
   </axis>
+ </animation>
+
+ <animation>
+  <object-name>Book1FrontCover</object-name>
+  <type>rotate</type>
+  <property>an24/Extras/book1_cover</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>0</dep></entry>
+    <entry><ind>0.8</ind><dep>122</dep></entry>
+    <entry><ind>1.0</ind><dep>122</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.0627</x-m>
+   <y-m>0</y-m>
+   <z-m>0.0069</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <object-name>Book1Spine</object-name>
+  <type>rotate</type>
+  <property>an24/Extras/book1_cover</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>0</dep></entry>
+    <entry><ind>0.8</ind><dep>60</dep></entry>
+    <entry><ind>1.0</ind><dep>60</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>-0.0627</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.0069</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+<!--Pages-->
+ <animation>
+  <type>select</type>
+  <object-name>Book1TrickPage1</object-name>
+  <object-name>Book1TrickPage1a</object-name>
+   <condition>
+    <greater-than>
+     <property>an24/Extras/book1_cover</property>
+     <value>0.0</value>
+    </greater-than>
+    <less-than>
+     <property>an24/Extras/book1_cover</property>
+     <value>1.0</value>
+    </less-than>
+   </condition>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Book1TrickPage1a</object-name>
+  <property>an24/Extras/book1_cover</property>
+  <interpolation>
+    <entry><ind>0.0</ind><dep>178</dep></entry>
+    <entry><ind>0.7</ind><dep>178</dep></entry>
+    <entry><ind>1.0</ind><dep>0</dep></entry>
+  </interpolation>
+  <center>
+   <x-m>0.0532</x-m>
+   <y-m>0</y-m>
+   <z-m>-0.0011</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>-1</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>Book1Page1</object-name>
+   <condition>
+    <equals>
+     <property>an24/Extras/book1_cover</property>
+     <value>1.0</value>
+    </equals>
+   </condition>
  </animation>
 
 </PropertyList>

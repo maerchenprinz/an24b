@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- "Discontinue start" of AI-24 engine buttton -->
-
+<!-- "Discontinue start" of AI-24 engine button (Item 1094) -->
 <PropertyList>
  <path>../../shared/knobs_buttons/spring_load_btn01.ac</path>
 

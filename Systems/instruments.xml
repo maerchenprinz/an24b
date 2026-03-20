@@ -339,6 +339,7 @@
 	/an24/Electrics/AZSmain_V GT 24.0
 	/an24/Electrics/AZSmain_V LT 32.0
 	/an24/AZS/sw0605 EQ 1.0
+	/an24/EUP-53/sw_eup EQ 1.0
   </test>
  </switch>
 

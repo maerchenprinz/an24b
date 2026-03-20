@@ -22,6 +22,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>boardaeroboard</tooltip-id>
+    <label>DC Supply from
+Board Sources</label>
+   </binding>
+   </hovered>
  </animation>
 
  <animation>
@@ -40,6 +48,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>boardaerooff</tooltip-id>
+    <label>DC Supply
+    OFF</label>
+   </binding>
+   </hovered>
  </animation>
 
  <animation>
@@ -60,6 +76,14 @@
       </script>
     </binding>
   </action>
+   <hovered>
+   <binding>
+    <command>set-tooltip</command>
+    <tooltip-id>boardaeroaero</tooltip-id>
+    <label>   DC Supply from
+Aerodrome Sources</label>
+   </binding>
+   </hovered>
  </animation>
 
  <animation>
@@ -67,8 +91,8 @@
    <object-name>lever</object-name>
    <property>an24/Electrical_Panel/sw_board-aerodrome</property>
   <interpolation>
-    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
-    <entry><ind>-1.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>1.0</ind><dep>20.0</dep></entry>
+    <entry><ind>-1.0</ind><dep>-20.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>
@@ -76,4 +100,5 @@
     <z>0.0</z>
   </axis>
  </animation>
+
 </PropertyList>

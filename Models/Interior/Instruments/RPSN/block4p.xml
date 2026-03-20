@@ -34,6 +34,7 @@
    <object-name>screens</object-name>
    <object-name>therest</object-name>
    <object-name>knobs</object-name>
+   <object-name>lamp_kanal2</object-name>
    <property>an24/RPSN/rotate</property>
    <factor>20</factor>
   <center>

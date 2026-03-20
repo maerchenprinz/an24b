@@ -266,12 +266,12 @@
     <condition>
     <greater-than>
      <property>an24/Electrics/DC_AUX_ShRAP500a_V</property>
-     <value>5.0</value>
+     <value>16.0</value>
     </greater-than>
-    <not-equals>
+    <!--not-equals>
      <property>an24/Electrics/board-aerodrome</property>
      <value>-1.0</value>
-    </not-equals>
+    </not-equals-->
     </condition>
    <diffuse>
      <red>1.0</red>
@@ -310,12 +310,12 @@
     <condition>
     <greater-than>
      <property>an24/Electrics/DC_AUX_ShRAP500b_V</property>
-     <value>5.0</value>
+     <value>16.0</value>
     </greater-than>
-    <not-equals>
+    <!--not-equals>
      <property>an24/Electrics/board-aerodrome</property>
      <value>-1.0</value>
-    </not-equals>
+    </not-equals-->
     </condition>
    <diffuse>
      <red>1.0</red>

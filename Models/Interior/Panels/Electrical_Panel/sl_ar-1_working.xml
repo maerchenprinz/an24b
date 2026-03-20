@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Signal lamp AR-1 working -->
-
+<!-- Signal lamp Aerodrome Power 1 connected -->
 <PropertyList>
  <path>../../shared/lamps/sltsn.ac</path>
 
@@ -17,7 +16,7 @@
  <condition>
    <greater-than>
     <property>an24/Electrics/DC_AUX_ShRAP500a_V</property>
-    <value>24.0</value>
+    <value>16.0</value>
    </greater-than>
   </condition>
  <object-name>lampon</object-name>

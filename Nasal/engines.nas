@@ -1,4 +1,3 @@
-#setprop("/fdm/jsbsim/propulsion/tank[6]/priority", 1 );
 #####################################################
 # APD-27 gives a fixed AI-24 start sequence
 #####################################################
@@ -104,7 +103,6 @@ else {
 	setprop("an24/Electrics/StartCircuit/apdtime", 0 );
 	setprop("an24/Electrics/StartCircuit/STG-18_terminal_V", 7.0);
 	}
-
 }
  setlistener("an24/Electrics/StartCircuit/apdtime", apdsequence, 0, 0 );
 
@@ -114,10 +112,10 @@ var apdannounce = func {
 	screen.log.write("Start Circuit fed from board sources", 0, 1, 0);
 	}
 	if ( fedby == 'BATT' ) {
-	screen.log.write("Only Batteries feed Start Circuit!", 1, 1, 0);
+	screen.log.write("Batteries feed Start Circuit!", 1, 0.5, 0);
 	}
 	if ( fedby == 'GS-24' ) {
-	screen.log.write("Only GS-24 feeds Start Circuit!", 1, 1, 0);
+	screen.log.write("GS-24 feeds Start Circuit", 0, 1, 0);
 	}
 	if ( fedby == 'AERODROME' ) {
 	screen.log.write("Aerodrome power on Start Circuit", 0, 1, 0);

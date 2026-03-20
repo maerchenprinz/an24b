@@ -505,7 +505,7 @@
 <animation>
   <type>rotate</type>
   <object-name>hour_needle</object-name>
-  <property>instrumentation/clock[1]/indicated-hour</property>
+  <property>instrumentation/clock[1]/local-hour</property>
     <condition>
       <equals>
        <property>an24/AChS/rc_running</property>

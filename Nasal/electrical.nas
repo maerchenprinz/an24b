@@ -2,8 +2,8 @@ var random_voltage = func {
 	setprop("an24/Electrics/random_stg18l", rand() * 4 + 26.5 );
 	setprop("an24/Electrics/random_stg18r", rand() * 4 + 26.5 );
 	setprop("an24/Electrics/random_gs24", rand() * 4 + 26.5 );
-	setprop("an24/Electrics/random_go16l", rand() * 10 + 110 );
 	setprop("an24/Electrics/random_go16r", rand() * 10 + 110 );
+	setprop("an24/Electrics/random_go16l", rand() * 10 + 110 );
 }
  setlistener("sim/signals/fdm-initialized", random_voltage);
 
@@ -19,26 +19,27 @@ setprop("sim/gui/an24b/shrap500b", 0 );
 
 ##############################
 ## Auxiliary: GS-24 (APU) or Aerodrome Power
+## to Boardset
 ##############################
 var DC_AUX = func {
-	var gs24_switch = getprop("an24/Electrical_Panel/sw_gs24") ;
-	var gs24 = getprop("an24/Electrics/DC_Gen_GS-24_V") ;
+	var GS24_incl_switch = getprop("an24/Electrical_Panel/sw_gs24") ;
+	var GS24_V = getprop("an24/Electrics/DC_Gen_GS-24_V") ;
 	var bordaero_switch = getprop("an24/Electrics/board-aerodrome") ;
 	var aerodromefactor = getprop("sim/gui/an24b/shrap500a") + getprop("sim/gui/an24b/shrap500b") ;
 	if ( aerodromefactor != 0 ) {
-		var aerodrome = ( getprop("an24/Electrics/DC_AUX_ShRAP500a_V") + getprop("an24/Electrics/DC_AUX_ShRAP500b_V") ) / aerodromefactor ;
+		var Aerodrome_V = ( getprop("an24/Electrics/DC_AUX_ShRAP500a_V") + getprop("an24/Electrics/DC_AUX_ShRAP500b_V") ) / aerodromefactor ;
 		}
 		else {
-		var aerodrome = 0.0 ;
+		var Aerodrome_V = 0.0 ;
 		}
-#
-	if ( bordaero_switch == -1.0 and aerodrome > 5.0 ) {
-	var aux_to_dc_v = aerodrome ;
-	setprop("an24/Electrics/DC_Bus_27V_main_fedby", "AERODROME" );
+
+	if ( bordaero_switch == -1.0 and Aerodrome_V > 5.0 ) {
+	var aux_to_dc_v = Aerodrome_V ;
+#	setprop("an24/Electrics/DC_Bus_27V_main_fedby", "AERODROME" );
 	}
-	else if ( bordaero_switch == 1.0 and gs24_switch == 1.0 and gs24 > 5.0 ) {
-	var aux_to_dc_v = gs24 ;
-	setprop("an24/Electrics/DC_Bus_27V_main_fedby", "GS-24" );
+	else if ( bordaero_switch == 1.0 and GS24_incl_switch == 1.0 and GS24_V > 5.0 ) {
+	var aux_to_dc_v = GS24_V ;
+#	setprop("an24/Electrics/DC_Bus_27V_main_fedby", "GS-24" );
 	}
 	else {
 	var aux_to_dc_v = 0.0 ;
