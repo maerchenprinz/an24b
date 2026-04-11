@@ -1262,16 +1262,17 @@ Vref for less than 19 t: 200 km/h (flaps 38)
    <serviceable type="bool">false</serviceable>
    <transmitted-id type="int">-9999</transmitted-id>
    <inputs>
-    <anim-ident-btn type="double">0.0</anim-ident-btn>
+    <anim-ident-btn type="float">0.0</anim-ident-btn>
     <anim-knob-mode type="int">0</anim-knob-mode>
-    <anim-test-btn type="double">0.0</anim-test-btn>
+    <anim-test-btn type="float">0.0</anim-test-btn>
     <digit0 type="int">0</digit0>
     <digit1 type="int">0</digit1>
     <digit2 type="int">0</digit2>
     <digit3 type="int">0</digit3>
+    <knob-mode type="int">0</knob-mode>
     <sensitivity type="int">0</sensitivity>
     <so-63_opmode type="int">0</so-63_opmode>
-    <sw_serviceable type="double">0.0</sw_serviceable>
+    <sw_serviceable type="float">0.0</sw_serviceable>
    </inputs>
   </transponder>
   <vertical-speed-indicator n="1">
@@ -1301,47 +1302,47 @@ Vref for less than 19 t: 200 km/h (flaps 38)
 
  <an24>
   <AC_Panel>
-   <fuse0102 type="double">1.0</fuse0102>
-   <fuse0103 type="double">1.0</fuse0103>
-   <fuse0104 type="double">1.0</fuse0104>
-   <fuse0105 type="double">1.0</fuse0105>
-   <fuse0106 type="double">1.0</fuse0106>
-   <fuse0107 type="double">1.0</fuse0107>
+   <fuse0102 type="float">1.0</fuse0102>
+   <fuse0103 type="float">1.0</fuse0103>
+   <fuse0104 type="float">1.0</fuse0104>
+   <fuse0105 type="float">1.0</fuse0105>
+   <fuse0106 type="float">1.0</fuse0106>
+   <fuse0107 type="float">1.0</fuse0107>
 
-   <fuse0201 type="double">1.0</fuse0201>
-   <fuse0202 type="double">1.0</fuse0202>
-   <fuse0203 type="double">1.0</fuse0203>
-   <fuse0205 type="double">1.0</fuse0205>
-   <fuse0206 type="double">1.0</fuse0206>
-   <fuse0207 type="double">1.0</fuse0207>
+   <fuse0201 type="float">1.0</fuse0201>
+   <fuse0202 type="float">1.0</fuse0202>
+   <fuse0203 type="float">1.0</fuse0203>
+   <fuse0205 type="float">1.0</fuse0205>
+   <fuse0206 type="float">1.0</fuse0206>
+   <fuse0207 type="float">1.0</fuse0207>
 
-   <fuse0301 type="double">1.0</fuse0301>
-   <fuse0302 type="double">1.0</fuse0302>
-   <fuse0303 type="double">1.0</fuse0303>
-   <fuse0305 type="double">1.0</fuse0305>
-   <fuse0306 type="double">1.0</fuse0306>
-   <fuse0307 type="double">1.0</fuse0307>
+   <fuse0301 type="float">1.0</fuse0301>
+   <fuse0302 type="float">1.0</fuse0302>
+   <fuse0303 type="float">1.0</fuse0303>
+   <fuse0305 type="float">1.0</fuse0305>
+   <fuse0306 type="float">1.0</fuse0306>
+   <fuse0307 type="float">1.0</fuse0307>
 
-   <fuse0401 type="double">1.0</fuse0401>
-   <fuse0402 type="double">1.0</fuse0402>
-   <fuse0405 type="double">1.0</fuse0405>
-   <fuse0406 type="double">1.0</fuse0406>
-   <fuse0407 type="double">1.0</fuse0407>
+   <fuse0401 type="float">1.0</fuse0401>
+   <fuse0402 type="float">1.0</fuse0402>
+   <fuse0405 type="float">1.0</fuse0405>
+   <fuse0406 type="float">1.0</fuse0406>
+   <fuse0407 type="float">1.0</fuse0407>
 
-   <fuse36V_0103 type="double">1.0</fuse36V_0103>
-   <fuse36V_0104 type="double">1.0</fuse36V_0104>
-   <fuse36V_0108 type="double">1.0</fuse36V_0108>
-   <fuse36V_0204 type="double">1.0</fuse36V_0204>
-   <fuse36V_0208 type="double">1.0</fuse36V_0208>
-   <fuse36V_0304 type="double">1.0</fuse36V_0304>
-   <fuse36V_0308 type="double">1.0</fuse36V_0308>
+   <fuse36V_0103 type="float">1.0</fuse36V_0103>
+   <fuse36V_0104 type="float">1.0</fuse36V_0104>
+   <fuse36V_0108 type="float">1.0</fuse36V_0108>
+   <fuse36V_0204 type="float">1.0</fuse36V_0204>
+   <fuse36V_0208 type="float">1.0</fuse36V_0208>
+   <fuse36V_0304 type="float">1.0</fuse36V_0304>
+   <fuse36V_0308 type="float">1.0</fuse36V_0308>
 
-   <hatchfuse0101 type="double">1.0</hatchfuse0101>
-   <hatchfuse0102 type="double">1.0</hatchfuse0102>
+   <hatchfuse0101 type="float">1.0</hatchfuse0101>
+   <hatchfuse0102 type="float">1.0</hatchfuse0102>
 
-   <fuse_panel_hatch type="double">0.0</fuse_panel_hatch>
-   <sw_PO-750_earth-air type="double">0.0</sw_PO-750_earth-air>
-   <cvr_PO-750_earth-air type="double">0.0</cvr_PO-750_earth-air>
+   <fuse_panel_hatch type="float">0.0</fuse_panel_hatch>
+   <sw_PO-750_earth-air type="float">0.0</sw_PO-750_earth-air>
+   <cvr_PO-750_earth-air type="float">0.0</cvr_PO-750_earth-air>
   </AC_Panel>
 
   <AChS>
@@ -1349,9 +1350,9 @@ Vref for less than 19 t: 200 km/h (flaps 38)
    <mp_ft-offset type="int">0</mp_ft-offset>
    <mp_l-knob-anim type="int">0</mp_l-knob-anim>
    <mp_l-mode type="int">0</mp_l-mode>
-   <mp_l-press-anim type="double">0.0</mp_l-press-anim>
+   <mp_l-press-anim type="float">0.0</mp_l-press-anim>
    <mp_r-mode type="int">2</mp_r-mode>
-   <mp_r-press-anim type="double">0.0</mp_r-press-anim>
+   <mp_r-press-anim type="float">0.0</mp_r-press-anim>
    <mp_r-turn type="int">1</mp_r-turn>
    <mp_running type="bool">1</mp_running>
    <mp_stopwatch type="int">0</mp_stopwatch>
@@ -1361,9 +1362,9 @@ Vref for less than 19 t: 200 km/h (flaps 38)
    <nav_ft-offset type="int">0</nav_ft-offset>
    <nav_l-knob-anim type="int">0</nav_l-knob-anim>
    <nav_l-mode type="int">0</nav_l-mode>
-   <nav_l-press-anim type="double">0.0</nav_l-press-anim>
+   <nav_l-press-anim type="float">0.0</nav_l-press-anim>
    <nav_r-mode type="int">2</nav_r-mode>
-   <nav_r-press-anim type="double">0.0</nav_r-press-anim>
+   <nav_r-press-anim type="float">0.0</nav_r-press-anim>
    <nav_r-turn type="int">1</nav_r-turn>
    <nav_running type="bool">1</nav_running>
    <nav_stopwatch type="int">0</nav_stopwatch>
@@ -1373,9 +1374,9 @@ Vref for less than 19 t: 200 km/h (flaps 38)
    <rc_ft-offset type="int">0</rc_ft-offset>
    <rc_l-knob-anim type="int">0</rc_l-knob-anim>
    <rc_l-mode type="int">0</rc_l-mode>
-   <rc_l-press-anim type="double">0.0</rc_l-press-anim>
+   <rc_l-press-anim type="float">0.0</rc_l-press-anim>
    <rc_r-mode type="int">2</rc_r-mode>
-   <rc_r-press-anim type="double">0.0</rc_r-press-anim>
+   <rc_r-press-anim type="float">0.0</rc_r-press-anim>
    <rc_r-turn type="int">1</rc_r-turn>
    <rc_running type="bool">1</rc_running>
    <rc_stopwatch type="int">0</rc_stopwatch>
@@ -1433,19 +1434,19 @@ Vref for less than 19 t: 200 km/h (flaps 38)
    <propheat type="double">0.0</propheat>
    <propheat-lock type="double">0.0</propheat-lock>
 
-   <sw_TG-16heating type="double">0.0</sw_TG-16heating>
-   <sw_window_heating-left-low type="double">0.0</sw_window_heating-left-low>
-   <sw_window_heating-left-intense type="double">0.0</sw_window_heating-left-intense>
-   <sw_window_heating-right-low type="double">0.0</sw_window_heating-right-low>
-   <sw_window_heating-right-intense type="double">0.0</sw_window_heating-right-intense>
-   <sw_clockheat type="double">0.0</sw_clockheat>
-   <sw_pitot_S1S5A1 type="double">0.0</sw_pitot_S1S5A1>
-   <sw_pitot_S2S6A3 type="double">0.0</sw_pitot_S2S6A3>
-   <sw_pitot_S3A2 type="double">0.0</sw_pitot_S3A2>
-   <sw_pitot_S4S7 type="double">0.0</sw_pitot_S4S7>
-   <sw_vna-heat-l type="double">0.0</sw_vna-heat-l>
-   <sw_vna-heat-r type="double">0.0</sw_vna-heat-r>
-   <wing-tail_bleed type="double">0.0</wing-tail_bleed>
+   <sw_TG-16heating type="float">0.0</sw_TG-16heating>
+   <sw_window_heating-left-low type="float">0.0</sw_window_heating-left-low>
+   <sw_window_heating-left-intense type="float">0.0</sw_window_heating-left-intense>
+   <sw_window_heating-right-low type="float">0.0</sw_window_heating-right-low>
+   <sw_window_heating-right-intense type="float">0.0</sw_window_heating-right-intense>
+   <sw_clockheat type="float">0.0</sw_clockheat>
+   <sw_pitot_S1S5A1 type="float">0.0</sw_pitot_S1S5A1>
+   <sw_pitot_S2S6A3 type="float">0.0</sw_pitot_S2S6A3>
+   <sw_pitot_S3A2 type="float">0.0</sw_pitot_S3A2>
+   <sw_pitot_S4S7 type="float">0.0</sw_pitot_S4S7>
+   <sw_vna-heat-l type="float">0.0</sw_vna-heat-l>
+   <sw_vna-heat-r type="float">0.0</sw_vna-heat-r>
+   <wing-tail_bleed type="float">0.0</wing-tail_bleed>
     <conditions>
      <icing type="double">0.0</icing>
     </conditions>
@@ -1728,39 +1729,39 @@ Vref for less than 19 t: 200 km/h (flaps 38)
  </AZS>
 
  <DoorsHatches>
-  <bagdoor type="double">0.0</bagdoor>
-  <cargodoor type="double">0.0</cargodoor>
-  <crewdoor type="double">0.0</crewdoor>
-  <nose type="double">1.0</nose>
-  <paxdoor type="double">0.0</paxdoor>
+  <bagdoor type="float">0.0</bagdoor>
+  <cargodoor type="float">0.0</cargodoor>
+  <crewdoor type="float">0.0</crewdoor>
+  <nose type="float">1.0</nose>
+  <paxdoor type="float">0.0</paxdoor>
  </DoorsHatches>
 
  <Electrical_Panel>
-  <ac_ind_source type="double">0.0</ac_ind_source>
-  <add_go16l type="double">0.0</add_go16l>
-  <add_go16r type="double">0.0</add_go16r>
-  <btn_add_go16l type="double">0.0</btn_add_go16l>
-  <gs24_voltreg type="double">1.02</gs24_voltreg>
-  <go-16l_voltreg type="double">1.01</go-16l_voltreg>
-  <go-16r_voltreg type="double">0.99</go-16r_voltreg>
-  <slider type="double">1.0</slider>
-  <stg-18l_voltreg type="double">1.01</stg-18l_voltreg>
-  <stg-18r_voltreg type="double">0.98</stg-18r_voltreg>
-  <sw_board-aerodrome type="double">0.0</sw_board-aerodrome>
-  <sw_emerg-bus type="double">0.0</sw_emerg-bus>
-  <sw_gs24 type="double">0.0</sw_gs24>
-  <sw_go16l type="double">0.0</sw_go16l>
-  <sw_go16r type="double">0.0</sw_go16r>
-  <sw_po-750 type="double">0.0</sw_po-750>
-  <sw_pt-1000 type="double">0.0</sw_pt-1000>
-  <sw_stg18l type="double">0.0</sw_stg18l>
-  <sw_stg18r type="double">0.0</sw_stg18r>
+  <kn_ac_ind_source type="float">0</kn_ac_ind_source>
+  <add_go16l type="float">0.0</add_go16l>
+  <add_go16r type="float">0.0</add_go16r>
+  <btn_add_go16l type="float">0.0</btn_add_go16l>
+  <gs24_voltreg type="float">1.02</gs24_voltreg>
+  <go-16l_voltreg type="float">1.01</go-16l_voltreg>
+  <go-16r_voltreg type="float">0.99</go-16r_voltreg>
+  <slider type="float">1.0</slider>
+  <stg-18l_voltreg type="float">1.01</stg-18l_voltreg>
+  <stg-18r_voltreg type="float">0.98</stg-18r_voltreg>
+  <sw_board-aerodrome type="float">0.0</sw_board-aerodrome>
+  <sw_emerg-bus type="float">0.0</sw_emerg-bus>
+  <sw_gs24 type="float">0.0</sw_gs24>
+  <sw_go16l type="float">0.0</sw_go16l>
+  <sw_go16r type="float">0.0</sw_go16r>
+  <sw_po-750 type="float">0.0</sw_po-750>
+  <sw_pt-1000 type="float">0.0</sw_pt-1000>
+  <sw_stg18l type="float">0.0</sw_stg18l>
+  <sw_stg18r type="float">0.0</sw_stg18r>
  </Electrical_Panel>
 
  <Electrics>
-  <CONN_Akku1-RKAkku type="int">0</CONN_Akku1-RKAkku>
-  <CONN_Akku2-RKAkku type="int">0</CONN_Akku2-RKAkku>
-  <CONN_TsRUl-TsRUr type="int">1</CONN_TsRUl-TsRUr>
+  <CONN_Akku1-RK_Akku type="int">0</CONN_Akku1-RK_Akku>
+  <CONN_Akku2-RK_Akku type="int">0</CONN_Akku2-RK_Akku>
+  <!--CONN_TsRUl-TsRUr type="int">1</CONN_TsRUl-TsRUr-->
 
   <FUSE_Akku1 type="int">1</FUSE_Akku1>
   <FUSE_Akku2 type="int">1</FUSE_Akku2>
@@ -1771,8 +1772,8 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   <FUSE_AZSmain-RK_Radiomain type="int">1</FUSE_AZSmain-RK_Radiomain>
   <FUSE_AZSmain-RK_Navmain type="int">1</FUSE_AZSmain-RK_Navmain>
 
-  <FUSE_RKAkku-AZSemerg type="int">1</FUSE_RKAkku-AZSemerg>
-  <FUSE_RKAkku-RKCrewCab type="int">1</FUSE_RKAkku-RKCrewCab>
+  <FUSE_RK_Akku-AZSemerg type="int">1</FUSE_RK_Akku-AZSemerg>
+  <FUSE_RK_Akku-RK_CrewCab type="int">1</FUSE_RK_Akku-RK_CrewCab>
 
   <FUSE_RK_CrewCab-AZSmaina type="int">1</FUSE_RK_CrewCab-AZSmaina>
   <FUSE_RK_CrewCab-AZSmainb type="int">1</FUSE_RK_CrewCab-AZSmainb>
@@ -1785,14 +1786,14 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   <FUSE_TsRUl-AZSmain2a type="int">1</FUSE_TsRUl-AZSmain2a>
   <FUSE_TsRUl-AZSmain2b type="int">1</FUSE_TsRUl-AZSmain2b>
   <FUSE_TsRUl-RK_FlAttmain type="int">1</FUSE_TsRUl-RK_FlAttmain>
-  <FUSE_TsRUl-RK_Fuel type="int">1</FUSE_TsRUl-RK_Fuel>
+  <FUSE_TsRUl-RK_FuelPumps type="int">1</FUSE_TsRUl-RK_FuelPumps>
 
   <FUSE_TsRUr-RK_CrewCab1a type="int">1</FUSE_TsRUr-RK_CrewCab1a>
   <FUSE_TsRUr-RK_CrewCab1b type="int">1</FUSE_TsRUr-RK_CrewCab1b>
   <FUSE_TsRUr-RK_CrewCab2a type="int">1</FUSE_TsRUr-RK_CrewCab2a>
   <FUSE_TsRUr-RK_CrewCab2b type="int">1</FUSE_TsRUr-RK_CrewCab2b>
   <FUSE_TsRUr-RK_FlAttmain type="int">1</FUSE_TsRUr-RK_FlAttmain>
-  <FUSE_TsRUr-RK_Fuel type="int">1</FUSE_TsRUr-RK_Fuel>
+  <FUSE_TsRUr-RK_FuelPumps type="int">1</FUSE_TsRUr-RK_FuelPumps>
  
   <FUSE_RK115V-RKRadioOpmain type="int">1</FUSE_RK115V-RKRadioOpmain>
 
@@ -1806,7 +1807,7 @@ Vref for less than 19 t: 200 km/h (flaps 38)
    <apdtime type="int">0</apdtime>
    <STG-18_terminal_V type="double">0.0</STG-18_terminal_V>
   </StartCircuit>
-  <board-aerodrome type="int">0</board-aerodrome>
+  <!--board-aerodrome type="int">0</board-aerodrome-->
   <random_stg18l type="double">28.5</random_stg18l>
   <random_stg18r type="double">28.5</random_stg18r>
   <random_gs24 type="double">28.5</random_gs24>
@@ -1839,7 +1840,6 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   <feather-by-kfl_r type="double">0.0</feather-by-kfl_r>
   <feather-by-test_l type="double">0.0</feather-by-test_l>
   <feather-by-test_r type="double">0.0</feather-by-test_r>
-  <feather-timer_r type="double">0.0</feather-timer_r>
 
   <sw_check-by-ikm_l type="double">0.0</sw_check-by-ikm_l>
   <sw_check-by-ikm_r type="double">0.0</sw_check-by-ikm_r>
@@ -1919,15 +1919,15 @@ Vref for less than 19 t: 200 km/h (flaps 38)
    <flow-meter type="double">0.0</flow-meter>
    <flow-meter-save-l type="double">0.0</flow-meter-save-l>
    <flow-meter-save-r type="double">0.0</flow-meter-save-r>
-   <fuel-meter-l type="double">0.0</fuel-meter-l>
-   <fuel-meter-r type="double">0.0</fuel-meter-r>
-   <sw0401 type="double">-1.0</sw0401>
-   <sw0402 type="double">0.0</sw0402>
-   <sw0403 type="double">0.0</sw0403>
-   <sw_crossfeed type="double">0.0</sw_crossfeed>
-   <sw0405 type="double">0.0</sw0405>
-   <sw0406 type="double">0.0</sw0406>
-   <sw0407 type="double">-1.0</sw0407>
+   <sw_fuel-meter-l type="float">0.0</sw_fuel-meter-l>
+   <sw_fuel-meter-r type="float">0.0</sw_fuel-meter-r>
+   <sw0401 type="float">-1.0</sw0401>
+   <sw0402 type="float">0.0</sw0402>
+   <sw0403 type="float">0.0</sw0403>
+   <sw_crossfeed type="float">0.0</sw_crossfeed>
+   <sw0405 type="float">0.0</sw0405>
+   <sw0406 type="float">0.0</sw0406>
+   <sw0407 type="float">-1.0</sw0407>
   </FuelControl>
 
   <GIK-1>
@@ -1979,7 +1979,7 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   </OilControl>
 
   <PG4and2PPT1>
-   <selected-ind type="double">-50</selected-ind>
+   <selected-ind type="int">0</selected-ind>
   </PG4and2PPT1>
 
   <Pressure>
@@ -2090,11 +2090,9 @@ Vref for less than 19 t: 200 km/h (flaps 38)
 
   <Start-Panel>
    <discontinuestart_ai-24_btn type="double">0.0</discontinuestart_ai-24_btn>
-   <ground-air type="int">1</ground-air>
-   <ground-air_sw type="double">1.0</ground-air_sw>
-   <ground-air_cvr type="double">0.0</ground-air_cvr>
-   <left-right type="string">0</left-right>
-   <left-right_sw type="double">0.0</left-right_sw>
+   <sw_ground-air type="float">1.0</sw_ground-air>
+   <cvr_ground-air type="float">0.0</cvr_ground-air>
+   <sw_left-right type="float">0.0</sw_left-right>
    <startai24-btn type="double">0.0</startai24-btn>
    <starttg-btn type="double">0.0</starttg-btn>
    <sw_tg16-prepare type="double">1.0</sw_tg16-prepare>
@@ -2216,7 +2214,6 @@ Vref for less than 19 t: 200 km/h (flaps 38)
   </electrical>
   <engines>
     <file>Nasal/engines.nas</file>
-    <file>Nasal/prop-governor.nas</file>
   </engines>
   <fire>
     <file>Nasal/Fire-Protection.nas</file>
