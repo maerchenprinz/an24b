@@ -92,13 +92,13 @@
       <max>3</max>                
       <wrap>false</wrap>
      </binding>
-     <!--binding>
+     <binding>
      <command>nasal</command>
          <script>
-	var xpdrmodes = ["5", "5", "3", "1"];
-	setprop("/instrumentation/transponder/inputs/knob-mode", xpdrmodes[getprop("/instrumentation/transponder/inputs/anim-knob-mode")] );
+	var xpdrmodes = ["1", "3", "5", "5"];
+	setprop("instrumentation/transponder/inputs/knob-mode", xpdrmodes[getprop("/instrumentation/transponder/inputs/anim-knob-mode")] );
          </script>
-     </binding-->
+     </binding>
     </action>
    <hovered>
        <binding>
@@ -127,17 +127,17 @@
     <binding>
       <command>nasal</command>
       <script>
-        setprop("/instrumentation/transponder/inputs/knob-mode-save", getprop("/instrumentation/transponder/inputs/knob-mode") );
-	interpolate("/instrumentation/transponder/inputs/anim-test-btn", 1.0, 0.1 );
-        setprop("/instrumentation/transponder/inputs/knob-mode", 2.0 );
+        setprop("instrumentation/transponder/inputs/knob-mode-save", getprop("/instrumentation/transponder/inputs/knob-mode") );
+	interpolate("instrumentation/transponder/inputs/anim-test-btn", 1.0, 0.1 );
+        setprop("instrumentation/transponder/inputs/knob-mode", 2 );
       </script>
     </binding>
       <mod-up>
 	<binding>
 	<command>nasal</command>
 	<script>
-        setprop("/instrumentation/transponder/inputs/knob-mode", getprop("/instrumentation/transponder/inputs/knob-mode-save") );
-	interpolate("/instrumentation/transponder/inputs/anim-test-btn", 0.0, 0.1 );
+        setprop("instrumentation/transponder/inputs/knob-mode", getprop("/instrumentation/transponder/inputs/knob-mode-save") );
+	interpolate("instrumentation/transponder/inputs/anim-test-btn", 0.0, 0.1 );
 	</script>
 	</binding>
       </mod-up>

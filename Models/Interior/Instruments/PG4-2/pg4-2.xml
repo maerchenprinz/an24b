@@ -32,7 +32,12 @@
    <type>knob</type>
    <object-name>selector</object-name>
    <property>an24/PG4and2PPT1/selected-ind</property>
-    <factor>1.0</factor>
+    <interpolation>
+     <entry><ind>0</ind><dep>-50</dep></entry>
+     <entry><ind>1</ind><dep>-18</dep></entry>
+     <entry><ind>2</ind><dep>18</dep></entry>
+     <entry><ind>3</ind><dep>50</dep></entry>
+    </interpolation>
     <center>
      <x-m>0.0</x-m>
      <y-m>0.0</y-m>
@@ -43,15 +48,14 @@
      <y>0.0</y>
      <z>0.0</z>
     </axis>
-     <action>
-      <binding>
-       <command>property-cycle</command>
-       <property>an24/PG4and2PPT1/selected-ind</property>
-       <value>50</value>
-       <value>18</value>
-       <value>-18</value>
-       <value>-50</value>
-        <wrap>false</wrap>
+    <action>
+     <binding>
+      <command>property-adjust</command>
+      <property>an24/PG4and2PPT1/selected-ind</property>
+      <factor>-1</factor>
+      <min>0</min>
+      <max>3</max>                
+      <wrap>false</wrap>
      </binding>
     </action>
    <hovered>

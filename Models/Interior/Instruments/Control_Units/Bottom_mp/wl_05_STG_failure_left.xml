@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- STG-18 DC generator failure warning light; lights when differential-minimum relay DMR-600T disconnects the generator -->
+<!-- STG-18 DC generator failure warning light (Item 1145); lights when differential-minimum relay DMR-600T disconnects the generator -->
 <PropertyList>
  <path>../../../shared/lamps/sltsn.ac</path>
 
@@ -20,7 +20,7 @@
      <value>24.0</value>
     </greater-than>
     <equals>
-     <property>an24/Electrics/contactorl</property>
+     <property>an24/Electrics/DMR-600Tl</property>
      <value>0.0</value>
     </equals>
    </and>

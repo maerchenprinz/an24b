@@ -98,12 +98,24 @@
   </clipto>
  </fcs_function>
 
-<!-- Feathering pump -->
+<!-- Electric Feathering Pump NF-2TA-4 -->
+ <actuator name="fcs/prop-governor[0]/NF-pump-timer_s">
+  <input>fcs/prop-governor[0]/feather-command</input>
+  <rate_limit sense="incr">1.0</rate_limit>
+  <rate_limit sense="decr">130.0</rate_limit>
+  <clipto>
+    <min>0.0</min>
+    <max>13.0</max>
+   </clipto>
+ </actuator>
+
  <switch name="fcs/prop-governor[0]/NF-pump-rate">
   <default value="0.0"/>
-  <test logic="AND" value="6.0">
+  <test logic="AND" value="6.5">
 	/an24/Electrics/AZSemerg_V GT 24.0
 	/an24/AZS/sw0103 EQ 1.0
+	fcs/prop-governor[0]/NF-pump-timer_s GT 0.0
+	fcs/prop-governor[0]/NF-pump-timer_s LE 12.0 
   </test>
  </switch>
 
@@ -244,12 +256,24 @@
   </clipto>
  </fcs_function>
 
-<!-- Feathering pump -->
+<!-- Electric Feathering Pump NF-2TA-4 -->
+ <actuator name="fcs/prop-governor[1]/NF-pump-timer_s">
+  <input>fcs/prop-governor[1]/feather-command</input>
+  <rate_limit sense="incr">1.0</rate_limit>
+  <rate_limit sense="decr">130.0</rate_limit>
+  <clipto>
+    <min>0.0</min>
+    <max>13.0</max>
+   </clipto>
+ </actuator>
+
  <switch name="fcs/prop-governor[1]/NF-pump-rate">
   <default value="0.0"/>
-  <test logic="AND" value="6.0">
+  <test logic="AND" value="6.5">
 	/an24/Electrics/AZSemerg_V GT 24.0
 	/an24/AZS/sw0104 EQ 1.0
+	fcs/prop-governor[1]/NF-pump-timer_s GT 0.0
+	fcs/prop-governor[1]/NF-pump-timer_s LE 12.0 
   </test>
  </switch>
 

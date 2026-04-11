@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-<!--  -->
-
+<!-- Lamp indicating "Feathering Pump working" -->
 <PropertyList>
  <path>../../shared/lamps/warninglamp02.ac</path>
 
@@ -9,16 +8,22 @@
   <type>material</type>
   <object-name>holder</object-name>
   <object-name>lampon</object-name>
-  <texture>../../shared/lamps/warninglamp02redplain.png</texture>
+  <texture>../../shared/lamps/warninglamp02red.png</texture>
  </animation>
 
  <animation>
   <type>select</type>
   <condition>
-   <greater-than>
-    <property>fdm/jsbsim/fcs/prop-governor[1]/min-blade-angle</property>
-    <value>50</value>
-   </greater-than>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/TsRUr_V</property>
+     <value>20.0</value>
+    </greater-than>
+    <greater-than>
+     <property>fdm/jsbsim/fcs/prop-governor[1]/NF-pump-rate</property>
+     <value>0.0</value>
+    </greater-than>
+   </and>
   </condition>
   <object-name>lampon</object-name>
  </animation>

@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Fuel meter right, bottom panel switch 7 (Item 618) -->
-
+<!-- Fuel measuring right, bottom panel switch 7 (Item 618) -->
 <PropertyList>
  <path>../../../shared/switches/2pp-250.ac</path>
 
@@ -15,7 +14,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FuelControl/fuel-meter-r", 1.0, 0.1 );
+        interpolate("an24/FuelControl/sw_fuel-meter-r", 1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -39,7 +38,7 @@ Fuelmeter ON</label>
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("an24/FuelControl/fuel-meter-r", 0.0, 0.1 );
+        interpolate("an24/FuelControl/sw_fuel-meter-r", 0.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -56,10 +55,10 @@ Fuelmeter OFF</label>
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/FuelControl/fuel-meter-r</property>
+   <property>an24/FuelControl/sw_fuel-meter-r</property>
   <interpolation>
-    <entry><ind>0.0</ind>	<dep>-25.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>25.0</dep></entry>
+    <entry><ind>0.0</ind><dep>-25.0</dep></entry>
+    <entry><ind>1.0</ind><dep>25.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>

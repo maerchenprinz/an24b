@@ -1,72 +1,84 @@
 <?xml version="1.0"?>
 
 <system name="Instruments">
-
-<property value="0.1">/an24/VF-150/kp</property>
-<property value="0.0">/an24/VF-150/ki</property>
-<property value="0.1">/an24/VF-150/kd</property>
-
 <!--########################################
 ## 2PPT1-4 Fuel level indicator
 #########################################-->
- <!-- Mode "Sum" -->
- <channel name="2PPT1-4 Sum left/ Sum right" execrate="120"><!-- some "execute" would be suitable here-->
+ <channel name="2PPT1-4 Indication needle left" execrate="120" execute="/an24/PG4and2PPT1/BI2-5l_power">
 
-  <summer>
-   <input>/consumables/fuel/tank[0]/level-kg</input>
-   <input>/consumables/fuel/tank[1]/level-kg</input>
-   <input>/consumables/fuel/tank[2]/level-kg</input>
-   <output>/an24/PG4and2PPT1/mode1l_level-kg</output>
-  </summer>
+ <fcs_function name="/an24/PG4and2PPT1/indicatedl">
+  <function>
 
-  <summer>
-   <input>/consumables/fuel/tank[3]/level-kg</input>
-   <input>/consumables/fuel/tank[4]/level-kg</input>
-   <input>/consumables/fuel/tank[5]/level-kg</input>
-   <output>/an24/PG4and2PPT1/mode1r_level-kg</output>
-  </summer>
+  <ifthen>
+
+   <eq>
+    <property>/an24/PG4and2PPT1/BI2-5l_power</property>
+    <value>1.0</value>
+   </eq>
+
+   <switch>
+    <property>/an24/PG4and2PPT1/selected-ind</property>
+    <value>0.0</value>
+    <quotient>
+     <sum>
+      <property>/consumables/fuel/tank[0]/level-kg</property>
+      <property>/consumables/fuel/tank[1]/level-kg</property>
+      <property>/consumables/fuel/tank[2]/level-kg</property>
+     </sum>
+     <value>1.5</value><!--outer scale-->
+    </quotient>
+    <property>/consumables/fuel/tank[0]/level-kg</property>
+    <sum>
+     <property>/consumables/fuel/tank[1]/level-kg</property>
+     <property>/consumables/fuel/tank[2]/level-kg</property>
+    </sum>
+   </switch>
+
+   <value>0.0</value>
+
+  </ifthen>
+
+  </function>
+ </fcs_function>
 
  </channel>
 
- <channel name="2PPT1-4 Indication needles" execrate="120">
+ <channel name="2PPT1-4 Indication needle right" execrate="120" execute="/an24/PG4and2PPT1/BI2-5r_power">
 
-  <switch name="/an24/PG4and2PPT1/indicatedl">
-   <default value="0"/>
-   <test logic="AND" value="/an24/PG4and2PPT1/mode1l_level-kg">
-	/an24/PG4and2PPT1/BI2-5l EQ 1
-	/an24/FuelControl/fuel-meter-l EQ 1.0
-	/an24/PG4and2PPT1/selected-ind EQ -18.0
-   </test>
-   <test logic="AND" value="/an24/FuelControl/tanks_AUXleft">
-	/an24/PG4and2PPT1/BI2-5l EQ 1
-	/an24/FuelControl/fuel-meter-l EQ 1.0
-	/an24/PG4and2PPT1/selected-ind EQ 18.0
-   </test>
-   <test logic="AND" value="/consumables/fuel/tank[0]/level-kg">
-	/an24/PG4and2PPT1/BI2-5l EQ 1
-	/an24/FuelControl/fuel-meter-l EQ 1.0
-	/an24/PG4and2PPT1/selected-ind EQ 50.0
-   </test>
-  </switch>
+ <fcs_function name="/an24/PG4and2PPT1/indicatedr">
+  <function>
 
-  <switch name="/an24/PG4and2PPT1/indicatedr">
-   <default value="0"/>
-   <test value="/an24/PG4and2PPT1/mode1r_level-kg">
-	/an24/PG4and2PPT1/BI2-5r EQ 1
-	/an24/FuelControl/fuel-meter-r EQ 1.0
-	/an24/PG4and2PPT1/selected-ind EQ -18.0
-   </test>
-   <test value="/an24/FuelControl/tanks_AUXright">
-	/an24/PG4and2PPT1/BI2-5r EQ 1
-	/an24/FuelControl/fuel-meter-r EQ 1.0
-	/an24/PG4and2PPT1/selected-ind EQ 18.0
-   </test>
-   <test value="/consumables/fuel/tank[5]/level-kg">
-	/an24/PG4and2PPT1/BI2-5r EQ 1
-	/an24/FuelControl/fuel-meter-r EQ 1.0
-	/an24/PG4and2PPT1/selected-ind EQ 50.0
-   </test>
-  </switch>
+  <ifthen>
+
+   <eq>
+    <property>/an24/PG4and2PPT1/BI2-5r_power</property>
+    <value>1.0</value>
+   </eq>
+
+   <switch>
+    <property>/an24/PG4and2PPT1/selected-ind</property>
+    <value>0.0</value>
+    <quotient>
+     <sum>
+      <property>/consumables/fuel/tank[3]/level-kg</property>
+      <property>/consumables/fuel/tank[4]/level-kg</property>
+      <property>/consumables/fuel/tank[5]/level-kg</property>
+     </sum>
+     <value>1.5</value><!--outer scale-->
+    </quotient>
+    <property>/consumables/fuel/tank[5]/level-kg</property>
+    <sum>
+     <property>/consumables/fuel/tank[3]/level-kg</property>
+     <property>/consumables/fuel/tank[4]/level-kg</property>
+    </sum>
+   </switch>
+
+   <value>0.0</value>
+
+  </ifthen>
+
+  </function>
+ </fcs_function>
 
  </channel>
 
@@ -92,10 +104,7 @@
   <test logic="AND" value="5">
 	/an24/AZS/sw0704 EQ 1.0
 	/an24/AGD/sw_agd-r EQ 1.0
-	<test logic="OR">
 	/an24/Electrics/AC_Bus_36V_phII GT 32.0
-	/an24/Electrics/PT-125_V GT 32.0
-	</test>
   </test>
  </switch>
 
@@ -342,6 +351,54 @@
 	/an24/EUP-53/sw_eup EQ 1.0
   </test>
  </switch>
+
+ </channel>
+
+<!--########################################
+## GF-400
+#########################################-->
+ <channel name="GF-400 source" execute="/an24/Electrical_Panel/kn_ac_ind_source">
+
+ <switch name="/an24/GF-400/source-indicated_Hz">
+  <default value="0"/>
+  <test value="/an24/Electrics/AC_Gen_GO16l_Hz">
+	/an24/Electrical_Panel/kn_ac_ind_source EQ 1
+  </test>
+  <test value="/an24/Electrics/AC_Gen_GO16r_Hz">
+	/an24/Electrical_Panel/kn_ac_ind_source EQ 2
+  </test>
+<!--  <test value="/an24/Electrics/RK115V_phI_Hz">
+	/an24/Electrical_Panel/kn_ac_ind_source EQ 3
+  </test>
+  <test value="/an24/Electrics/RKRadioOpemerg_phIIb_Hz">
+	/an24/Electrical_Panel/kn_ac_ind_source EQ 4
+  </test>
+  <test value="/an24/Electrics/RK115V_phIIa_Hz">
+	/an24/Electrical_Panel/kn_ac_ind_source EQ 5
+  </test>
+  <test value="/an24/Electrics/RK115V_phIIb_Hz">
+	/an24/Electrical_Panel/kn_ac_ind_source EQ 6
+  </test>
+  <test value="/an24/Electrics/AC_AUX_ShRA200_Hz">
+	/an24/Electrical_Panel/kn_ac_ind_source EQ 7
+  </test>-->
+ </switch>
+
+
+
+ <!--filter>
+  <name>GF-400</name>
+  <debug>false</debug>
+  <type>exponential</type>
+   <filter-time>1.8</filter-time>
+   <input>/an24/GF-400/source-indicated_Hz</input>
+   <output>/an24/GF-400/source-indicated_Hz_filter</output>
+ </filter-->
+
+<!--lag_filter name="/an24/VF-150/source-indicated_V_filter">
+<input>/an24/VF-150/source-indicated_V</input>
+<c1>20.0</c1>
+</lag_filter-->
 
  </channel>
 
@@ -963,6 +1020,7 @@
   <default value="/instrumentation/altimeter[1]/mode-c-alt-ft-out"/>
   <test logic="OR" value="-9999">
 	/instrumentation/transponder/serviceable EQ 0.0
+	/instrumentation/transponder/inputs/knob-mode EQ 1
 	/instrumentation/transponder/inputs/anim-test-btn EQ 1.0
   </test>
  </switch>
@@ -1058,51 +1116,42 @@
 <!--########################################
 ## VF-150
 #########################################-->
+<property value="0.0">/an24/VF-150/kp</property>
+<property value="0.01">/an24/VF-150/ki</property>
+<property value="0.1">/an24/VF-150/kd</property>
+<property value="800">/an24/VF-150/rate-limit-incr</property>
+<property value="100">/an24/VF-150/rate-limit-decr</property>
  <channel name="VF-150 source">
- <!--channel name="VF-150 source" execute="/an24/Electrical_Panel/ac_ind_source"-->
 
  <switch name="/an24/VF-150/source-indicated_V">
   <default value="0"/>
   <test logic="AND" value="/an24/Electrics/AC_Gen_GO16l_V">
-	/an24/Electrical_Panel/ac_ind_source EQ 1.0
+	/an24/Electrical_Panel/kn_ac_ind_source EQ 1.0
   </test>
   <test logic="AND" value="/an24/Electrics/AC_Gen_GO16r_V">
-	/an24/Electrical_Panel/ac_ind_source EQ 2.0
+	/an24/Electrical_Panel/kn_ac_ind_source EQ 2.0
   </test>
   <test logic="AND" value="/an24/Electrics/RK115V_phI_V">
-	 /an24/Electrical_Panel/ac_ind_source EQ 3.0 <!--AP-->
+	 /an24/Electrical_Panel/kn_ac_ind_source EQ 3.0 <!--AP-->
   </test>
   <test logic="AND" value="/an24/Electrics/RKRadioOpemerg_phIIb_V">
-	 /an24/Electrical_Panel/ac_ind_source EQ 4.0 <!--emerg bus radioop-->
+	 /an24/Electrical_Panel/kn_ac_ind_source EQ 4.0 <!--emerg bus radioop-->
   </test>
   <test logic="AND" value="/an24/Electrics/RK115V_phIIa_V">
-	 /an24/Electrical_Panel/ac_ind_source EQ 5.0 <!--Prop heat-->
+	 /an24/Electrical_Panel/kn_ac_ind_source EQ 5.0 <!--Prop heat-->
   </test>
   <test logic="AND" value="/an24/Electrics/RK115V_phIIb_V">
-	 /an24/Electrical_Panel/ac_ind_source EQ 6.0 <!--main bus-->
+	 /an24/Electrical_Panel/kn_ac_ind_source EQ 6.0 <!--main bus-->
   </test>
   <test logic="AND" value="/an24/Electrics/AC_AUX_ShRA200_V">
-	 /an24/Electrics/AC_AUX_ShRA200_V EQ 7.0 <!--ShRA200 AUX-->
+	 /an24/Electrical_Panel/kn_ac_ind_source EQ 7.0 <!--ShRA200 AUX-->
   </test>
  </switch>
 
- <!--filter>
-  <name>VF-150</name>
-  <debug>false</debug>
-  <type>exponential</type>
-   <filter-time>1.0</filter-time>
-   <input>/an24/VF-150/source-indicated_V</input>
-   <output>/an24/VF-150/source-indicated_V_filter</output>
- </filter-->
-
-<!--lag_filter name="/an24/VF-150/source-indicated_V_filter">
-<input>/an24/VF-150/source-indicated_V</input>
-<c1>20.0</c1>
-</lag_filter-->
-
  <actuator name="/an24/VF-150/source-indicated_V_filter">
   <input>/an24/VF-150/source-indicated_V</input>
-  <rate_limit>150</rate_limit>
+  <rate_limit sense="incr">/an24/VF-150/rate-limit-incr</rate_limit>
+  <rate_limit sense="decr">/an24/VF-150/rate-limit-decr</rate_limit>]
  </actuator>
 
   <summer name="/an24/VF-150/source-indicated_V_error">
@@ -1110,16 +1159,16 @@
    <input>-/an24/VF-150/source-indicated_V</input>
   </summer>
 
-  <pid name="/an24/VF-150/source-indicated_V_pid">
+  <!--pid name="/an24/VF-150/source-indicated_V_pid">
    <input>/an24/VF-150/source-indicated_V_error</input>
    <kp>/an24/VF-150/kp</kp>
    <ki>/an24/VF-150/ki</ki>
    <kd>/an24/VF-150/kd</kd>
-  </pid>
+  </pid-->
 
   <summer name="/an24/VF-150/source-indicated_V_filter2">
-   <input>/an24/VF-150/source-indicated_V_filter</input>
-   <input>/an24/VF-150/source-indicated_V_pid</input>
+   <input>/an24/VF-150/source-indicated_V</input>
+   <input>-/an24/VF-150/source-indicated_V_error</input>
   </summer>
 
  </channel>
@@ -1136,60 +1185,6 @@
 	/an24/AZS/sw0107 EQ 1.0
   </test>
  </switch>
-
- </channel>
-
- <channel name="Water Injection Bleed Left" execrate="40" execute="/an24/WaterInjection/ValveL">
-
- <fcs_function name="/an24/BleedAir/waterinj_bleedL_norm">
-  <function>
-
-  <ifthen><!--spring loaded valve vs. bleed air-->
-   <gt>
-    <product>
-     <property>/engines/engine[0]/n1</property>
-     <property>/an24/WaterInjection/ValveL</property>
-    </product>
-    <value>50</value>
-   </gt>
-   <!--needs a differentiation between water tank full and water tank empty-->
-   <product>
-    <property>/engines/engine[0]/n1</property>
-    <value>0.01</value>
-    <property>/an24/WaterInjection/ValveL</property>
-   </product>
-   <value>0.0</value>
-  </ifthen>
-
-  </function>
- </fcs_function>
-
- </channel>
-
- <channel name="Water Injection Bleed Right" execrate="40" execute="/an24/WaterInjection/ValveR">
-
- <fcs_function name="/an24/BleedAir/waterinj_bleedR_norm">
-  <function>
-
-  <ifthen><!--spring loaded valve vs. bleed air-->
-   <gt>
-    <product>
-     <property>/engines/engine[1]/n1</property>
-     <property>/an24/WaterInjection/ValveR</property>
-    </product>
-    <value>50</value>
-   </gt>
-   <!--needs a differentiation between water tank full and water tank empty-->
-   <product>
-    <property>/engines/engine[1]/n1</property>
-    <value>0.01</value>
-    <property>/an24/WaterInjection/ValveR</property>
-   </product>
-   <value>0.0</value>
-  </ifthen>
-
-  </function>
- </fcs_function>
 
  </channel>
 

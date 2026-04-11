@@ -2,14 +2,15 @@ var random_voltage = func {
 	setprop("an24/Electrics/random_stg18l", rand() * 4 + 26.5 );
 	setprop("an24/Electrics/random_stg18r", rand() * 4 + 26.5 );
 	setprop("an24/Electrics/random_gs24", rand() * 4 + 26.5 );
-	setprop("an24/Electrics/random_go16r", rand() * 10 + 110 );
 	setprop("an24/Electrics/random_go16l", rand() * 10 + 110 );
+	setprop("an24/Electrics/random_go16r", rand() * 10 + 110 );
+#	setprop("an24/Electrics/random_go16l", rand() * 0.1 + 0.95 );
 }
  setlistener("sim/signals/fdm-initialized", random_voltage);
 
 # Sources
-setprop("an24/Electrics/DC_Batt_12SAM1_V", 24.2 );
-setprop("an24/Electrics/DC_Batt_12SAM2_V", 24.8 );
+setprop("an24/Electrics/DC_Batt_12SAM1_V", 24.7 );
+setprop("an24/Electrics/DC_Batt_12SAM2_V", 25.2 );
 setprop("an24/Electrics/DC_AUX_ShRAP500a_V", 0.0 );
 setprop("an24/Electrics/DC_AUX_ShRAP500b_V", 0.0 );
 setprop("an24/Electrics/AC_AUX_ShRA200_V", 0.0 ); #115V AC AUX
@@ -24,7 +25,7 @@ setprop("sim/gui/an24b/shrap500b", 0 );
 var DC_AUX = func {
 	var GS24_incl_switch = getprop("an24/Electrical_Panel/sw_gs24") ;
 	var GS24_V = getprop("an24/Electrics/DC_Gen_GS-24_V") ;
-	var bordaero_switch = getprop("an24/Electrics/board-aerodrome") ;
+	var bordaero_switch = getprop("an24/Electrical_Panel/sw_board-aerodrome") ;
 	var aerodromefactor = getprop("sim/gui/an24b/shrap500a") + getprop("sim/gui/an24b/shrap500b") ;
 	if ( aerodromefactor != 0 ) {
 		var Aerodrome_V = ( getprop("an24/Electrics/DC_AUX_ShRAP500a_V") + getprop("an24/Electrics/DC_AUX_ShRAP500b_V") ) / aerodromefactor ;
@@ -47,11 +48,11 @@ var DC_AUX = func {
 	}
 	setprop("an24/Electrics/DC_AUX_SOURCE_V", aux_to_dc_v );
 }
- setlistener("an24/Electrics/board-aerodrome", DC_AUX);
- setlistener("an24/Electrical_Panel/sw_gs24", DC_AUX);
- setlistener("an24/Electrics/DC_AUX_ShRAP500a_V", DC_AUX);
- setlistener("an24/Electrics/DC_AUX_ShRAP500b_V", DC_AUX);
- setlistener("an24/Electrics/DC_Gen_GS-24_V", DC_AUX, 1, 0);
+# setlistener("an24/Electrical_Panel/sw_board-aerodrome", DC_AUX);
+# setlistener("an24/Electrical_Panel/sw_gs24", DC_AUX);
+# setlistener("an24/Electrics/DC_AUX_ShRAP500a_V", DC_AUX);
+# setlistener("an24/Electrics/DC_AUX_ShRAP500b_V", DC_AUX);
+# setlistener("an24/Electrics/DC_Gen_GS-24_V", DC_AUX, 1, 0);
 
 ##############################
 ## Lighting

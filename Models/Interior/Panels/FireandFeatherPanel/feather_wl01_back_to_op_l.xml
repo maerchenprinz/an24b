@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-<!--  -->
-
+<!-- Lamp indicating "Prop going back to normal operation from feathering" (Item 102) -->
 <PropertyList>
  <path>../../shared/lamps/warninglamp02.ac</path>
 
@@ -13,9 +12,24 @@
  </animation>
 
  <animation>
-  <type>pick</type>
+  <type>select</type>
+  <condition>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/TsRUl_V</property>
+     <value>20.0</value>
+    </greater-than>
+    <equals>
+     <property>fdm/jsbsim/fcs/prop-governor[0]/feather-command</property>
+     <value>0.0</value>
+    </equals>
+    <greater-than>
+     <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+     <value>50.0</value>
+    </greater-than>
+   </and>
+  </condition>
   <object-name>lampon</object-name>
-  <visible>false</visible>
  </animation>
 
 </PropertyList>

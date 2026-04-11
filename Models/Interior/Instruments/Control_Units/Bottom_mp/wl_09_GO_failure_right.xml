@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- GO-16 AC generator failure warning light -->
+<!-- GO-16 AC generator failure warning light (Item 980)-->
 <PropertyList>
  <path>../../../shared/lamps/sltsn.ac</path>
 

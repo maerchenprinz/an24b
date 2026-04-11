@@ -19,7 +19,7 @@
  <animation>
    <type>knob</type>
    <object-name>fuse</object-name>
-   <property>an24/Electrics/FUSE_TsRUr_RK_CrewCab2a</property>
+   <property>an24/Electrics/FUSE_TsRUr-RK_CrewCab2a</property>
    <factor>30.0</factor>
    <offset-deg>-30</offset-deg>
    <axis>
@@ -36,11 +36,11 @@
     <binding>
       <command>nasal</command>
       <script>
-        if( getprop("an24/Electrics/FUSE_TsRUr_RK_CrewCab2a" ) == 1.0 ){
-        interpolate("an24/Electrics/FUSE_TsRUr_RK_CrewCab2a", 0.0, 0.5 );
+        if( getprop("an24/Electrics/FUSE_TsRUr-RK_CrewCab2a" ) == 1.0 ){
+        interpolate("an24/Electrics/FUSE_TsRUr-RK_CrewCab2a", 0.0, 0.5 );
         }
         else {
-        interpolate("an24/Electrics/FUSE_TsRUr_RK_CrewCab2a", 1.0, 0.5 );
+        interpolate("an24/Electrics/FUSE_TsRUr-RK_CrewCab2a", 1.0, 0.5 );
         }
       </script>
     </binding>
@@ -50,7 +50,7 @@
        <command>set-tooltip</command>
        <label>Fuse IP-200 Connection
   No.2 to TsRU Right</label>
-       <tooltip-id>fuserkcctotsrur</tooltip-id>
+       <tooltip-id>fuserkcctotsrur2</tooltip-id>
      </binding>
    </hovered>
  </animation>

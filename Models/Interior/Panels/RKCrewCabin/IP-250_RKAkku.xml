@@ -19,7 +19,7 @@
  <animation>
    <type>knob</type>
    <object-name>fuse</object-name>
-   <property>an24/Electrics/FUSE_RKAkku-RKCrewCab</property>
+   <property>an24/Electrics/FUSE_RK_Akku-RK_CrewCab</property>
    <factor>30.0</factor>
    <offset-deg>-30</offset-deg>
    <axis>
@@ -36,11 +36,11 @@
     <binding>
       <command>nasal</command>
       <script>
-        if( getprop("an24/Electrics/FUSE_RKAkku-RKCrewCab" ) == 1.0 ){
-        interpolate("an24/Electrics/FUSE_RKAkku-RKCrewCab", 0.0, 0.5 );
+        if( getprop("an24/Electrics/FUSE_RK_Akku-RK_CrewCab" ) == 1.0 ){
+        interpolate("an24/Electrics/FUSE_RK_Akku-RK_CrewCab", 0.0, 0.5 );
         }
         else {
-        interpolate("an24/Electrics/FUSE_RKAkku-RKCrewCab", 1.0, 0.5 );
+        interpolate("an24/Electrics/FUSE_RK_Akku-RK_CrewCab", 1.0, 0.5 );
         }
       </script>
     </binding>

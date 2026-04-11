@@ -198,9 +198,9 @@ var CONN_TsRUl_AZSmain_color = func {
  setlistener("an24/Electrics/FUSE_TsRUl-AZSmain2b", CONN_TsRUl_AZSmain_color, 0, 0 );
 
 var CONN_TsRUl_RK_Fuel_color = func {
-	var PATH_TsRUl_RK_Fuel = groupDC.getElementById("PATH_TsRUl-RK_Fuel");
-	var CONN_TsRUl_RK_Fuel = getprop("an24/Electrics/CONN_TsRUl-RK_Fuel");
-	var FUSE_TsRUl_RK_Fuel = getprop("an24/Electrics/FUSE_TsRUl-RK_Fuel");
+	var PATH_TsRUl_RK_Fuel = groupDC.getElementById("PATH_TsRUl-RK_FuelPumps");
+	var CONN_TsRUl_RK_Fuel = getprop("an24/Electrics/CONN_TsRUl-RK_FuelPumps");
+	var FUSE_TsRUl_RK_Fuel = getprop("an24/Electrics/FUSE_TsRUl-RK_FuelPumps");
 	if ( FUSE_TsRUl_RK_Fuel == 0 ) {
 	PATH_TsRUl_RK_Fuel.setColor(1,0,0);
 	}
@@ -211,12 +211,12 @@ var CONN_TsRUl_RK_Fuel_color = func {
 	PATH_TsRUl_RK_Fuel.setColor(0,1,0);
 	}
 }
- setlistener("an24/Electrics/CONN_TsRUl-RK_Fuel", CONN_TsRUl_RK_Fuel_color, 1, 0 );
+ setlistener("an24/Electrics/CONN_TsRUl-RK_FuelPumps", CONN_TsRUl_RK_Fuel_color, 1, 0 );
 
 var CONN_TsRUr_RK_Fuel_color = func {
-	var PATH_TsRUr_RK_Fuel = groupDC.getElementById("PATH_TsRUr-RK_Fuel");
-	var CONN_TsRUr_RK_Fuel = getprop("an24/Electrics/CONN_TsRUr-RK_Fuel");
-	var FUSE_TsRUr_RK_Fuel = getprop("an24/Electrics/FUSE_TsRUr-RK_Fuel");
+	var PATH_TsRUr_RK_Fuel = groupDC.getElementById("PATH_TsRUr-RK_FuelPumps");
+	var CONN_TsRUr_RK_Fuel = getprop("an24/Electrics/CONN_TsRUr-RK_FuelPumps");
+	var FUSE_TsRUr_RK_Fuel = getprop("an24/Electrics/FUSE_TsRUr-RK_FuelPumps");
 	if ( FUSE_TsRUr_RK_Fuel == 0 ) {
 	PATH_TsRUr_RK_Fuel.setColor(1,0,0);
 	}
@@ -227,7 +227,7 @@ var CONN_TsRUr_RK_Fuel_color = func {
 	PATH_TsRUr_RK_Fuel.setColor(0,1,0);
 	}
 }
- setlistener("an24/Electrics/CONN_TsRUr-RK_Fuel", CONN_TsRUr_RK_Fuel_color, 1, 0 );
+ setlistener("an24/Electrics/CONN_TsRUr-RK_FuelPumps", CONN_TsRUr_RK_Fuel_color, 1, 0 );
 
 var CONN_AZSmain_RK_Radiomain_color = func {
 	var PATH_AZSmain_RK_Radiomain1 = groupDC.getElementById("PATH_AZSmain-rl954");
@@ -346,17 +346,17 @@ var V1_STG18R_text = func {
 ###############
 var V1_Accus_text = func {
 	var text_V1_Accus = groupDC.getElementById("text_V1_Accus");
-	var V1_Accus_V = getprop("/an24/Electrics/RKAkku_V");
+	var V1_Accus_V = getprop("/an24/Electrics/RK_Akku_V");
 	text_V1_Accus.setText(sprintf("%.1f",V1_Accus_V));
 }
- setlistener("/an24/Electrics/RKAkku_V", V1_Accus_text, 1, 0 );
+ setlistener("/an24/Electrics/RK_Akku_V", V1_Accus_text, 1, 0 );
 
 ###############
 # Start Sequence
 ###############
 var Rotate_Direction_DMRl = func {
 	var Direction_DMRl = groupDC.getElementById("Direction_DMRl");
-	var ContactorL = getprop("an24/Electrics/contactorl");
+	var ContactorL = getprop("an24/Electrics/DMR-600Tl");
 	if ( ContactorL == 0 ) {
 	Direction_DMRl.setColorFill(1,0,0);
 	}
@@ -364,4 +364,4 @@ var Rotate_Direction_DMRl = func {
 	Direction_DMRl.setColorFill(0,1,0);
 	}
 }
- setlistener("an24/Electrics/contactorl", Rotate_Direction_DMRl, 1, 0 );
+ setlistener("an24/Electrics/DMR-600Tl", Rotate_Direction_DMRl, 1, 0 );

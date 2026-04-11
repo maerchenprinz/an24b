@@ -34,7 +34,7 @@
       <command>nasal</command>
       <script>
 	interpolate("an24/AZS/sw0417", 0.0, 0.1 );
-	setprop("an24/Anti-Ice/clockheat", 0.0) );
+	setprop("an24/Anti-Ice/clockheat", 0.0);
 	sound.click("azs", 3.3, 0.8, 0.87);
       </script>
     </binding>
@@ -46,8 +46,8 @@
    <object-name>lever</object-name>
    <property>an24/AZS/sw0417</property>
   <interpolation>
-    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+    <entry><ind>0.0</ind><dep>-20.0</dep></entry>
+    <entry><ind>1.0</ind><dep>20.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>

@@ -14,7 +14,7 @@
    <default value="0"/>
    <test logic="AND" value="0.6">
 	/an24/AZS/sw0113 EQ 1.0
-	/an24/Electrics/RKFuelPumps_V GT 24.0
+	/an24/Electrics/RK_FuelPumps_V GT 24.0
 	<test logic="OR">
 		<test logic="AND">
 			/an24/FuelControl/sw0402 EQ 1.0
@@ -46,7 +46,7 @@
    <default value="0"/>
    <test logic="AND" value="0.6">
 	/an24/AZS/sw0116 EQ 1.0
-	/an24/Electrics/RKFuelPumps_V GT 24.0
+	/an24/Electrics/RK_FuelPumps_V GT 24.0
 	<test logic="OR">
 		<test logic="AND">
 			/an24/FuelControl/sw0406 EQ 1.0
@@ -303,21 +303,23 @@
 
  <channel name="BI2-5 Fuel Measuring Block" execrate="120">
 
-  <switch name="/an24/PG4and2PPT1/BI2-5l">
+  <switch name="/an24/PG4and2PPT1/BI2-5l_power">
    <default value="0"/>
    <test logic="AND" value="1">
 	/an24/Electrics/AZSmain_V GT 24.0
 	/an24/Electrics/AZSmain_V LT 32.0
 	/an24/AZS/sw0117 EQ 1.0
+	/an24/FuelControl/sw_fuel-meter-l EQ 1.0
    </test>
   </switch>
 
-  <switch name="/an24/PG4and2PPT1/BI2-5r">
+  <switch name="/an24/PG4and2PPT1/BI2-5r_power">
    <default value="0"/>
    <test logic="AND" value="1">
 	/an24/Electrics/AZSmain_V GT 24.0
 	/an24/Electrics/AZSmain_V LT 32.0
 	/an24/AZS/sw0118 EQ 1.0
+	/an24/FuelControl/sw_fuel-meter-r EQ 1.0
    </test>
   </switch>
 

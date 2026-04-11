@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Voltage regulation of right (reserve) GO-16 AC-Generator (appr. +- 7V) -->
-
+<!-- VS-33 (Item 964), manual excitation voltage regulation of left GO-16 Generator (TODO: appr. +- 7V) -->
 <PropertyList>
  <path>../../shared/knobs_buttons/vs-33.ac</path>
 
@@ -10,8 +9,8 @@
    <object-name>11p1n</object-name>
    <property>an24/Electrical_Panel/go-16r_voltreg</property>
   <interpolation>
-    <entry><ind>0.945</ind>	<dep>160.0</dep></entry>
-    <entry><ind>1.062</ind>	<dep>-160.0</dep></entry>
+    <entry><ind>0.945</ind><dep>160.0</dep></entry>
+    <entry><ind>1.062</ind><dep>-160.0</dep></entry>
   </interpolation>
   <axis>
     <x>1.0</x>
@@ -23,8 +22,8 @@
       <command>property-adjust</command>
       <property>an24/Electrical_Panel/go-16r_voltreg</property>
       <factor>-0.002</factor>
-      <min>0.945</min><!-- -7V -->
-      <max>1.062</max><!-- +7V -->
+      <min>0.945</min>
+      <max>1.062</max>
       <wrap>false</wrap>
      </binding>
     </action>

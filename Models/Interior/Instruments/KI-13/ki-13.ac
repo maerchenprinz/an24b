@@ -5194,7 +5194,6 @@ kids 0
 OBJECT poly
 name "rect"
 loc 0.00305831 0.00320047 1.41695e-08
-texture "/home/adrian/Utilities/Instruments/KI-13/ki-13.png"
 crease 45.000000
 numvert 8
 0.0113669 -0.0251417 -0.00682873

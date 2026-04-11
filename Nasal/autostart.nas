@@ -116,8 +116,7 @@ setprop("an24/AChS/rc_wind_up", 1000 );
 # Left engine start
 		settimer( func{
 		screen.log.write("Left engine start", 1, 1, 1);
-		setprop("an24/Start-Panel/left-right", '0' ); # needs to be a string to pass it to electrical.nas
-		interpolate("an24/Start-Panel/left-right_sw", 0.0, 0.1 );
+		interpolate("an24/Start-Panel/sw_left-right", 0.0, 0.1 );
 		interpolate("an24/Start-Panel/startai24-btn", 1.0, 0.3, 0.0, 0.2 );
 		engines.apdtimer.start();
 
@@ -199,8 +198,7 @@ setprop("an24/AChS/rc_wind_up", 1000 );
 # Engine start right
 		settimer( func{
 		screen.log.write("Right engine start", 1, 1, 1);
-		setprop("an24/Start-Panel/left-right", '1' ); # needs to be a string to pass it to electrical.nas
-		interpolate("an24/Start-Panel/left-right_sw", 1.0, 0.1 );
+		interpolate("an24/Start-Panel/sw_left-right", 1.0, 0.1 );
 		interpolate("an24/Start-Panel/startai24-btn", 1.0, 0.3, 0.0, 0.2 );
 		engines.apdtimer.start();
 		}, t); t += 0.5;
@@ -215,8 +213,8 @@ setprop("an24/AChS/rc_wind_up", 1000 );
 
 		settimer( func{
 		screen.log.write("Fuel indicators ON and to sum", 1, 1, 1);
-		setprop("an24/FuelControl/fuel-meter-l", 1.0 );
-		setprop("an24/FuelControl/fuel-meter-r", 1.0 );
+		setprop("an24/FuelControl/sw_fuel-meter-l", 1.0 );
+		setprop("an24/FuelControl/sw_fuel-meter-r", 1.0 );
 		}, t); t += 1.0;
 
 		settimer( func{
@@ -260,7 +258,7 @@ setprop("an24/AChS/rc_wind_up", 1000 );
 
 		settimer( func{
 		screen.log.write("Set flaps to T/O - 15 degrees ", 1, 1, 1);
-		interpolate("/controls/flight/flaps/", 0.4033333, 4.0 );
+		interpolate("/controls/flight/flaps", 0.4033333, 4.0 );
 		}, t); t += 5.0;
 
 # STG-18 to net

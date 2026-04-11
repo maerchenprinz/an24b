@@ -9,53 +9,39 @@ var apdtimer = maketimer(1, func(){
 });
 
 var apdsequence = func(selengine) {
-	var aux_start_v = getprop("an24/Electrics/DC_AUX_SOURCE_V") ;
-	var selengine = getprop("an24/Start-Panel/left-right") ;
+	var RK_Nacelle_V = getprop("an24/Electrics/RK_Nacelle_V") ;
+	var selengine = str(getprop("an24/Start-Panel/sw_left-right")) ;
+	var BoardAero = getprop("an24/Electrical_Panel/sw_board-aerodrome") ;
 ##### Check for prerequisites
-	if ( getprop("an24/Electrics/board-aerodrome") == 1 ) {
-	var batt_start_v = getprop("an24/Electrics/RKAkku_V") ;
-		if ( batt_start_v != 0.0 and aux_start_v != 0.0 ) {
-		var start_v = (batt_start_v + aux_start_v) / 2 ;
-		setprop("an24/Electrics/StartCircuit/StartCircuit_fedby", "BATT_GS-24");
-		setprop("an24/Electrics/StartCircuit/StartCircuit_V", start_v ) ;
-		}
-		else if ( aux_start_v == 0.0 and batt_start_v != 0.0 ) {
-		var start_v = batt_start_v ;
-		setprop("an24/Electrics/StartCircuit/StartCircuit_fedby", "BATT");
-		setprop("an24/Electrics/StartCircuit/StartCircuit_V", start_v ) ;
-		}
-		else if ( aux_start_v != 0.0 and batt_start_v == 0.0 ) {
-		var start_v = aux_start_v ;
+	if ( BoardAero == 1.0 ) {
+		if ( RK_Nacelle_V > 24.0 ) {
 		setprop("an24/Electrics/StartCircuit/StartCircuit_fedby", "GS-24");
-		setprop("an24/Electrics/StartCircuit/StartCircuit_V", start_v ) ;
+		setprop("an24/Electrics/StartCircuit/StartCircuit_V", RK_Nacelle_V ) ;
 		}
 		else {
 		apdtimer.stop();
 		setprop("an24/Electrics/StartCircuit/apdtime", 0 );
-		var start_v = 0.0 ;
-		setprop("an24/Electrics/StartCircuit/StartCircuit_fedby", "NOBOARD");
-		setprop("an24/Electrics/StartCircuit/StartCircuit_V", start_v ) ;
+		setprop("an24/Electrics/StartCircuit/StartCircuit_fedby", "NO_GS-24");
+		setprop("an24/Electrics/StartCircuit/StartCircuit_V", 0.0 ) ;
 		}
-#
 	}
-	else if ( getprop("an24/Electrics/board-aerodrome") == -1 ) {
-		if ( aux_start_v != 0.0 ) {
-		var start_v = getprop("an24/Electrics/DC_AUX_SOURCE_V") ;
+	else if ( BoardAero == -1.0 ) {
+		var Aerodrome1 = getprop("an24/Electrics/DC_AUX_ShRAP500a_V") ;
+		var Aerodrome2 = getprop("an24/Electrics/DC_AUX_ShRAP500b_V") ;
+		if ( RK_Nacelle_V > 24.0 and Aerodrome1 > 0.0 and Aerodrome2 > 0.0 ) {
 		setprop("an24/Electrics/StartCircuit/StartCircuit_fedby", "AERODROME");
-		setprop("an24/Electrics/StartCircuit/StartCircuit_V", start_v ) ;
+		setprop("an24/Electrics/StartCircuit/StartCircuit_V", RK_Nacelle_V ) ;
 		}
 		else {
 		apdtimer.stop();
 		setprop("an24/Electrics/StartCircuit/apdtime", 0 );
-		var start_v = 0.0 ;
-		setprop("an24/Electrics/StartCircuit/StartCircuit_fedby", "NOAERO");
-		setprop("an24/Electrics/StartCircuit/StartCircuit_V", start_v ) ;
+		setprop("an24/Electrics/StartCircuit/StartCircuit_fedby", "NO_AERO");
+		setprop("an24/Electrics/StartCircuit/StartCircuit_V", 0.0 ) ;
 		}
 	}
 	else {
 	apdtimer.stop();
 	setprop("an24/Electrics/StartCircuit/apdtime", 0 );
-	var start_v = 0.0 ;
 	setprop("an24/Electrics/StartCircuit/StartCircuit_fedby", "NONE");
 	}
 ##### Start sequence itself
@@ -108,23 +94,17 @@ else {
 
 var apdannounce = func {
 	var fedby = getprop("an24/Electrics/StartCircuit/StartCircuit_fedby") ;
-	if ( fedby == 'BATT_GS-24' ) {
-	screen.log.write("Start Circuit fed from board sources", 0, 1, 0);
-	}
-	if ( fedby == 'BATT' ) {
-	screen.log.write("Batteries feed Start Circuit!", 1, 0.5, 0);
-	}
 	if ( fedby == 'GS-24' ) {
 	screen.log.write("GS-24 feeds Start Circuit", 0, 1, 0);
 	}
 	if ( fedby == 'AERODROME' ) {
-	screen.log.write("Aerodrome power on Start Circuit", 0, 1, 0);
+	screen.log.write("Aerodrome Power on Start Circuit", 0, 1, 0);
 	}
-	if ( fedby == 'NOBOARD' ) {
-	screen.log.write("No Board source feeds Start Circuit!", 1, 0, 0);
+	if ( fedby == 'NO_GS-24' ) {
+	screen.log.write("Generator GS-24 not on Start Circuit!", 1, 0, 0);
 	}
-	if ( fedby == 'NOAERO' ) {
-	screen.log.write("No Aerodrome power source!", 1, 0, 0);
+	if ( fedby == 'NO_AERO' ) {
+	screen.log.write("No Aerodrome Power Source connected!", 1, 0, 0);
 	}
 	else if ( fedby == 'NONE' ) {
 	screen.log.write("No power on Start Circuit! Choose either Board or Aerodrome!", 1, 0, 0);

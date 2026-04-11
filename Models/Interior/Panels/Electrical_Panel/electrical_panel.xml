@@ -214,18 +214,10 @@
 <!-- Signal lamps GS-24, AR-1/2 working/warning -->
  <animation>
    <type>material</type>
-   <object-name>gs24_light</object-name>
+   <object-name>gs24_light</object-name><!--Item 923-->
     <condition>
-     <greater-than>
-      <property>an24/Electrics/AZSmain_V</property>
-      <value>24.0</value>
-     </greater-than>
      <equals>
-      <property>an24/Electrical_Panel/sw_gs24</property>
-      <value>1.0</value>
-     </equals>
-     <equals>
-      <property>an24/Electrics/board-aerodrome</property>
+      <property>an24/Electrics/DMR-600Tgs</property>
       <value>1.0</value>
      </equals>
     </condition>

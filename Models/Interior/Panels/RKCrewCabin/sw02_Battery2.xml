@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Close cuircuit of Battery (Accumulator) 2 (switch 2057 -> contactor 718(Batt), relais 720(V-!) ) -->
+<!-- Switch to monitor Battery 2 (Item 2057) -->
 <PropertyList>
  <path>../../shared/switches/azr.ac</path>
  
@@ -23,8 +23,8 @@
     <binding>
       <command>set-tooltip</command>
       <tooltip-id>akk2on</tooltip-id>
-      <label>Include
-Battery 2</label>
+      <label>   Monitor
+Battery 2 ON</label>
     </binding>
    </hovered>
  </animation>
@@ -51,8 +51,8 @@ Battery 2</label>
    <object-name>lever</object-name>
    <property>an24/RKCrew/sw02_batt2</property>
   <interpolation>
-    <entry><ind>0.0</ind>	<dep>-20.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
+    <entry><ind>0.0</ind><dep>-20.0</dep></entry>
+    <entry><ind>1.0</ind><dep>20.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>

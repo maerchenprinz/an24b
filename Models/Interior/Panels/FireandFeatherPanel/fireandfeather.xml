@@ -464,6 +464,49 @@
   </axis>
 </animation>
 
+<!-- Signal Lights' lightplates -->
+ <animation>
+   <type>material</type>
+   <object-name>lightplate_backtonormal_l</object-name>
+  <condition>
+   <and>
+    <greater-than>
+     <property>an24/Electrics/TsRUl_V</property>
+     <value>20.0</value>
+    </greater-than>
+    <equals>
+     <property>fdm/jsbsim/fcs/prop-governor[0]/feather-command</property>
+     <value>0.0</value>
+    </equals>
+    <greater-than>
+     <property>fdm/jsbsim/propulsion/engine[0]/blade-angle</property>
+     <value>50.0</value>
+    </greater-than>
+   </and>
+  </condition>
+   <diffuse>
+     <red>1.0</red>
+     <green>0.46</green>
+     <blue>0.0</blue>
+   </diffuse>
+   <ambient>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </ambient>
+   <emission>
+     <red>0.4</red>
+     <green>0.2</green>
+     <blue>0.0</blue>
+   </emission>
+   <specular>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </specular>
+ </animation>
+
+
 <!-- ************ Fire section *********** -->
 
 <!-- Main switch + switch lock -->

@@ -9,8 +9,8 @@ props.globals.initNode("an24/Anti-Ice/vars/probable", ice_probable);
 ### DMR-600T: Differential Minimum Relais (used here to indicate working STG-18)
 #################################
 var d2r_timer = maketimer(1, func() {
-	var dmr_l = getprop("an24/Electrics/contactorl") ; # STG-18 left DMR-600T
-	var dmr_r = getprop("an24/Electrics/contactorr") ; # STG-18 right DMR-600T
+	var dmr_l = getprop("an24/Electrics/DMR-600Tl") ;
+	var dmr_r = getprop("an24/Electrics/DMR-600Tr") ;
 	var so4l_signal = getprop("an24/Anti-Ice/so4l-signal");
 	var so4r_signal = getprop("an24/Anti-Ice/so4r-signal");
 	var d2r_time = getprop("an24/Anti-Ice/D2R_time");
@@ -42,8 +42,8 @@ var pu24panel = func() {
 	var so4l_iced = getprop("an24/Anti-Ice/so-4_icedL") ; # Icing signalisator SO-4 (845) IS iced
 	var so4r_iced = getprop("an24/Anti-Ice/so-4_icedR") ; # Icing signalisator SO-4 (844) IS iced
 	var so4_check = getprop("an24/Anti-Ice/controlL-R") ; # Check-switch (830) PRETENDS that SO-4 signals ice
-	var dmr_l = getprop("an24/Electrics/contactorl") ; # STG-18 left DMR-600T
-	var dmr_r = getprop("an24/Electrics/contactorr") ; # STG-18 right DMR-600T
+	var dmr_l = getprop("an24/Electrics/DMR-600Tl") ; # STG-18 left DMR-600T
+	var dmr_r = getprop("an24/Electrics/DMR-600Tr") ; # STG-18 right DMR-600T
 
 	if ( pu24_azs1 == 1.0 and pu24_27Vnorm > 24.0 and propheatmode == 1 ) {
 		if ( so4l_iced == 1 or so4_check == -1 ) {
@@ -88,13 +88,13 @@ var pu24panel = func() {
  setlistener("an24/Anti-Ice/so-4_icedL", pu24panel, 1, 0);
  setlistener("an24/Anti-Ice/so-4_icedR", pu24panel, 1, 0);
  setlistener("an24/Anti-Ice/controlL-R", pu24panel, 1, 0);
- setlistener("an24/Electrics/contactorl", pu24panel, 1, 0);
- setlistener("an24/Electrics/contactorr", pu24panel, 1, 0);
+ setlistener("an24/Electrics/DMR-600Tl", pu24panel, 1, 0);
+ setlistener("an24/Electrics/DMR-600Tr", pu24panel, 1, 0);
 
 var propheating = func() {
 	var propheatbus_power = getprop("an24/Electrics/RK115V_phIIa_V");
-	var dmr2_l = getprop("an24/Electrics/contactorl");
-	var dmr2_r = getprop("an24/Electrics/contactorr");
+	var dmr2_l = getprop("an24/Electrics/DMR-600Tl");
+	var dmr2_r = getprop("an24/Electrics/DMR-600Tr");
 	var timer = getprop("an24/Anti-Ice/D2R_time");
 
 	if ( propheatbus_power > 110 ) {

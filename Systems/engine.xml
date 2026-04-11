@@ -467,6 +467,61 @@
 <!--########################################
 ## Water Injection
 #########################################-->
+ <channel name="Water Injection Bleed Left" execrate="40" execute="/an24/WaterInjection/ValveL">
+
+ <fcs_function name="/an24/BleedAir/waterinj_bleedL_norm">
+  <function>
+
+  <ifthen><!--spring loaded valve vs. bleed air-->
+   <gt>
+    <product>
+     <property>/engines/engine[0]/n1</property>
+     <property>/an24/WaterInjection/ValveL</property>
+    </product>
+    <value>50</value>
+   </gt>
+   <!--needs a differentiation between water tank full and water tank empty-->
+   <product>
+    <property>/engines/engine[0]/n1</property>
+    <value>0.01</value>
+    <property>/an24/WaterInjection/ValveL</property>
+   </product>
+   <value>0.0</value>
+  </ifthen>
+
+  </function>
+ </fcs_function>
+
+ </channel>
+
+ <channel name="Water Injection Bleed Right" execrate="40" execute="/an24/WaterInjection/ValveR">
+
+ <fcs_function name="/an24/BleedAir/waterinj_bleedR_norm">
+  <function>
+
+  <ifthen><!--spring loaded valve vs. bleed air-->
+   <gt>
+    <product>
+     <property>/engines/engine[1]/n1</property>
+     <property>/an24/WaterInjection/ValveR</property>
+    </product>
+    <value>50</value>
+   </gt>
+   <!--needs a differentiation between water tank full and water tank empty-->
+   <product>
+    <property>/engines/engine[1]/n1</property>
+    <value>0.01</value>
+    <property>/an24/WaterInjection/ValveR</property>
+   </product>
+   <value>0.0</value>
+  </ifthen>
+
+  </function>
+ </fcs_function>
+
+ </channel>
+
+
  <channel name="Water Injection Left" execrate="10" execute="/an24/WaterInjection/ValveL">
 
  <fcs_function name="inertia/pointmass-weight-lbs[3]">

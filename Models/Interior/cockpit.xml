@@ -123,11 +123,11 @@
     </greater-than>
     <or>
      <equals>
-      <property>an24/Electrics/contactorl</property>
+      <property>an24/Electrics/DMR-600Tl</property>
       <value>0</value>
      </equals>
      <equals>
-      <property>an24/Electrics/contactorr</property>
+      <property>an24/Electrics/DMR-600Tr</property>
       <value>0</value>
      </equals>
     </or>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- "Ground/in air" sw -->
+<!-- Switch "Ground/In Air Start" (Item 1092) -->
 <PropertyList>
  <path>../../shared/switches/vg-15k.ac</path>
 
@@ -14,8 +14,7 @@
     <binding>
       <command>nasal</command>
       <script>
-	setprop("an24/Start-Panel/ground-air", 1.0 );
-	interpolate("an24/Start-Panel/ground-air_sw", 1.0, 0.1 );
+	interpolate("an24/Start-Panel/sw_ground-air", 1.0, 0.1 );
 	sound.click("azr", 2.45, 0.83, 0.5);
       </script>
     </binding>
@@ -40,8 +39,7 @@ on Ground Start</label>
     <binding>
       <command>nasal</command>
       <script>
-	setprop("an24/Start-Panel/ground-air", 0.0 );
-	interpolate("an24/Start-Panel/ground-air_sw", 0.0, 0.1 );
+	interpolate("an24/Start-Panel/sw_ground-air", 0.0, 0.1 );
 	sound.click("azr", 2.45, 0.83, 0.5);
       </script>
     </binding>
@@ -59,10 +57,10 @@ in Air Start</label>
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>an24/Start-Panel/ground-air_sw</property>
+   <property>an24/Start-Panel/sw_ground-air</property>
   <interpolation>
-    <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
+    <entry><ind>0.0</ind><dep>-30.0</dep></entry>
+    <entry><ind>1.0</ind><dep>30.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>
