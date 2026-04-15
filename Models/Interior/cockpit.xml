@@ -55,7 +55,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/panel-l_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-l_red</factor-prop>
    </emission>
  </animation>
  <animation>
@@ -65,7 +65,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-m_red</factor-prop>
    </emission>
  </animation>
  <animation>
@@ -75,7 +75,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-r_red</factor-prop>
    </emission>
  </animation>
 
@@ -87,7 +87,7 @@
      <red>0.5</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-m_red</factor-prop>
    </emission>
  </animation>
  <animation>
@@ -97,7 +97,7 @@
      <red>0.5</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-r_red</factor-prop>
    </emission>
  </animation>
  <animation>
@@ -108,7 +108,7 @@
      <red>0.5</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/overhead_panel</factor-prop>
+     <factor-prop>an24/LightsInterior/overhead_panel</factor-prop>
    </emission>
  </animation>
 
@@ -207,20 +207,18 @@
  </animation>
 
  <animation>
-   <type>material</type>
-   <object-name>plac_27Vemerg</object-name>
-   <condition>
-   <and>
-    <greater-than>
-     <property>an24/Electrics/AZSemerg_V</property>
-     <value>24.0</value>
-    </greater-than>
-    <less-than>
-     <property>an24/Electrics/AZSmain_V</property>
-     <value>24.0</value>
-    </less-than>
-   </and>
-   </condition>
+  <type>material</type>
+  <object-name>plac_27Vemerg</object-name>
+  <condition>
+   <equals>
+    <property>an24/Electrics/CONN_AZSmain-AZSemerg</property>
+    <value>0</value>
+   </equals>
+   <greater-than>
+    <property>an24/Electrics/AZSemerg_V</property>
+    <value>24.0</value>
+   </greater-than>
+  </condition>
    <diffuse>
      <red>0.5</red>
      <green>0.3</green>

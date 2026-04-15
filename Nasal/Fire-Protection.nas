@@ -303,7 +303,7 @@ var Bi2 = func (Lnacelle,Lwing,Rnacelle,Rwing,Gr1,Gr2,Gr3,Gr4,Gr5,Gr6) {
 	Relais(1189,0);
 	}
 }
- setlistener("controls/lighting/sw_nosmoking", func { call( fire.Bi2,[1,Lwing,Rnacelle,Rwing,1,Gr2,Gr3,Gr4,Gr5,Gr6] ) }, 0, 0);
+# setlistener("an24/LightsInterior/sw_nosmoking", func { call( fire.Bi2,[1,Lwing,Rnacelle,Rwing,1,Gr2,Gr3,Gr4,Gr5,Gr6] ) }, 0, 0);
 
 var DTB1 = 0 ;
 var DTB2 = 0 ;
@@ -321,7 +321,7 @@ var Bi7engines = func (DTB1,DTB2,DTB3,DTB4) {
 	Relais(4243,1);
 	}
 }
- setlistener("controls/lighting/sw_nosmoking", func { call( fire.Bi7engines,[DTB1,1,DTB3,DTB4] ) }, 0, 0);
+# setlistener("an24/LightsInterior/sw_nosmoking", func { call( fire.Bi7engines,[DTB1,1,DTB3,DTB4] ) }, 0, 0);
 
 ##############################
 # SIREN

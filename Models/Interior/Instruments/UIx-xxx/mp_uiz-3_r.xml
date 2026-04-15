@@ -16,7 +16,7 @@
      <red>1.0</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -43,11 +43,11 @@
   <object-name>oil_temp_needle</object-name>
   <property>engines/engine[1]/oil-temperature-degf</property>
   <interpolation>
-    <entry><ind>	-58.0</ind>	<dep> -65.0</dep></entry>
-    <entry><ind>        32.0</ind>	<dep> -36.0</dep></entry>
-    <entry><ind>       122.0</ind>	<dep>  0.0</dep></entry>
-    <entry><ind>       212.0</ind>	<dep> 38.0</dep></entry>
-    <entry><ind>       302.0</ind>	<dep> 63.0</dep></entry>
+    <entry><ind>-58.0</ind><dep>-65.0</dep></entry>
+    <entry><ind>32.0</ind><dep>-36.0</dep></entry>
+    <entry><ind>122.0</ind><dep>0.0</dep></entry>
+    <entry><ind>212.0</ind><dep>38.0</dep></entry>
+    <entry><ind>302.0</ind><dep>63.0</dep></entry>
   </interpolation>
    <center>
     <x-m>0.0</x-m>
@@ -88,8 +88,8 @@
     <alignment>center-center</alignment>
     <offsets>
       <x-m>0.005</x-m>
-      <y-m>0.000</y-m>
-      <z-m>0.000</z-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
   <animation>

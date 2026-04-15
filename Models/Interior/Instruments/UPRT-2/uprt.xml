@@ -13,7 +13,7 @@
      <red>0.7</red>
      <green>0.5</green>
      <blue>0.5</blue>
-     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-m_red</factor-prop>
    </emission>
  </animation>
 

@@ -10,7 +10,7 @@
      <red>0.7</red>
      <green>0.55</green>
      <blue>0.6</blue>
-     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -29,7 +29,7 @@
      <red>0.5</red>
      <green>0.45</green>
      <blue>0.45</blue>
-     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-m_red</factor-prop>
    </emission>
 </animation>
 
@@ -398,8 +398,8 @@
     <alignment>center-center</alignment>
     <offsets>
       <x-m>0.005</x-m>
-      <y-m>0.000</y-m>
-      <z-m>0.000</z-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
   <animation>

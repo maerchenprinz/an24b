@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- IV-41, engine vibration indicator -->
-
 <PropertyList>
  <path>iv-41.ac</path>
 
@@ -12,7 +11,7 @@
      <red>0.04</red>
      <green>0.04</green>
      <blue>0.0</blue>
-     <factor-prop>controls/lighting/overhead_instr</factor-prop>
+     <factor-prop>an24/LightsInterior/overhead_instr</factor-prop>
    </emission>
  </animation>
  <animation>
@@ -22,12 +21,11 @@
      <red>0.4</red>
      <green>0.4</green>
      <blue>0.2</blue>
-     <factor-prop>controls/lighting/overhead_instr</factor-prop>
+     <factor-prop>an24/LightsInterior/overhead_instr</factor-prop>
    </emission>
  </animation>
 
 <!-- Text OSG -->
-
   <animation>
     <type>select</type>
     <object-name>textosg</object-name>
@@ -53,18 +51,18 @@
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>  0.005 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m>  0.000 </z-m>
+      <x-m>0.005</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
   <animation>
     <type>material</type>
     <object-name>textosg</object-name>
     <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
     </emission>
   </animation>
 

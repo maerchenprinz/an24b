@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- TE-40, Tachometer of shaft (?,assumed 40.000rpm=100%) of turbogenerator TG-16-->
-
 <PropertyList>
  <path>te-40.ac</path>
 
@@ -13,25 +12,25 @@
      <red>1.0</red>
      <green>0.6</green>
      <blue>0.6</blue>
-     <factor-prop>controls/lighting/console-l_red</factor-prop>
+     <factor-prop>an24/LightsInterior/console-l_red</factor-prop>
    </emission>
  </animation>
 
-<animation>
+ <animation>
   <type>rotate</type>
   <object-name>tachneedle</object-name>
   <property>engines/engine[2]/n2</property>
     <interpolation>
-      <entry><ind>	0.0</ind>	<dep>	 0.0</dep></entry>
-      <entry><ind>	37.5</ind>	<dep>	20.0</dep></entry>
-      <entry><ind>	100.00</ind>	<dep>	353.33</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>37.5</ind><dep>20.0</dep></entry>
+      <entry><ind>100.00</ind><dep>353.33</dep></entry>
     </interpolation>
   <axis>
     <x>-1.0</x>
     <y>0.0</y>
     <z>0.0</z>
   </axis>
-</animation>
+ </animation>
 
 <!-- TEXT OSG -->
   <animation>

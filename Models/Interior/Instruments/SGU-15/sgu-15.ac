@@ -2969,7 +2969,7 @@ refs 3
 214 0 0
 kids 0
 OBJECT poly
-name "object"
+name "sgu15_housing"
 loc -0.00312658 -0.038265 0.107886
 texture "sgu-15.png"
 crease 45.000000

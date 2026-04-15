@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- White interior light -->
-
 <PropertyList>
  <path>intlamp.ac</path>
 
@@ -32,7 +31,7 @@
   <object-name>whitefilter</object-name>
   <condition>
    <equals>
-    <property>controls/lighting/main-emerg</property>
+    <property>an24/LightsInterior/main-emerg</property>
     <value>1</value>
    </equals>
   </condition>
@@ -41,7 +40,6 @@
    <green>1</green>	
    <blue>1</blue>
   </emission>
-  <factor-prop>controls/lighting/overhead_instr</factor-prop>
  </animation>
 
 </PropertyList>

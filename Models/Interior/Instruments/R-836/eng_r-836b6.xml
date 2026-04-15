@@ -31,7 +31,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.4</blue>
-     <factor-prop>controls/lighting/radio_panel_instr</factor-prop>
+     <factor-prop>an24/LightsInterior/radio_panel_instr</factor-prop>
    </emission>
  </animation>
 

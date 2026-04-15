@@ -1,20 +1,19 @@
 <?xml version="1.0"?>
 
 <!-- MP/ARK tone source, N1/N2 on/off, signalisation switches-->
-
 <PropertyList>
  <path>switchpanel.ac</path>
 
- <!--animation>
+ <animation>
    <type>material</type>
-   <object-name>lightplate</object-name>
+   <object-name>KursMP_switchpanel</object-name>
    <emission>
      <red>0.4</red>
      <green>0.3</green>
      <blue>0.3</blue>
      <factor-prop>controls/lighting/overhead_instr</factor-prop>
    </emission>
- </animation-->
+ </animation>
 
 <model>
  <path>sw01_nav1-ark1.xml</path>
@@ -94,9 +93,9 @@
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>  0.0 </x-m>
-      <y-m>  0.0 </y-m>
-      <z-m>  0.01 </z-m>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.01</z-m>
       <pitch-deg>-90</pitch-deg>
     </offsets>
   </text>
@@ -104,9 +103,9 @@
     <type>material</type>
     <object-name>textmpswp</object-name>
     <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
     </emission>
   </animation>
 

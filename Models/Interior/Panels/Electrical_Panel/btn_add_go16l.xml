@@ -12,7 +12,7 @@
      <red>0.1</red>
      <green>0.1</green>
      <blue>0.1</blue>
-     <factor-prop>controls/lighting/panel-elec_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-elec_red</factor-prop>
    </emission>
  </animation>
 

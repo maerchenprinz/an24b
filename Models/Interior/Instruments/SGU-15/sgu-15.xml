@@ -5,16 +5,16 @@
 <PropertyList>
   <path>sgu-15.ac</path>
 
- <!--animation>
+ <animation>
    <type>material</type>
-   <object-name>light_plate</object-name>
+   <object-name>sgu15_housing</object-name>
    <emission>
-     <red>1.0</red>
-     <green>0.3</green>
-     <blue>0.3</blue>
-     <factor-prop>controls/lighting/console-l_red</factor-prop>
+     <red>0.3</red>
+     <green>0.2</green>
+     <blue>0.2</blue>
+     <factor-prop>an24/LightsInterior/console-l_red</factor-prop>
    </emission>
- </animation-->
+ </animation>
 
 <!-- Subscriber selector -->
  <animation>

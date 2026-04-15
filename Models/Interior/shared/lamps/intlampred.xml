@@ -32,7 +32,7 @@
   <object-name>redfilter</object-name>
   <condition>
    <equals>
-    <property>controls/lighting/main-emerg</property>
+    <property>an24/LightsInterior/main-emerg</property>
     <value>-1</value>
    </equals>
   </condition>

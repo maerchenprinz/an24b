@@ -100,17 +100,29 @@ var rc_light = func {
  setlistener("an24/LightsInterior/kn_console-r", rc_light, 0, 0 );
  setlistener("an24/LightsInterior/lamps_have_power", rc_light, 0, 0 );
 
-# Overhead Panel
-var rc_light = func {
+# Overhead Panel Instruments
+var oh_light = func {
 	if ( getprop("an24/LightsInterior/lamps_have_power") == 1 ) {
-	setprop("an24/LightsInterior/console-r_red", getprop("an24/LightsInterior/kn_console-r") );
+	setprop("an24/LightsInterior/overhead_instr", getprop("an24/LightsInterior/kn_overhead_instr") );
 	}
 	else {
-	interpolate("an24/LightsInterior/console-r_red", 0.0, 0.2 );
+	interpolate("an24/LightsInterior/overhead_instr", 0.0, 0.2 );
 	}
 }
- setlistener("an24/LightsInterior/kn_console-r", rc_light, 0, 0 );
- setlistener("an24/LightsInterior/lamps_have_power", rc_light, 0, 0 );
+ setlistener("an24/LightsInterior/kn_overhead_instr", oh_light, 0, 0 );
+ setlistener("an24/LightsInterior/lamps_have_power", oh_light, 0, 0 );
+
+# Overhead Panel
+var oh_panellight = func {
+	if ( getprop("an24/LightsInterior/lamps_have_power") == 1 ) {
+	setprop("an24/LightsInterior/overhead_panel", getprop("an24/LightsInterior/kn_overhead_panel") );
+	}
+	else {
+	interpolate("an24/LightsInterior/overhead_panel", 0.0, 0.2 );
+	}
+}
+ setlistener("an24/LightsInterior/kn_overhead_panel", oh_panellight, 0, 0 );
+ setlistener("an24/LightsInterior/lamps_have_power", oh_panellight, 0, 0 );
 
 
 # Radio Op's Panel, Electrical Panel, Fuse Panel

@@ -68,7 +68,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>controls/lighting/main-emerg</property>
+   <property>an24/LightsInterior/main-emerg</property>
   <interpolation>
     <entry><ind>1.0</ind><dep>20.0</dep></entry>
     <entry><ind>-1.0</ind><dep>-20.0</dep></entry>

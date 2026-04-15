@@ -22,7 +22,7 @@
      <red>0.01</red>
      <green>0.01</green>
      <blue>0.01</blue>
-     <factor-prop>controls/lighting/console-r_red</factor-prop>
+     <factor-prop>an24/LightsInterior/console-r_red</factor-prop>
    </emission>
  </animation>
 
@@ -96,8 +96,8 @@ Cassette A</label>
    <object-name>leverCassetteA</object-name>
    <property>an24/TP622/sw_CassetteA</property>
   <interpolation>
-    <entry><ind>0.0</ind>	<dep>20.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>0.0</ind><dep>20.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-20.0</dep></entry>
   </interpolation>
   <center>
    <x-m>0.0</x-m>
@@ -166,8 +166,8 @@ Cassette B</label>
    <object-name>leverCassetteB</object-name>
    <property>an24/TP622/sw_CassetteB</property>
   <interpolation>
-    <entry><ind>0.0</ind>	<dep>20.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>0.0</ind><dep>20.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-20.0</dep></entry>
   </interpolation>
   <center>
    <x-m>0.0</x-m>
@@ -992,14 +992,14 @@ Rocket
 <!-- Text OSG -->
   <animation>
     <type>select</type>
-    <object-name>textosg</object-name>
+    <object-name>texttp622</object-name>
     <condition>
       <property>sim/panel-hotspots</property>
     </condition>
   </animation>
 
   <text>
-    <name>textosg</name>
+    <name>texttp622</name>
     <type type="string">literal</type>
     <text type="string">TP622 Rocket Panel</text>
     <draw-text type="bool">true</draw-text>
@@ -1015,18 +1015,18 @@ Rocket
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>  0.0 </x-m>
-      <y-m> -0.018 </y-m>
-      <z-m>  0.000 </z-m>
+      <x-m>0.0</x-m>
+      <y-m>-0.018</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
   <animation>
     <type>material</type>
-    <object-name>textosg</object-name>
+    <object-name>texttp622</object-name>
     <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
     </emission>
   </animation>
 

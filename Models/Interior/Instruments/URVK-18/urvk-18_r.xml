@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- URVK-18, bleed air indicator right engine to cabin -->
-
 <PropertyList>
  <path>urvk-18.ac</path>
 
@@ -13,7 +12,7 @@
      <red>1.0</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -65,18 +64,18 @@
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>  0.005 </x-m>
-      <y-m>  0.000 </y-m>
-      <z-m>  0.000 </z-m>
+      <x-m>0.005</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
   <animation>
     <type>material</type>
     <object-name>texturvkr</object-name>
     <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
     </emission>
   </animation>
 

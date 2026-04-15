@@ -11,7 +11,7 @@
      <red>1.0</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/console-l_red</factor-prop>
+     <factor-prop>an24/LightsInterior/console-l_red</factor-prop>
    </emission>
  </animation>
 
@@ -217,8 +217,8 @@
    <object-name>spu-lever</object-name>
    <property>an24/SPU-7/sw_spu_radio_viewnr0</property>
   <interpolation>
-    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
-    <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
+    <entry><ind>1.0</ind><dep>30.0</dep></entry>
+    <entry><ind>0.0</ind><dep>-30.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>
@@ -262,8 +262,8 @@
     <alignment>center-center</alignment>
     <offsets>
       <x-m>0.018</x-m>
-      <y-m>0.000</y-m>
-      <z-m>0.000</z-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
   <animation>

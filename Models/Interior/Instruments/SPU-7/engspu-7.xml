@@ -11,7 +11,7 @@
      <red>1.0</red>
      <green>1.0</green>
      <blue>0.7</blue>
-     <factor-prop>controls/lighting/radio_panel_instr</factor-prop>
+     <factor-prop>an24/LightsInterior/radio_panel_instr</factor-prop>
    </emission>
  </animation>
 
@@ -139,7 +139,6 @@
      </hovered>
  </animation>
 
-
 <!-- "Listen" (right) volume knob (volume of NOT selected by "SPU - Radio" switch) -->
  <animation>
    <type>knob</type>
@@ -218,8 +217,8 @@
    <object-name>spu-lever</object-name>
    <property>an24/SPU-7/sw_spu_radio_viewnr102</property>
   <interpolation>
-    <entry><ind>1.0</ind>	<dep>30.0</dep></entry>
-    <entry><ind>0.0</ind>	<dep>-30.0</dep></entry>
+    <entry><ind>1.0</ind><dep>30.0</dep></entry>
+    <entry><ind>0.0</ind><dep>-30.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>
@@ -263,8 +262,8 @@
     <alignment>center-center</alignment>
     <offsets>
       <x-m>0.018</x-m>
-      <y-m>0.000</y-m>
-      <z-m>0.000</z-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
   <animation>

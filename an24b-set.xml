@@ -1955,11 +1955,13 @@ Vref for less than 19 t: 200 km/h (flaps 38)
    <radioopstationlight type="float">0.0</radioopstationlight>
    <kn_console-l type="float">0.0</kn_console-l>
    <kn_console-r type="float">0.0</kn_console-r>
+   <kn_nav_panel type="float">0.0</kn_nav_panel>
+   <kn_nav_panel_instr type="float">0.0</kn_nav_panel_instr>
+   <kn_overhead_instr type="float">0.0</kn_overhead_instr>
+   <kn_overhead_panel type="float">0.0</kn_overhead_panel>
    <kn_panel-l type="float">0.0</kn_panel-l>
    <kn_panel-m type="float">0.0</kn_panel-m>
    <kn_panel-r type="float">0.0</kn_panel-r>
-   <kn_nav_panel type="float">0.0</kn_nav_panel>
-   <kn_nav_panel_instr type="float">0.0</kn_nav_panel_instr>
    <kn_panel-elec type="float">0.0</kn_panel-elec>
    <kn_radio_panel type="float">0.0</kn_radio_panel>
    <kn_radio_panel_instr type="float">0.0</kn_radio_panel_instr>

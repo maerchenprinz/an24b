@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- vp-46, Voltmeter -->
-
 <PropertyList>
  <path>vp-46.ac</path>
 
@@ -13,7 +12,7 @@
      <red>1.0</red>
      <green>1.0</green>
      <blue>0.7</blue>
-     <factor-prop>controls/lighting/panel-elec_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-elec_red</factor-prop>
    </emission>
  </animation>
 
@@ -24,10 +23,10 @@
   <interpolation>
     <entry><ind> 0.0</ind><dep>-40.0</dep></entry>
     <entry><ind>20.0</ind><dep>-17.5</dep></entry>
-    <entry><ind>25.0</ind><dep> -5.0</dep></entry>
-    <entry><ind>30.0</ind><dep>  7.5</dep></entry>
-    <entry><ind>35.0</ind><dep> 22.5</dep></entry>
-    <entry><ind>40.0</ind><dep> 37.5</dep></entry>
+    <entry><ind>25.0</ind><dep>-5.0</dep></entry>
+    <entry><ind>30.0</ind><dep> 7.5</dep></entry>
+    <entry><ind>35.0</ind><dep>22.5</dep></entry>
+    <entry><ind>40.0</ind><dep>37.5</dep></entry>
   </interpolation>
   <axis>
    <x>-1.0</x>
