@@ -221,7 +221,7 @@ setprop("an24/AChS/rc_wind_up", 1000 );
 		screen.log.write("Setting RTMS fuel-flow counters", 1, 1, 1);
 		interpolate("an24/RTMS/fuel-offset-l", (getprop("/consumables/fuel/tank/level-kg") + getprop("/consumables/fuel/tank[1]/level-kg") + getprop("/consumables/fuel/tank[2]/level-kg")) * -2.2, 4.4 );
 		interpolate("an24/RTMS/fuel-offset-r", (getprop("/consumables/fuel/tank[3]/level-kg") + getprop("/consumables/fuel/tank[4]/level-kg") + getprop("/consumables/fuel/tank[5]/level-kg")) * -2.2, 4.2 );
-		interpolate("an24/PG4and2PPT1/selected-ind", -18.0, 0.1 );
+		interpolate("an24/PG4and2PPT1/selected-ind", 2, 0.1 );
 		setprop("an24/FuelControl/auto-fuel-dosing", 1.0 );
 		}, t); t += 1.0;
 

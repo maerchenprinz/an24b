@@ -550,8 +550,8 @@
    <object-name>lever_frame</object-name>
    <property>an24/ARK-11/frame_l-r-1</property>
   <interpolation>
-    <entry><ind>-1.0</ind>	<dep>30.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>-30.0</dep></entry>
+    <entry><ind>-1.0</ind><dep>30.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-30.0</dep></entry>
   </interpolation>
   <axis>
     <x>1.0</x>
@@ -680,7 +680,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -750,7 +749,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -820,7 +818,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -890,7 +887,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -960,7 +956,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1030,7 +1025,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1100,7 +1094,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1170,7 +1163,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1240,7 +1232,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1310,7 +1301,6 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1327,7 +1317,7 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>      
+     <factor-prop>an24/LightsInterior/nav_panel_instr_red</factor-prop>      
    </emission>
  </animation>
 
@@ -1341,7 +1331,7 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>0.25</red>
      <green>0.2</green>
      <blue>0.1</blue>
-     <factor-prop>controls/lighting/nav_panel_red</factor-prop>
+     <factor-prop>an24/LightsInterior/nav_panel_red</factor-prop>
    </emission>
  </animation>
 
@@ -1358,7 +1348,7 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
      <red>0.06</red>
      <green>0.05</green>
      <blue>0.05</blue>
-     <factor-prop>controls/lighting/nav_panel_red</factor-prop>
+     <factor-prop>an24/LightsInterior/nav_panel_red</factor-prop>
    </emission>
  </animation>
 
@@ -1392,8 +1382,8 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>0.000</x-m>
-      <y-m>0.000</y-m>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
       <z-m>0.025</z-m>
       <heading-deg>90</heading-deg>
     </offsets>
@@ -1407,37 +1397,5 @@ if ( getprop("an24/ARK-11/panelpowernav_27V") == 1.0 ) {
       <blue>1.0</blue>
     </emission>
   </animation>
-
-  <!--text>
-    <name>arkfreq1</name>
-    <offsets>
-      <x-m>-0.076</x-m>
-      <y-m>-0.0075</y-m>
-      <z-m>0.008</z-m>
-      <heading-deg>90</heading-deg>
-    </offsets>
-    <alignment>center-center</alignment>
-    <axis-alignment>xy-plane</axis-alignment>
-    <type type="string">number-value</type>
-    <property>an24/ARK-11/fine-khz-1</property>
-    <format type="string">%.1f</format>
-    <truncate type="bool">false</truncate>
-    <font>arial_black.txf</font>
-    <character-size type="double">0.004</character-size>
-    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
-    <font-resolution>
-      <width type="int">32</width>
-      <height type="int">32</height>
-    </font-resolution>
-  </text>
-  <animation>
-    <type>material</type>
-    <object-name>textaf150l</object-name>
-    <emission>
-      <red>1.0</red>
-      <green>1.0</green>
-      <blue>1.0</blue>
-    </emission>
-  </animation-->
 
 </PropertyList>

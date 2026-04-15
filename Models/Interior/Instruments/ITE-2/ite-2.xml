@@ -13,7 +13,7 @@
      <red>1.0</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/panel-m_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-m_red</factor-prop>
    </emission>
  </animation>
 
@@ -22,7 +22,7 @@
   <object-name>needle_1</object-name>
   <property>engines/engine[0]/rpm</property>
   <interpolation>
-   <entry><ind>	  0.0</ind><dep> 46.9</dep></entry>
+   <entry><ind>0.0</ind><dep> 46.9</dep></entry>
    <entry><ind>1245.0</ind><dep>360.0</dep></entry>
    <entry><ind>1370.0</ind><dep>391.3</dep></entry>
   </interpolation>
@@ -38,7 +38,7 @@
   <object-name>needle_2</object-name>
   <property>engines/engine[1]/rpm</property>
   <interpolation>
-   <entry><ind>	  0.0</ind><dep> 46.9</dep></entry>
+   <entry><ind>0.0</ind><dep> 46.9</dep></entry>
    <entry><ind>1245.0</ind><dep>360.0</dep></entry>
    <entry><ind>1370.0</ind><dep>391.3</dep></entry>
   </interpolation>

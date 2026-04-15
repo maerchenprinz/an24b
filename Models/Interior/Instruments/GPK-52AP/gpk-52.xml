@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- GPK-52AP, gyropoly compass-->
-
 <PropertyList>
  <path>gpk-52.ac</path>
 
@@ -13,7 +12,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/console-r_red</factor-prop>
+     <factor-prop>an24/LightsInterior/console-r_red</factor-prop>
    </emission>
  </animation>
 
@@ -59,8 +58,8 @@
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>0.00</x-m>
-      <y-m>0.00</y-m>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
       <z-m>0.04</z-m>
     </offsets>
   </text>
@@ -68,9 +67,9 @@
     <type>material</type>
     <object-name>textgpk</object-name>
     <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
     </emission>
   </animation>
 

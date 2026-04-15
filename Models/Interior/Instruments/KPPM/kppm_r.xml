@@ -145,7 +145,7 @@
      <red>0.7</red>
      <green>0.55</green>
      <blue>0.55</blue>
-    <factor-prop>controls/lighting/panel-r_red</factor-prop>
+    <factor-prop>an24/LightsInterior/panel-r_red</factor-prop>
    </emission>
  </animation>
 
@@ -179,8 +179,8 @@
     <alignment>center-center</alignment>
     <offsets>
       <x-m>0.005</x-m>
-      <y-m>0.000</y-m>
-      <z-m>0.000</z-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
     </offsets>
   </text>
   <animation>

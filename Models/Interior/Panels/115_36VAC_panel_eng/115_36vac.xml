@@ -1,9 +1,9 @@
+<?xml version="1.0"?>
+
+<!-- 115/36V AC panel, from top to bottom rows (01xx-07xx) and left to right (xx01-xx08), and below hatch -->
 <PropertyList>
 
-<!-- 115/36V AC panel, from top to bottom rows (01xx-07xx) and left to right (xx01-xx08), and below hatch;
-functionality not to be taken too seriously atm! -->
-
-  <path>115_36VAC_panel.ac</path>
+ <path>115_36VAC_panel.ac</path>
 
  <animation>
    <type>material</type>
@@ -13,7 +13,7 @@ functionality not to be taken too seriously atm! -->
      <red>0.45</red>
      <green>0.4</green>
      <blue>0.35</blue>
-     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
+     <factor-prop>an24/LightsInterior/radioopstationlight</factor-prop>
    </emission>
  </animation>
 
@@ -24,21 +24,9 @@ functionality not to be taken too seriously atm! -->
      <red>0.1</red>
      <green>0.1</green>
      <blue>0.1</blue>
-     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
+     <factor-prop>an24/LightsInterior/radioopstationlight</factor-prop>
    </emission>
  </animation>
-
- <!--animation>
-   <type>material</type>
-   <object-name>fuses</object-name>
-   <emission>
-     <red>0.2</red>
-     <green>0.1</green>
-     <blue>0.1</blue>
-     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
-   </emission>
- </animation-->
-
 
 <!-- ********** 115V Fuses, 01st row *********** -->
 <model>

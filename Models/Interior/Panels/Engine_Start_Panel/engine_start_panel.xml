@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- Engine and APU start panel -->
-
 <PropertyList>
  <path>engine_start_panel.ac</path>
 
@@ -13,7 +12,7 @@
      <red>0.6</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/console-l_red</factor-prop>
+     <factor-prop>an24/LightsInterior/console-l_red</factor-prop>
    </emission>
  </animation>
 
@@ -89,7 +88,6 @@
 </model>
 
 <!-- 2nd row -->
-
 <model>
  <path>sw_contr240_360_left.xml</path>
   <offsets>
@@ -135,7 +133,6 @@
 </model>
 
 <!-- 3rd row -->
-
 <model>
  <path>sw_tg-16_prepare.xml</path>
   <offsets>
@@ -187,7 +184,6 @@
 </model>
 
 <!-- TEXT OSG -->
-
   <animation>
     <type>select</type>
     <object-name>textstartpanel</object-name>
@@ -199,7 +195,7 @@
   <text>
     <name>textstartpanel</name>
     <type type="string">literal</type>
-    <text type="string">Engine- and APU-start Panel</text>
+    <text type="string">Engine- and APU-Start Panel</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.044</character-size>

@@ -10,7 +10,7 @@
      <red>0.45</red>
      <green>0.4</green>
      <blue>0.35</blue>
-     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
+     <factor-prop>an24/LightsInterior/radioopstationlight</factor-prop>
    </emission>
  </animation>
 
@@ -21,7 +21,7 @@
      <red>0.22</red>
      <green>0.2</green>
      <blue>0.2</blue>
-     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
+     <factor-prop>an24/LightsInterior/radioopstationlight</factor-prop>
    </emission>
  </animation>
 
@@ -32,7 +32,7 @@
      <red>0.2</red>
      <green>0.1</green>
      <blue>0.1</blue>
-     <factor-prop>controls/lighting/radioopstationlight</factor-prop>
+     <factor-prop>an24/LightsInterior/radioopstationlight</factor-prop>
    </emission>
  </animation>
 

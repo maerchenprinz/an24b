@@ -1,6 +1,7 @@
-<PropertyList>
+<!-- AGD-1, type 1122B, Pilot's AI -->
 
 <!-- AGD-1, type 1122B, FO's AI -->
+<PropertyList>
  <path>agd-1.ac</path>
 
  <effect>
@@ -54,7 +55,7 @@
      <red>0.7</red>
      <green>0.5</green>
      <blue>0.5</blue>
-     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-r_red</factor-prop>
    </emission>
  </animation>
 
@@ -65,7 +66,7 @@
      <red>0.7</red>
      <green>0.5</green>
      <blue>0.5</blue>
-     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-r_red</factor-prop>
    </emission>
  </animation>
 
@@ -76,7 +77,7 @@
      <red>0.7</red>
      <green>0.6</green>
      <blue>0.6</blue>
-     <factor-prop>controls/lighting/panel-r_red</factor-prop>
+     <factor-prop>an24/LightsInterior/panel-r_red</factor-prop>
    </emission>
  </animation>
 

@@ -1,7 +1,6 @@
 <PropertyList>
 
 <!-- Circuit breaker (called "AZS" or "AZR") panel, from top to bottom rows (01xx-07xx) and left to right (xx01-xx18) -->
-
   <path>azspanel.ac</path>
 
  <animation>
@@ -11,7 +10,7 @@
      <red>0.5</red>
      <green>0.5</green>
      <blue>0.5</blue>
-     <factor-prop>controls/lighting/azspanel</factor-prop>
+     <factor-prop>an24/LightsInterior/azspanel</factor-prop>
    </emission>
  </animation>
 
@@ -22,7 +21,7 @@
      <red>0.1</red>
      <green>0.1</green>
      <blue>0.1</blue>
-     <factor-prop>controls/lighting/azspanel</factor-prop>
+     <factor-prop>an24/LightsInterior/azspanel</factor-prop>
    </emission>
  </animation>
 
@@ -377,7 +376,6 @@
 </animation>
 
 <!-- ************ 01st row *********** -->
-
 <model>
  <path>0101sw.xml</path>
   <offsets>
@@ -559,7 +557,6 @@
 </model>
 
 <!-- ************* 02nd row ************ -->
-
 <model>
  <path>0201sw.xml</path>
   <offsets>
@@ -741,7 +738,6 @@
 </model>
 
 <!-- ************* 03rd row ************ -->
-
 <model>
  <path>0301sw.xml</path>
   <offsets>
@@ -923,7 +919,6 @@
 </model>
 
 <!-- ************* 04th row ************ -->
-
 <model>
  <path>0401sw.xml</path>
   <offsets>
@@ -1105,7 +1100,6 @@
 </model>
 
 <!-- ************* 05th row ************ -->
-
 <!--model>
  <path>0501sw.xml</path>
   <offsets>
@@ -1287,7 +1281,6 @@
 </model>
 
 <!-- ************* 06th row ************ -->
-
 <!--model>
  <path>0601sw.xml</path>
   <offsets>
@@ -1469,7 +1462,6 @@
 </model>
 
 <!-- ************* 07th row ************ -->
-
 <model>
  <path>0701sw.xml</path>
   <offsets>

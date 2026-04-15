@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
 
-<!-- Overhead panel red lighting lamps -->
-
+<!-- Overhead panel lighting lamps -->
 <PropertyList>
  <path>../../../shared/knobs_buttons/rsks-50.ac</path>
 
  <animation>
    <type>knob</type>
    <object-name>rsks-50</object-name>
-   <property>controls/lighting/overhead_panel</property>
+   <property>an24/LightsInterior/kn_overhead_panel</property>
    <factor>-100</factor>
   <axis>
     <x>1.0</x>
@@ -18,7 +17,7 @@
     <action>
      <binding>
       <command>property-adjust</command>
-      <property>controls/lighting/overhead_panel</property>
+      <property>an24/LightsInterior/kn_overhead_panel</property>
       <factor>-0.05</factor>
       <min>0</min>
       <max>1</max>

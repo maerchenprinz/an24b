@@ -1,7 +1,7 @@
-<PropertyList>
+<?xml version="1.0"?>
 
 <!-- Fuel control panel, from top to bottom rows (01xx-05xx) and left to right (xx01-xx07) -->
-
+<PropertyList>
   <path>fuelcontrol.ac</path>
 
  <animation>
@@ -11,12 +11,11 @@
    <red>1.0</red>
    <green>0.1</green>
    <blue>0.1</blue>
-   <factor-prop>controls/lighting/panel-m_red</factor-prop>
+   <factor-prop>an24/LightsInterior/panel-m_red</factor-prop>
   </emission>
  </animation>
 
 <!-- ************ Top row *********** -->
-
 <model>
  <path>0101wl_fuelflowleft.xml</path>
   <offsets>
@@ -45,7 +44,6 @@
 </model>
 
 <!-- ************* 2nd row ************ -->
-
 <model>
  <path>0201wl_pump_group1left.xml</path>
   <offsets>
@@ -83,7 +81,6 @@
 </model>
 
 <!-- ************* 3rd row ************ -->
-
 <model>
  <path>0301wl_cutoffvalveleft.xml</path>
   <offsets>
@@ -121,7 +118,6 @@
 </model>
 
 <!-- ************* 4th row Switches l to r ************ -->
-
 <model>
  <path>0401sw_cutoffvalveleft.xml</path>
   <offsets>
@@ -186,7 +182,6 @@
 </model>
 
 <!-- ************* 5th row ************ -->
-
 <model>
  <path>0501wl_chips_in_engineL.xml</path>
   <offsets>

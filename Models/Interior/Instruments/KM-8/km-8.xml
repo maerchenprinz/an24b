@@ -76,7 +76,7 @@
      <red>0.8</red>
      <green>0.4</green>
      <blue>0.4</blue>
-   <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
+   <factor-prop>an24/LightsInterior/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -87,7 +87,7 @@
      <red>0.1</red>
      <green>0.08</green>
      <blue>0.08</blue>
-   <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
+   <factor-prop>an24/LightsInterior/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 

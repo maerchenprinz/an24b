@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- Cabin lights, main (white) or emergency (red)-->
-
 <PropertyList>
  <path>../../../shared/switches/3ppng-15k.ac</path>
  <animation>
@@ -14,7 +13,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("controls/lighting/main-emerg", 1.0, 0.1 );
+        interpolate("an24/LightsInterior/main-emerg", 1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -37,7 +36,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("controls/lighting/main-emerg", 0.0, 0.1 );
+        interpolate("an24/LightsInterior/main-emerg", 0.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -53,7 +52,7 @@
     <binding>
       <command>nasal</command>
       <script>
-        interpolate("controls/lighting/main-emerg", -1.0, 0.1 );
+        interpolate("an24/LightsInterior/main-emerg", -1.0, 0.1 );
       </script>
     </binding>
   </action>
@@ -71,8 +70,8 @@
    <object-name>lever</object-name>
    <property>controls/lighting/main-emerg</property>
   <interpolation>
-    <entry><ind>1.0</ind>	<dep>20.0</dep></entry>
-    <entry><ind>-1.0</ind>	<dep>-20.0</dep></entry>
+    <entry><ind>1.0</ind><dep>20.0</dep></entry>
+    <entry><ind>-1.0</ind><dep>-20.0</dep></entry>
   </interpolation>
   <axis>
     <x>0.0</x>

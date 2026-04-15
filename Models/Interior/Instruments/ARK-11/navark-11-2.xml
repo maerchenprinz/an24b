@@ -522,8 +522,8 @@
    <object-name>lever_frame</object-name>
    <property>an24/ARK-11/frame_l-r-2</property>
   <interpolation>
-    <entry><ind>-1.0</ind>	<dep>30.0</dep></entry>
-    <entry><ind>1.0</ind>	<dep>-30.0</dep></entry>
+    <entry><ind>-1.0</ind><dep>30.0</dep></entry>
+    <entry><ind>1.0</ind><dep>-30.0</dep></entry>
   </interpolation>
   <axis>
     <x>1.0</x>
@@ -588,7 +588,6 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -658,7 +657,6 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -728,7 +726,6 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -798,7 +795,6 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -869,13 +865,12 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
 
 <!--**********************************************-->
-<animation>
+ <animation>
   <type>pick</type>
   <object-name>fix5</object-name>
   <action>
@@ -911,9 +906,9 @@
       </script>
     </binding>
   </action>
-</animation>
+ </animation>
 
-<animation>
+ <animation>
   <type>translate</type>
   <object-name>fix5</object-name>
   <object-name>fix5light</object-name>
@@ -924,7 +919,7 @@
     <y>0.0</y>
     <z>-1.0</z>
   </axis>
-</animation>
+ </animation>
 
  <animation>
   <type>material</type>
@@ -940,7 +935,6 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1011,7 +1005,6 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1082,7 +1075,6 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1153,7 +1145,6 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1224,7 +1215,6 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>
    </emission>
  </animation>
 
@@ -1241,7 +1231,7 @@
      <red>1.0</red>
      <green>0.4</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/nav_panel_instr_red</factor-prop>      
+     <factor-prop>an24/LightsInterior/nav_panel_instr_red</factor-prop>      
    </emission>
  </animation>
 
@@ -1255,7 +1245,7 @@
      <red>0.25</red>
      <green>0.2</green>
      <blue>0.1</blue>
-     <factor-prop>controls/lighting/nav_panel_red</factor-prop>
+     <factor-prop>an24/LightsInterior/nav_panel_red</factor-prop>
    </emission>
  </animation>
 
@@ -1272,7 +1262,7 @@
      <red>0.06</red>
      <green>0.05</green>
      <blue>0.05</blue>
-     <factor-prop>controls/lighting/nav_panel_red</factor-prop>
+     <factor-prop>an24/LightsInterior/nav_panel_red</factor-prop>
    </emission>
  </animation>
 
@@ -1306,8 +1296,8 @@
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>0.000</x-m>
-      <y-m>0.000</y-m>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
       <z-m>0.025</z-m>
       <heading-deg>90</heading-deg>
     </offsets>

@@ -14,7 +14,7 @@
     <binding>
       <command>nasal</command>
       <script>
-	interpolate("controls/lighting/sw_azspanel", 1.0, 0.1 );
+	interpolate("an24/LightsInterior/sw_azspanel", 1.0, 0.1 );
 	sound.click("azr", 3.9, 1.0, 0.8);
       </script>
     </binding>
@@ -24,7 +24,7 @@
       <command>set-tooltip</command>
       <tooltip-id>azspanellighton</tooltip-id>
       <label>AZS-Panel
- light ON</label>
+ Light ON</label>
      </binding>
    </hovered>
  </animation>
@@ -39,7 +39,7 @@
     <binding>
       <command>nasal</command>
       <script>
-	interpolate("controls/lighting/sw_azspanel", 0.0, 0.1 );
+	interpolate("an24/LightsInterior/sw_azspanel", 0.0, 0.1 );
 	sound.click("azr", 3.9, 1.0, 0.8);
       </script>
     </binding>
@@ -49,7 +49,7 @@
       <command>set-tooltip</command>
       <tooltip-id>azspanellighton</tooltip-id>
       <label>AZS-Panel
- light OFF</label>
+ Light OFF</label>
      </binding>
    </hovered>
  </animation>
@@ -57,7 +57,7 @@
  <animation>
    <type>rotate</type>
    <object-name>lever</object-name>
-   <property>controls/lighting/sw_azspanel</property>
+   <property>an24/LightsInterior/sw_azspanel</property>
   <interpolation>
     <entry><ind>1.0</ind><dep>20.0</dep></entry>
     <entry><ind>0.0</ind><dep>-20.0</dep></entry>

@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- Switch to select source (MP No.1 or 2) for SDU -->
-
 <PropertyList>
  <path>sdu-source.ac</path>
 
@@ -12,7 +11,7 @@
      <red>0.4</red>
      <green>0.3</green>
      <blue>0.3</blue>
-     <factor-prop>controls/lighting/overhead_instr</factor-prop>
+     <factor-prop>an24/LightsInterior/overhead_instr</factor-prop>
    </emission>
  </animation>
 
@@ -56,9 +55,9 @@
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>  0.0 </x-m>
-      <y-m>  0.0 </y-m>
-      <z-m>  0.01 </z-m>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.01</z-m>
       <pitch-deg>-90</pitch-deg>
     </offsets>
   </text>
@@ -66,9 +65,9 @@
     <type>material</type>
     <object-name>textsdu</object-name>
     <emission>
-      <red>   1.0 </red>
-      <green> 1.0 </green>
-      <blue>  1.0 </blue>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
     </emission>
   </animation>
 

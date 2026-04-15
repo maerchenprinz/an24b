@@ -1,6 +1,7 @@
-<PropertyList>
+<?xml version="1.0"?>
 
 <!-- Overhead panel with warning and signaling lights, extinguishing and feathering options in case of engine fire/failure -->
+<PropertyList>
 
   <path>fireandfeather.ac</path>
 
@@ -11,7 +12,7 @@
    <red>1.0</red>
    <green>0.9</green>
    <blue>0.5</blue>
-   <factor-prop>controls/lighting/overhead_instr</factor-prop>
+   <factor-prop>an24/LightsInterior/overhead_instr</factor-prop>
   </emission>
  </animation>
 
@@ -506,9 +507,7 @@
    </specular>
  </animation>
 
-
 <!-- ************ Fire section *********** -->
-
 <!-- Main switch + switch lock -->
 <model>
  <path>fire_sw_main.xml</path>
